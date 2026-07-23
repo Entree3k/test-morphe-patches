@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-22T01:37:17",
-  "description": "## [1.1.0](https://github.com/Entree3k/Morning-Entree-Patches/compare/v1.0.0...v1.1.0) (2026-07-22)\n\n### ✨ New Features\n\n* Updated Ling to 8.4.4 ([6475091](https://github.com/Entree3k/Morning-Entree-Patches/commit/6475091bce84ff875c2330096fa0e12a222d6455))",
-  "download_url": "https://github.com/Entree3k/Morning-Entree-Patches/releases/download/v1.1.0/patches-1.1.0.mpp",
+  "created_at": "2026-07-23T02:58:56",
+  "description": "## 1.0.0 (2026-07-23)\n\n### ✨ New Features\n\n* added vocabulary ([682bacd](https://github.com/Entree3k/test-morphe-patches/commit/682bacd719e0f22330c05ddddeedd488ad43f799))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.0.0/patches-1.0.0.mpp",
   "signature_download_url": "",
-  "version": "1.1.0"
+  "version": "1.0.0"
 }

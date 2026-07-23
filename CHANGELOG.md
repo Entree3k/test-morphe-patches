@@ -1,3 +1,9 @@
+## 1.0.0 (2026-07-23)
+
+### ✨ New Features
+
+* added vocabulary ([682bacd](https://github.com/Entree3k/test-morphe-patches/commit/682bacd719e0f22330c05ddddeedd488ad43f799))
+
 ## [1.1.0](https://github.com/Entree3k/Morning-Entree-Patches/compare/v1.0.0...v1.1.0) (2026-07-22)
 
 ### ✨ New Features

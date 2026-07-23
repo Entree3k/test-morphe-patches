@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -46,6 +46,39 @@
           "targets": [
             {
               "version": "2.8.0",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Vocabulary Premium",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.hrd.vocabulary",
+          "name": "Vocabulary",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#C7604F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "5.5.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "5.4.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
