@@ -1,23 +1,23 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "patches": [
     {
       "name": "Enable Premium",
-      "description": "Unlock Bend Premium (also disables the pairip license check so the repackaged app runs).",
+      "description": "Unlock Lifesum Premium",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.bowerydigital.bend",
-          "name": "Bend",
+          "packageName": "com.sillens.shapeupclub",
+          "name": "Lifesum",
           "description": null,
           "apkFileType": null,
-          "appIconColor": "#1674A8",
+          "appIconColor": "#41CD8C",
           "signatures": null,
           "targets": [
             {
-              "version": "7.6.4",
+              "version": "20.8.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
