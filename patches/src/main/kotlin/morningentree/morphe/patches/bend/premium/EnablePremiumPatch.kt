@@ -6,7 +6,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import java.util.logging.Logger
 
@@ -70,7 +69,7 @@ val enablePremiumPatch = bytecodePatch(
             }
 
             // Short-circuit the license response validation (void method).
-            ValidateLicenseResponseFingerprint.method.returnEarly()
+            ValidateLicenseResponseFingerprint.method.addInstructions(0, "return-void")
         }
     }
 }
