@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.2.0...v1.3.0) (2026-07-25)
+
+### ✨ New Features
+
+* added lifesum ([0ccfddc](https://github.com/Entree3k/test-morphe-patches/commit/0ccfddc4dfa04855c194328f4240ec37d25a2516))
+
 ## [1.2.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.1.0...v1.2.0) (2026-07-25)
 
 ### ✨ New Features
