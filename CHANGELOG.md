@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.0.0...v1.1.0) (2026-07-25)
+
+### ✨ New Features
+
+* added bend ([969e5f0](https://github.com/Entree3k/test-morphe-patches/commit/969e5f01b085ba6bfa4cea7cdcd186122fe19f0e))
+
 ## 1.0.0 (2026-07-23)
 
 ### ✨ New Features

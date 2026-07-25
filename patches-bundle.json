@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-23T02:58:56",
-  "description": "## 1.0.0 (2026-07-23)\n\n### ✨ New Features\n\n* added vocabulary ([682bacd](https://github.com/Entree3k/test-morphe-patches/commit/682bacd719e0f22330c05ddddeedd488ad43f799))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.0.0/patches-1.0.0.mpp",
+  "created_at": "2026-07-25T01:33:04",
+  "description": "## [1.1.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.0.0...v1.1.0) (2026-07-25)\n\n### ✨ New Features\n\n* added bend ([969e5f0](https://github.com/Entree3k/test-morphe-patches/commit/969e5f01b085ba6bfa4cea7cdcd186122fe19f0e))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.1.0/patches-1.1.0.mpp",
   "signature_download_url": "",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
