@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.3.0...v1.4.0) (2026-07-25)
+
+### ✨ New Features
+
+* added dhgate ([4f7d5ef](https://github.com/Entree3k/test-morphe-patches/commit/4f7d5efc4ec7a5fbbe988d9d83d0045088b3c139))
+
 ## [1.3.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.2.0...v1.3.0) (2026-07-25)
 
 ### ✨ New Features

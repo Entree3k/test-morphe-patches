@@ -11,7 +11,23 @@ TODO: Update this about section with a brief introduction/summary about this rep
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.3.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.3.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
+> **[v1.4.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.4.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;6 patches total
+<details open>
+<summary>📦 DHgate&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 7.1.1 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Disable forced updates](#disable-forced-updates) | Makes app updates optional by disabling the forced-update flag. |  |
+| [Disable tracking](#disable-tracking) | Blocks DHgate's native analytics/tracking beacons (tracklog.jsp). |  |
+
+</details>
+
 <details open>
 <summary>📦 Lifesum&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>

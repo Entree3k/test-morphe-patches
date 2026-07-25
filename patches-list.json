@@ -1,7 +1,59 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "patches": [
+    {
+      "name": "Disable forced updates",
+      "description": "Makes app updates optional by disabling the forced-update flag.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.dhgate.buyermob",
+          "name": "DHgate",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#00A94F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "7.1.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable tracking",
+      "description": "Blocks DHgate's native analytics/tracking beacons (tracklog.jsp).",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.dhgate.buyermob",
+          "name": "DHgate",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#00A94F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "7.1.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
     {
       "name": "Enable Premium",
       "description": "Unlock Lifesum Premium",

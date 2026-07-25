@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-25T05:24:16",
-  "description": "## [1.3.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.2.0...v1.3.0) (2026-07-25)\n\n### ✨ New Features\n\n* added lifesum ([0ccfddc](https://github.com/Entree3k/test-morphe-patches/commit/0ccfddc4dfa04855c194328f4240ec37d25a2516))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.3.0/patches-1.3.0.mpp",
+  "created_at": "2026-07-25T19:25:42",
+  "description": "## [1.4.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.3.0...v1.4.0) (2026-07-25)\n\n### ✨ New Features\n\n* added dhgate ([4f7d5ef](https://github.com/Entree3k/test-morphe-patches/commit/4f7d5efc4ec7a5fbbe988d9d83d0045088b3c139))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.4.0/patches-1.4.0.mpp",
   "signature_download_url": "",
-  "version": "1.3.0"
+  "version": "1.4.0"
 }
