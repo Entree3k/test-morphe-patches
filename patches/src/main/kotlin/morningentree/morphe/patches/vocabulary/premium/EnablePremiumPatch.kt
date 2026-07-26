@@ -18,11 +18,14 @@ val enablePremiumPatch = bytecodePatch(
         IsUserPremiumFingerprint.method.returnEarly(true)
 
         // 2) Reactive premium StateFlow. The Compose UI (e.g. the word "more
-        // examples" unlock) observes a MutableStateFlow written by this setter. The
-        // RevenueCat/purchase sync calls it with the real status, setting the flow
-        // back to false for a non-subscriber — which re-locks those screens even
-        // with (1) applied. Force the setter's boolean argument to true so the
-        // premium flow (and the backing prefs flag) can never be set false.
-        SetUserPremiumFingerprint.method.addInstructions(0, "const/4 p0, 0x1")
+        // examples" unlock) observes a MutableStateFlow. At startup the premium
+        // initializer sets that flow to N0() — now always true via (1). The only
+        // thing that later sets it back to false is this setter, which the
+        // RevenueCat/purchase sync calls with the real (non-subscriber) status.
+        // Neuter the setter so the flow can never be pushed false; it stays at the
+        // startup-true value. (return-void is used instead of overwriting the
+        // boolean argument: it avoids touching the parameter register and never
+        // writes the real prefs flag, so it can't trip a premium-integrity check.)
+        SetUserPremiumFingerprint.method.addInstructions(0, "return-void")
     }
 }

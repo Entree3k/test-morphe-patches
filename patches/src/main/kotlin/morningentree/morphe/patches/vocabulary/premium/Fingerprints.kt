@@ -24,7 +24,9 @@ internal object IsUserPremiumFingerprint : Fingerprint(
 
 // Premium setter (Z1(Z)V): the only V-returning, single-boolean method carrying the
 // prefs key. It updates both the premium StateFlow and the prefs flag from its
-// argument. Forcing the argument to true makes the reactive premium state permanent.
+// argument. The purchase sync calls it with the real status, which is what re-locks
+// the reactive UI. Neutering it (return-void) leaves the flow at its startup-true
+// value so premium state can never be pushed back to false.
 internal object SetUserPremiumFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("Z"),
