@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -98,6 +98,66 @@
           "targets": [
             {
               "version": "5.5.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock all questions",
+      "description": "Unlocks all exam questions by forcing premium on in the app's React Native bundle.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.trieudadlovestun.comptiasecurityplus",
+          "name": "CompTIA Security+",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#023C69",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.0.16",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.trieudadlovestun.az900ver3",
+          "name": "AZ-900",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#023C69",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.0.23",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "packageName": "com.trieudadlovestun.terraform",
+          "name": "Terraform",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#023C69",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.0.10",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
