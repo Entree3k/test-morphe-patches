@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.8.0...v1.9.0) (2026-07-26)
+
+### ✨ New Features
+
+* vocabulary finale ([815b7cf](https://github.com/Entree3k/test-morphe-patches/commit/815b7cfff7a94fc15268e983b80d55a141ace159))
+
 ## [1.8.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.7.0...v1.8.0) (2026-07-26)
 
 ### ✨ New Features

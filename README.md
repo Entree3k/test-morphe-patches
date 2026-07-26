@@ -11,7 +11,7 @@ TODO: Update this about section with a brief introduction/summary about this rep
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.8.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.8.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
+> **[v1.9.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.9.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
 <details open>
 <summary>📦 Lifesum&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -63,8 +63,8 @@ TODO: Update this about section with a brief introduction/summary about this rep
 
 **🎯 Supported versions:**
 
-| 5.5.1 | 5.4.0 |
-| :---: | :---: |
+| 5.5.1 |
+| :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
