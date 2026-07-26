@@ -21,7 +21,6 @@ val enablePremiumPatch = bytecodePatch(
         // observes it. At startup the premium initializer sets the flow to the
         // synchronous gate above (now always true); the only thing that later pushes
         // it back to false is this setter, which the RevenueCat sync calls with the
-        // real non-subscriber status. Neuter the setter so the flow stays true.
         SetUserPremiumFingerprint.method.addInstructions(0, "return-void")
     }
 }
