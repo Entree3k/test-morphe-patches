@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-26T05:47:08",
-  "description": "## [1.5.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.4.0...v1.5.0) (2026-07-26)\n\n### ✨ New Features\n\n* vocabulary update ([9e7a4bb](https://github.com/Entree3k/test-morphe-patches/commit/9e7a4bb54534c4a334f0bebfd331a6a4eb617582))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.5.0/patches-1.5.0.mpp",
+  "created_at": "2026-07-26T06:05:16",
+  "description": "## [1.6.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.5.0...v1.6.0) (2026-07-26)\n\n### ✨ New Features\n\n* vocaulary update ([1e00f27](https://github.com/Entree3k/test-morphe-patches/commit/1e00f27a77fd9b70f9cdc40fe732a15ec911ea9d))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.6.0/patches-1.6.0.mpp",
   "signature_download_url": "",
-  "version": "1.5.0"
+  "version": "1.6.0"
 }
