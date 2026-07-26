@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.5.0...v1.6.0) (2026-07-26)
+
+### ✨ New Features
+
+* vocaulary update ([1e00f27](https://github.com/Entree3k/test-morphe-patches/commit/1e00f27a77fd9b70f9cdc40fe732a15ec911ea9d))
+
 ## [1.5.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.4.0...v1.5.0) (2026-07-26)
 
 ### ✨ New Features
