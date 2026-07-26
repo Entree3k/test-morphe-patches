@@ -13,19 +13,15 @@ val enablePremiumPatch = bytecodePatch(
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        // 1) Synchronous aggregate gate. Every direct premium check (settings and
-        // most feature gates) routes through this method, so force it true.
+        // 1) Synchronous aggregate gate — ~100 direct call sites (settings and most
+        // feature checks). Force it true.
         IsUserPremiumFingerprint.method.returnEarly(true)
 
-        // 2) Reactive premium StateFlow. The Compose UI (e.g. the word "more
-        // examples" unlock) observes a MutableStateFlow. At startup the premium
-        // initializer sets that flow to N0() — now always true via (1). The only
-        // thing that later sets it back to false is this setter, which the
-        // RevenueCat/purchase sync calls with the real (non-subscriber) status.
-        // Neuter the setter so the flow can never be pushed false; it stays at the
-        // startup-true value. (return-void is used instead of overwriting the
-        // boolean argument: it avoids touching the parameter register and never
-        // writes the real prefs flag, so it can't trip a premium-integrity check.)
+        // 2) Reactive premium StateFlow. The word detail / "more examples" screen
+        // observes it. At startup the premium initializer sets the flow to the
+        // synchronous gate above (now always true); the only thing that later pushes
+        // it back to false is this setter, which the RevenueCat sync calls with the
+        // real non-subscriber status. Neuter the setter so the flow stays true.
         SetUserPremiumFingerprint.method.addInstructions(0, "return-void")
     }
 }

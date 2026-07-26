@@ -2,33 +2,39 @@ package morningentree.morphe.patches.vocabulary.premium
 
 import app.morphe.patcher.Fingerprint
 
-// Vocabulary exposes premium two ways, both in the obfuscated subscription manager
-// com.hrd.managers.S1, both anchored by the stable prefs key "premium_com.hrd.vocabulary":
+// Targets the app-wide premium gate in the obfuscated subscription manager
+// (com.hrd.managers.S1). It is the only Z-returning, parameter-less method that
+// reads the SharedPreferences flag "premium_com.hrd.vocabulary" (via getBoolean),
+// combining it with the Supabase premium flag and the trial check to produce the
+// single "is the user premium" answer consumed from ~100 direct call sites.
 //
-//  1. N0()Z  — the synchronous aggregate gate (prefs flag OR supabase OR trial),
-//     consumed from ~100 direct call sites (settings, most feature checks).
-//  2. a MutableStateFlow<Boolean> that the Compose UI observes reactively (e.g. the
-//     word "more examples" screen). It is written by S1's premium setter Z1(Z)V,
-//     which the RevenueCat/purchase sync calls with the REAL status — so for a
-//     non-subscriber it gets set back to false even after N0() is forced true.
-//
-// Forcing N0() alone leaves the reactive flow false, which is why settings showed
-// "Premium" but example unlocks stayed gated. We patch both.
-
-// Aggregate gate: the only Z-returning, parameter-less method carrying the prefs key.
+// The obfuscated method name drifts between versions (L0()Z in 5.4.0, N0()Z in
+// 5.5.1), so it must NOT be fingerprinted by name. The prefs key embeds the
+// package name and is stable across releases, making it the reliable anchor.
 internal object IsUserPremiumFingerprint : Fingerprint(
     returnType = "Z",
     parameters = emptyList(),
     strings = listOf("premium_com.hrd.vocabulary"),
 )
 
-// Premium setter (Z1(Z)V): the only V-returning, single-boolean method carrying the
-// prefs key. It updates both the premium StateFlow and the prefs flag from its
-// argument. The purchase sync calls it with the real status, which is what re-locks
-// the reactive UI. Neutering it (return-void) leaves the flow at its startup-true
-// value so premium state can never be pushed back to false.
+// The premium SETTER, S1.Z1(Z)V. It writes both the "premium_com.hrd.vocabulary"
+// prefs flag AND the premium MutableStateFlow that the Compose UI observes
+// reactively (e.g. the word detail / "more examples" unlock screen zc). The
+// RevenueCat purchase sync (com.hrd.managers.n) calls this with the real status,
+// pushing the flow back to false for a non-subscriber — which re-locks those
+// reactive screens even though the synchronous gate (IsUserPremiumFingerprint) is
+// forced true. Neutering the setter leaves the flow at its startup value (which the
+// premium initializer sets to the now-always-true synchronous gate).
+//
+// IMPORTANT: this is matched by an exact class+name `custom` predicate, NOT by the
+// prefs-key string. Both this setter and N0() contain that string, and a shared
+// `strings` anchor let the resolver collide the two fingerprints onto N0() —
+// injecting `return-void` into a Z-returning method, which is invalid bytecode and
+// bricked app launch. The custom predicate guarantees this only ever hits Z1().
 internal object SetUserPremiumFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("Z"),
-    strings = listOf("premium_com.hrd.vocabulary"),
+    custom = { method, classDef ->
+        classDef.type == "Lcom/hrd/managers/S1;" && method.name == "Z1"
+    },
 )
