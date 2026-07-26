@@ -1,3 +1,9 @@
+## [1.11.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.10.0...v1.11.0) (2026-07-26)
+
+### ✨ New Features
+
+* exam update ([0176b03](https://github.com/Entree3k/test-morphe-patches/commit/0176b032de067bb0397d91fae4fd72c9b32b48d8))
+
 ## [1.10.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.9.0...v1.10.0) (2026-07-26)
 
 ### ✨ New Features
