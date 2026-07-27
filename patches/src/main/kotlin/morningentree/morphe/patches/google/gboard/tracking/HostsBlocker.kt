@@ -11,10 +11,6 @@ import java.net.URI
 class HostsBlocker private constructor(
     private val blocklist: HashSet<String>,
 ) {
-    /**
-     * Checks if [host] is blocked. When [wildcard] is true (default), a blocklist entry
-     * "example.com" also matches "www.example.com" and deeper subdomains.
-     */
     fun isBlocked(
         host: String,
         wildcard: Boolean = true,
