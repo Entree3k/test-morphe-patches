@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-27T18:37:45",
-  "description": "## [1.14.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.13.0...v1.14.0) (2026-07-27)\n\n### ✨ New Features\n\n* added support for gboard ([3e02a75](https://github.com/Entree3k/test-morphe-patches/commit/3e02a75ef9fe203dc1d61e0776d3b9f89dd91f37))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.14.0/patches-1.14.0.mpp",
+  "created_at": "2026-07-27T21:27:05",
+  "description": "## [1.15.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.14.0...v1.15.0) (2026-07-27)\n\n### ✨ New Features\n\n* added gradient weather ([0d3694e](https://github.com/Entree3k/test-morphe-patches/commit/0d3694e58fb87563576cc5fa645c562cb038a934))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.15.0/patches-1.15.0.mpp",
   "signature_download_url": "",
-  "version": "1.14.0"
+  "version": "1.15.0"
 }
