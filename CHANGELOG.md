@@ -1,3 +1,9 @@
+## [1.15.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.14.0...v1.15.0) (2026-07-27)
+
+### ✨ New Features
+
+* added gradient weather ([0d3694e](https://github.com/Entree3k/test-morphe-patches/commit/0d3694e58fb87563576cc5fa645c562cb038a934))
+
 ## [1.14.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.13.0...v1.14.0) (2026-07-27)
 
 ### ✨ New Features
