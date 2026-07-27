@@ -4,17 +4,29 @@ import app.morphe.patcher.Fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
- * The subscription-tier setter in the (obfuscated) billing repository — verified in 1.1.1 as
- * `ot5.e(bo1)V`, where `bo1` is the user-tier enum { FREE, PREMIUM, LIFETIME }. Every tier update
- * (including the startup Play-Billing query result, dispatched via the purchase callback) flows
- * through this single method: it stores the tier into a field and publishes it to the StateFlows
- * the UI observes, persisting it under the "override_state" preference.
+ * The billing repository's constructor (verified in 1.1.1 as `ot5.<init>(Context)`). It seeds the
+ * tier StateFlow the UI actually observes (`ot5.f`) from local SharedPreferences:
+ *   is_lifetime -> LIFETIME, else is_premium -> PREMIUM, else FREE.
+ * This initial value is the effective gate on the normal screen (the `e()` setter only fires when
+ * billing reports a change). Forcing the `is_lifetime` read to true makes every launch start on the
+ * paid Lifetime tier.
  *
- * Anchored on stable characteristics, not obfuscated names:
- *  - returns void, takes exactly one object parameter (the tier enum),
- *  - contains the literal "override_state".
- * The only other method containing that string is `WeatherApp.onCreate()V`, which takes no
- * parameters, so this fingerprint resolves uniquely.
+ * Anchored on the stable pref-key strings, not the obfuscated class name.
+ */
+internal object InitSubscriptionTierFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    parameters = listOf("Landroid/content/Context;"),
+    strings = listOf("is_lifetime", "is_premium"),
+)
+
+/**
+ * The subscription-tier setter (verified in 1.1.1 as `ot5.e(bo1)V`, `bo1` = { FREE, PREMIUM,
+ * LIFETIME }). Every runtime tier update flows through it; forcing its argument to LIFETIME prevents
+ * a billing callback from ever downgrading the tier mid-session.
+ *
+ * Anchored on: void return, one object param (the tier enum), and the "override_state" string. The
+ * only other method with that string is `WeatherApp.onCreate()V` (no params), so this is unique.
  */
 internal object SetSubscriptionTierFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
