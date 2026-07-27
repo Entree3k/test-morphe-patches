@@ -11,7 +11,7 @@ TODO: Update this about section with a brief introduction/summary about this rep
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.15.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.15.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;58 patches total
+> **[v1.16.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.16.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;59 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -846,6 +846,16 @@ TODO: Update this about section with a brief introduction/summary about this rep
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Unlock all questions](#unlock-all-questions) | Unlocks all exam questions |  |
+
+</details>
+
+<details open>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Spoof install source](#spoof-install-source) | Makes the app think it was installed from a specific store (default: Google Play). Useful when an app blocks features or errors because it detects it was not installed from the Play Store. Only affects what the app sees, not the real system record. | • Store to impersonate |
 
 </details>
 

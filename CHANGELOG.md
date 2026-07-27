@@ -1,3 +1,9 @@
+## [1.16.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.15.0...v1.16.0) (2026-07-27)
+
+### ✨ New Features
+
+* added spoof install source ([6bda602](https://github.com/Entree3k/test-morphe-patches/commit/6bda602d6e102966277c3696c4d60cf5a810e4e3))
+
 ## [1.15.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.14.0...v1.15.0) (2026-07-27)
 
 ### ✨ New Features
