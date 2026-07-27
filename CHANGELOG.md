@@ -1,112 +1,14 @@
-## [1.17.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.16.0...v1.17.0) (2026-07-27)
+## [1.3.0](https://github.com/Entree3k/Morning-Entree-Patches/compare/v1.2.0...v1.3.0) (2026-07-27)
 
 ### ✨ New Features
 
-* removed all ([9a3c513](https://github.com/Entree3k/test-morphe-patches/commit/9a3c513a30754391a388989e2af984470cf760a4))
+* Added Vocabulary & Various Exam Practice Tests ([9c30a01](https://github.com/Entree3k/Morning-Entree-Patches/commit/9c30a01ca74e9b095e5cb0cc204a88971f56975d))
 
-## [1.16.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.15.0...v1.16.0) (2026-07-27)
-
-### ✨ New Features
-
-* added spoof install source ([6bda602](https://github.com/Entree3k/test-morphe-patches/commit/6bda602d6e102966277c3696c4d60cf5a810e4e3))
-
-## [1.15.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.14.0...v1.15.0) (2026-07-27)
+## [1.2.0](https://github.com/Entree3k/Morning-Entree-Patches/compare/v1.1.0...v1.2.0) (2026-07-25)
 
 ### ✨ New Features
 
-* added gradient weather ([0d3694e](https://github.com/Entree3k/test-morphe-patches/commit/0d3694e58fb87563576cc5fa645c562cb038a934))
-
-## [1.14.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.13.0...v1.14.0) (2026-07-27)
-
-### ✨ New Features
-
-* added support for gboard ([3e02a75](https://github.com/Entree3k/test-morphe-patches/commit/3e02a75ef9fe203dc1d61e0776d3b9f89dd91f37))
-
-## [1.13.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.12.0...v1.13.0) (2026-07-27)
-
-### ✨ New Features
-
-* gboard fix ([2db45f4](https://github.com/Entree3k/test-morphe-patches/commit/2db45f43c61f632565abe8c34b18ec64a743880f))
-
-## [1.12.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.11.0...v1.12.0) (2026-07-27)
-
-### ✨ New Features
-
-* added fork of adobo tweaked ([d84a646](https://github.com/Entree3k/test-morphe-patches/commit/d84a64672f388c95d3e070e847fd5f5485d9f3fd))
-* forked and tweaked adobo gboard ([0f095a0](https://github.com/Entree3k/test-morphe-patches/commit/0f095a05a4a46c5eb0daed71b207c1357e198c34))
-
-## [1.11.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.10.0...v1.11.0) (2026-07-26)
-
-### ✨ New Features
-
-* exam update ([0176b03](https://github.com/Entree3k/test-morphe-patches/commit/0176b032de067bb0397d91fae4fd72c9b32b48d8))
-
-## [1.10.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.9.0...v1.10.0) (2026-07-26)
-
-### ✨ New Features
-
-* exam patches ([4c76793](https://github.com/Entree3k/test-morphe-patches/commit/4c76793af1fc7982f417ca626823ca0100bcdd80))
-
-## [1.9.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.8.0...v1.9.0) (2026-07-26)
-
-### ✨ New Features
-
-* vocabulary finale ([815b7cf](https://github.com/Entree3k/test-morphe-patches/commit/815b7cfff7a94fc15268e983b80d55a141ace159))
-
-## [1.8.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.7.0...v1.8.0) (2026-07-26)
-
-### ✨ New Features
-
-* code update ([c61e572](https://github.com/Entree3k/test-morphe-patches/commit/c61e572c59bdc7d81b19ce3c8988459b1bad5cd4))
-
-## [1.7.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.6.0...v1.7.0) (2026-07-26)
-
-### ✨ New Features
-
-* update vocabulary ([50b7782](https://github.com/Entree3k/test-morphe-patches/commit/50b7782ca324565c1b1e3288834f5c895a157110))
-
-## [1.6.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.5.0...v1.6.0) (2026-07-26)
-
-### ✨ New Features
-
-* vocaulary update ([1e00f27](https://github.com/Entree3k/test-morphe-patches/commit/1e00f27a77fd9b70f9cdc40fe732a15ec911ea9d))
-
-## [1.5.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.4.0...v1.5.0) (2026-07-26)
-
-### ✨ New Features
-
-* vocabulary update ([9e7a4bb](https://github.com/Entree3k/test-morphe-patches/commit/9e7a4bb54534c4a334f0bebfd331a6a4eb617582))
-
-## [1.4.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.3.0...v1.4.0) (2026-07-25)
-
-### ✨ New Features
-
-* added dhgate ([4f7d5ef](https://github.com/Entree3k/test-morphe-patches/commit/4f7d5efc4ec7a5fbbe988d9d83d0045088b3c139))
-
-## [1.3.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.2.0...v1.3.0) (2026-07-25)
-
-### ✨ New Features
-
-* added lifesum ([0ccfddc](https://github.com/Entree3k/test-morphe-patches/commit/0ccfddc4dfa04855c194328f4240ec37d25a2516))
-
-## [1.2.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.1.0...v1.2.0) (2026-07-25)
-
-### ✨ New Features
-
-* updated bend ([a19a9dc](https://github.com/Entree3k/test-morphe-patches/commit/a19a9dcedf05d710fb887d41d6e9cfe6e624e42d))
-* updated bend ([a9db940](https://github.com/Entree3k/test-morphe-patches/commit/a9db9403d59159298eff9f03bfc39412133ac72f))
-
-## [1.1.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.0.0...v1.1.0) (2026-07-25)
-
-### ✨ New Features
-
-* added bend ([969e5f0](https://github.com/Entree3k/test-morphe-patches/commit/969e5f01b085ba6bfa4cea7cdcd186122fe19f0e))
-
-## 1.0.0 (2026-07-23)
-
-### ✨ New Features
-
-* added vocabulary ([682bacd](https://github.com/Entree3k/test-morphe-patches/commit/682bacd719e0f22330c05ddddeedd488ad43f799))
+* added lifesum ([1709256](https://github.com/Entree3k/Morning-Entree-Patches/commit/170925622ff76f0b646bb12fbaf0becb94d1766a))
 
 ## [1.1.0](https://github.com/Entree3k/Morning-Entree-Patches/compare/v1.0.0...v1.1.0) (2026-07-22)
 

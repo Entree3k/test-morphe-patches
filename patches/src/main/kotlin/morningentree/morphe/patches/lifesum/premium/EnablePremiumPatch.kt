@@ -15,19 +15,12 @@ val enablePremiumPatch = bytecodePatch(
         Compatibility(
             name = "Lifesum",
             packageName = "com.sillens.shapeupclub",
-            // Cosmetic only (patcher UI accent) — Lifesum brand green.
             appIconColor = 0x41CD8C,
             targets = listOf(AppTarget("20.8.0")),
         ),
     )
 
     execute {
-        // Source of truth: the backend profile's "premium" flag. It is read exactly
-        // once by the network -> ProfileModel mapper and populates
-        // ProfileModel.premium (Ll/yrc;.a), which ~30 sites read directly. Returning
-        // Boolean.TRUE here unlocks all of them once the profile syncs. The getter
-        // returns Ljava/lang/Boolean; (not Z), so returnEarly(Boolean) does not
-        // apply — return the boxed TRUE directly. (.locals 0, so p0 is reused.)
         ApiUserProfileGetPremiumFingerprint.method.addInstructions(
             0,
             """
@@ -36,8 +29,7 @@ val enablePremiumPatch = bytecodePatch(
             """.trimIndent(),
         )
 
-        // Semantic gate (returnType Z) used directly by feature checks; force it true
-        // for immediate effect even before the first profile sync completes.
+        // Semantic gate used directly by feature checks; force it true
         HasPremiumFingerprint.method.returnEarly(true)
     }
 }
