@@ -1,3 +1,9 @@
+## [1.17.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.16.0...v1.17.0) (2026-07-27)
+
+### ✨ New Features
+
+* removed all ([9a3c513](https://github.com/Entree3k/test-morphe-patches/commit/9a3c513a30754391a388989e2af984470cf760a4))
+
 ## [1.16.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.15.0...v1.16.0) (2026-07-27)
 
 ### ✨ New Features
