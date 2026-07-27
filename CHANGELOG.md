@@ -1,3 +1,10 @@
+## [1.12.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.11.0...v1.12.0) (2026-07-27)
+
+### ✨ New Features
+
+* added fork of adobo tweaked ([d84a646](https://github.com/Entree3k/test-morphe-patches/commit/d84a64672f388c95d3e070e847fd5f5485d9f3fd))
+* forked and tweaked adobo gboard ([0f095a0](https://github.com/Entree3k/test-morphe-patches/commit/0f095a05a4a46c5eb0daed71b207c1357e198c34))
+
 ## [1.11.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.10.0...v1.11.0) (2026-07-26)
 
 ### ✨ New Features
