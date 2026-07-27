@@ -1,3 +1,9 @@
+## [1.13.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.12.0...v1.13.0) (2026-07-27)
+
+### ✨ New Features
+
+* gboard fix ([2db45f4](https://github.com/Entree3k/test-morphe-patches/commit/2db45f43c61f632565abe8c34b18ec64a743880f))
+
 ## [1.12.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.11.0...v1.12.0) (2026-07-27)
 
 ### ✨ New Features
