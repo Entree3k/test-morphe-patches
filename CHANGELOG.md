@@ -1,3 +1,9 @@
+## [1.19.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.18.0...v1.19.0) (2026-07-27)
+
+### ✨ New Features
+
+* added gradient ([e85fdf4](https://github.com/Entree3k/test-morphe-patches/commit/e85fdf47942eac1cd17554ca73524a933504c434))
+
 ## [1.18.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.17.0...v1.18.0) (2026-07-27)
 
 ### ✨ New Features
