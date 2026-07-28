@@ -1,3 +1,9 @@
+## [1.24.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.23.0...v1.24.0) (2026-07-28)
+
+### ✨ New Features
+
+* updated notiguy and dynamicspot ([4db0b45](https://github.com/Entree3k/test-morphe-patches/commit/4db0b4509ccc800716a2fcb4dc7fd9fe7d8fd900))
+
 ## [1.23.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.22.0...v1.23.0) (2026-07-28)
 
 ### ✨ New Features
