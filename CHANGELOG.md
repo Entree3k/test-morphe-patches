@@ -1,3 +1,9 @@
+## [1.20.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.19.0...v1.20.0) (2026-07-28)
+
+### ✨ New Features
+
+* fix spoof ([4b275d6](https://github.com/Entree3k/test-morphe-patches/commit/4b275d6a56b927e8f802575902a7e54e4120d854))
+
 ## [1.19.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.18.0...v1.19.0) (2026-07-27)
 
 ### ✨ New Features
