@@ -1,3 +1,9 @@
+## [1.23.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.22.0...v1.23.0) (2026-07-28)
+
+### ✨ New Features
+
+* updated pinnit, ubktouch, added dynamicspot and notiguy ([e65b1f4](https://github.com/Entree3k/test-morphe-patches/commit/e65b1f484aa26e002097b2d84dd47308a35319a7))
+
 ## [1.22.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.21.0...v1.22.0) (2026-07-28)
 
 ### ✨ New Features

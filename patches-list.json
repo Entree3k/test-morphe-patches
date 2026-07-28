@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -144,6 +144,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks DynamicSpot premium",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.jamworks.dynamicspot",
+          "name": "DynamicSpot",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#00BCD4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.01",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks Gradient Weather Premium (forces the paid Lifetime tier).",
       "default": true,
       "dependencies": [],
@@ -224,7 +250,33 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Pinnit Pro (all features).",
+      "description": "Unlocks NotiGuy premium",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.dynamic.notifications",
+          "name": "NotiGuy",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#FF6D00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.7.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Pinnit Pro. Must be installed with ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -276,7 +328,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks UbikiTouch premium (all features).",
+      "description": "Unlocks UbikiTouch premium",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
