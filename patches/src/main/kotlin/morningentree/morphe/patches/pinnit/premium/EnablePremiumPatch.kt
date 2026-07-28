@@ -12,22 +12,23 @@ import morningentree.morphe.util.getReference
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks Pinnit Pro (all features).",
+    description = "Unlocks Pinnit Pro. Must be installed with ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        PurchaseStatusFingerprint.method.apply {
-            val purchasedStatus = instructions
-                .firstNotNullOfOrNull { insn ->
-                    if (insn.opcode == Opcode.SGET_OBJECT) insn.getReference<FieldReference>() else null
-                }
-                ?: throw PatchException("Could not find the purchased-status field in the mapper.")
+        val purchased = PurchaseStatusFingerprint.method.instructions
+            .firstNotNullOfOrNull { insn ->
+                if (insn.opcode == Opcode.SGET_OBJECT) insn.getReference<FieldReference>() else null
+            }
+            ?: throw PatchException("Could not find the Purchased status field in the mapper.")
 
-            val smaliReference =
-                "${purchasedStatus.definingClass}->${purchasedStatus.name}:${purchasedStatus.type}"
+        val purchasedRef = "${purchased.definingClass}->${purchased.name}:${purchased.type}"
+        val forcePurchased = "sget-object v0, $purchasedRef\nreturn-object v0"
 
-            addInstructions(0, "sget-object v0, $smaliReference\nreturn-object v0")
-        }
+        PurchaseStatusGetterFingerprint.method.addInstructions(0, forcePurchased)
+        RestorePurchaseFingerprint.method.addInstructions(0, forcePurchased)
+
+        PurchaseStatusFingerprint.method.addInstructions(0, forcePurchased)
     }
 }

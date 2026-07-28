@@ -10,17 +10,13 @@ import morningentree.morphe.util.getReference
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks UbikiTouch premium (all features).",
+    description = "Unlocks UbikiTouch premium",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
         val unlocked = MainPrefUnlockedFingerprint.method
 
-        // Primary: force the underlying license check `fp1.e0()Z` (the no-arg boolean static that
-        // `unlocked()` delegates to, and that ~49 sites call directly) to always return true.
-        // Resolve it via its reference inside unlocked() so the obfuscated class name is never
-        // hardcoded. Boolean.valueOf(Z) is the other static here, but it takes a parameter.
         val licenseRef = unlocked.instructions
             .mapNotNull { it.getReference<MethodReference>() }
             .firstOrNull { it.returnType == "Z" && it.parameterTypes.isEmpty() }
@@ -38,8 +34,6 @@ val enablePremiumPatch = bytecodePatch(
             }
         }
 
-        // Belt-and-suspenders: the un-obfuscated wrapper returns a boxed Boolean; force it to TRUE
-        // directly too, so the gate holds even if the reference above ever fails to resolve.
         unlocked.addInstructions(
             0,
             """

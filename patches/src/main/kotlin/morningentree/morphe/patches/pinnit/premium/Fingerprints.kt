@@ -8,3 +8,11 @@ internal object PurchaseStatusFingerprint : Fingerprint(
     parameters = listOf("Lcom/revenuecat/purchases/CustomerInfo;"),
     strings = listOf("pro"),
 )
+
+internal object PurchaseStatusGetterFingerprint : Fingerprint(
+    strings = listOf("Fetching purchase status failed"),
+)
+
+internal object RestorePurchaseFingerprint : Fingerprint(
+    strings = listOf("Restore purchase failed"),
+)
