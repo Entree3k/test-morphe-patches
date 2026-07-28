@@ -13,6 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstructio
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import morningentree.morphe.patches.dynamicspot.shared.Constants
+import morningentree.morphe.patches.dynamicspot.shared.disablePairipSignatureCheckPatch
 import java.util.logging.Logger
 
 private const val PREMIUM_KEY = "100"
@@ -36,6 +37,10 @@ val enablePremiumPatch = bytecodePatch(
     description = "Unlocks DynamicSpot premium",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
+
+    // Without this the re-signed APK crashes on launch via Pairip's SignatureCheck,
+    // so premium would never even be reachable.
+    dependsOn(disablePairipSignatureCheckPatch)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)

@@ -18,17 +18,48 @@ import java.util.logging.Logger
 private const val PREMIUM_KEY = "premium"
 private const val SHARED_PREFERENCES = "Landroid/content/SharedPreferences;"
 
-private fun Instruction.isGetBooleanCall(): Boolean {
-    if (opcode != Opcode.INVOKE_INTERFACE && opcode != Opcode.INVOKE_INTERFACE_RANGE) return false
+/**
+ * Matches a boolean preference read whose result we can force to `true`.
+ *
+ * NotiGuy reads the "premium" flag two ways, and in both the key is the **second** argument
+ * and the default the third — so the register/`move-result` handling below is identical:
+ *
+ *  A. Direct: `SharedPreferences.getBoolean(String, Z)Z`  (invoke-interface {prefs, key, def}).
+ *  B. Obfuscated wrapper: a static `(L…, String, Z)Z` helper that forwards to `getBoolean`
+ *     (e.g. `androidx/lifecycle/z->h(SaStyle, "premium", def)`). The class/method names are
+ *     obfuscated and change per release, so we match it by shape — a static boolean method
+ *     taking (object, String, boolean) — rather than by name. The "premium" key guard below
+ *     keeps this from touching any unrelated helper.
+ */
+private fun Instruction.isBooleanPrefRead(): Boolean {
     val ref = (this as? ReferenceInstruction)?.reference as? MethodReference ?: return false
-    return ref.definingClass == SHARED_PREFERENCES &&
+
+    // A. Direct SharedPreferences.getBoolean(String, Z)Z
+    if ((opcode == Opcode.INVOKE_INTERFACE || opcode == Opcode.INVOKE_INTERFACE_RANGE) &&
+        ref.definingClass == SHARED_PREFERENCES &&
         ref.name == "getBoolean" &&
         ref.parameterTypes.size == 2 &&
         ref.returnType == "Z"
+    ) {
+        return true
+    }
+
+    // B. Obfuscated static wrapper: (object, String, boolean) -> boolean
+    if ((opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE) &&
+        ref.returnType == "Z" &&
+        ref.parameterTypes.size == 3 &&
+        ref.parameterTypes[0].startsWith("L") &&
+        ref.parameterTypes[1] == "Ljava/lang/String;" &&
+        ref.parameterTypes[2] == "Z"
+    ) {
+        return true
+    }
+
+    return false
 }
 
 private fun Method.readsAnyBooleanPref(): Boolean =
-    instructionsOrNull?.any { it.isGetBooleanCall() } == true
+    instructionsOrNull?.any { it.isBooleanPrefRead() } == true
 
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
@@ -48,7 +79,7 @@ val enablePremiumPatch = bytecodePatch(
                 val instructionList = method.instructionsOrNull?.toList() ?: return@forEach
 
                 instructionList.forEachIndexed { index, instruction ->
-                    if (!instruction.isGetBooleanCall()) return@forEachIndexed
+                    if (!instruction.isBooleanPrefRead()) return@forEachIndexed
 
                     val keyRegister = when (instruction) {
                         is FiveRegisterInstruction -> instruction.registerD
