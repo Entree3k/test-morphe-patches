@@ -1,3 +1,9 @@
+## [1.22.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.21.0...v1.22.0) (2026-07-28)
+
+### ✨ New Features
+
+* added ubktouch ([69d4be9](https://github.com/Entree3k/test-morphe-patches/commit/69d4be9c9ed489b1e48fe3365e7ee5a4d7a1faeb))
+
 ## [1.21.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.20.0...v1.21.0) (2026-07-28)
 
 ### ✨ New Features

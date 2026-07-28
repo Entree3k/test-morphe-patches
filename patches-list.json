@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -264,6 +264,32 @@
           "targets": [
             {
               "version": "2.8.0",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks UbikiTouch premium (all features).",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "eu.toneiv.ubktouch",
+          "name": "UbikiTouch",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#2196F3",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.17.6",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
