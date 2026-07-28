@@ -12,6 +12,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.util.logging.Logger
 
+private const val PLAY_STORE = "com.android.vending"
+
 private const val PACKAGE_MANAGER = "Landroid/content/pm/PackageManager;"
 private const val INSTALL_SOURCE_INFO = "Landroid/content/pm/InstallSourceInfo;"
 private const val SESSION_INFO = "Landroid/content/pm/PackageInstaller\$SessionInfo;"
@@ -51,18 +53,14 @@ private fun Method.hasInstallSourceTarget() =
     instructionsOrNull?.any { it.isInstallSourceTarget() } == true
 
 /**
- * Universal "Spoof install source" patch — shows in Morphe for **any** app (no `compatibleWith`).
- *
- * Based on Rushi's patch (Layer 1 only). Walks every class and replaces the `move-result-object`
- * after each install-source getter call with a `const-string` returning the chosen installer,
- * covering:
- *   - `PackageManager.getInstallerPackageName(String)`                         [API 5+]
+ * Universal "Spoof install source" patch — makes the app believe it was installed from a chosen
+ * store (default: Google Play). Walks every class and replaces the `move-result-object` after each
+ * install-source getter call with a `const-string` returning the selected installer, covering:
+ *   - `PackageManager.getInstallerPackageName(String)`                          [API 5+]
  *   - `InstallSourceInfo.get{Initiating,Installing,Originating,UpdateOwner}PackageName()` [API 30+]
- *   - `PackageInstaller.SessionInfo.getInstaller/Initiating/OriginatingPackageName()`    [API 21+/31+]
+ *   - `PackageInstaller.SessionInfo.getInstall{er,Initiating,Originating}PackageName()`   [API 21+/31+]
  *
- * This is the pure-DEX layer that fixes the common "must be installed from Google Play" gate. It does
- * not cover checks made from native code or via reflection (Rushi's binder-proxy Layer 2, which needs
- * a compiled extension, is intentionally omitted here to keep the patch self-contained).
+ * Based on Rushi's patch (Layer 1 only — the pure-DEX rewrite; no extension).
  */
 @Suppress("unused")
 val spoofInstallSourcePatch = bytecodePatch(
@@ -74,9 +72,9 @@ val spoofInstallSourcePatch = bytecodePatch(
 ) {
     val installerPackageName by stringOption(
         key = "installerPackageName",
-        default = "com.android.vending",
+        default = PLAY_STORE,
         values = mapOf(
-            "Google Play Store" to "com.android.vending",
+            "Google Play Store" to PLAY_STORE,
             "Samsung Galaxy Store" to "com.sec.android.app.samsungapps",
             "Huawei AppGallery" to "com.huawei.appmarket",
             "Amazon Appstore" to "com.amazon.venezia",
@@ -90,7 +88,7 @@ val spoofInstallSourcePatch = bytecodePatch(
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
-        val targetInstaller = installerPackageName ?: "com.android.vending"
+        val targetInstaller = installerPackageName ?: PLAY_STORE
         var patchedCount = 0
 
         classDefForEach { classDef ->

@@ -11,6 +11,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import morningentree.morphe.patches.gradientweather.shared.Constants
 import morningentree.morphe.util.getReference
+import java.util.logging.Logger
 
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
@@ -20,9 +21,11 @@ val enablePremiumPatch = bytecodePatch(
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
+        val logger = Logger.getLogger(this::class.java.name)
+
         // Primary gate: the constructor seeds the tier StateFlow the UI reads from the
         // "is_lifetime"/"is_premium" prefs. Force the is_lifetime read to true so every launch
-        // starts on LIFETIME regardless of what's stored.
+        // starts on LIFETIME regardless of what's stored. This is the edit that unlocks premium.
         InitSubscriptionTierFingerprint.method.apply {
             val insns = instructions.toList()
             val stringIndex = insns.indexOfFirst {
@@ -32,27 +35,33 @@ val enablePremiumPatch = bytecodePatch(
                 throw PatchException("Could not find the is_lifetime pref read in the constructor.")
             }
             // The boolean result of getBoolean("is_lifetime", false) lands in the next move-result.
-            val moveResultIndex = (stringIndex + 1 until insns.size).first {
+            val moveResultIndex = ((stringIndex + 1) until insns.size).firstOrNull {
                 insns[it].opcode == Opcode.MOVE_RESULT
-            }
+            } ?: throw PatchException("Could not find the is_lifetime getBoolean result.")
             val register = (insns[moveResultIndex] as OneRegisterInstruction).registerA
             addInstruction(moveResultIndex + 1, "const/4 v$register, 0x1")
         }
 
-        // Secondary: force the runtime tier setter to LIFETIME so a billing callback can't
-        // downgrade the tier mid-session. Reuse the LIFETIME field reference the method already
-        // loads, so no obfuscated enum/class name is hardcoded.
-        SetSubscriptionTierFingerprint.method.apply {
-            val lifetimeReference = instructions
-                .firstNotNullOfOrNull {
-                    it.getReference<FieldReference>()?.takeIf { ref -> ref.name == "LIFETIME" }
-                }
-                ?: throw PatchException("Could not find the LIFETIME tier constant in the setter.")
+        // Secondary (optional): force the runtime tier setter to LIFETIME so a billing callback
+        // can't downgrade the tier mid-session. Wrapped so that if this fingerprint drifts on a
+        // new version it never blocks the primary constructor edit above.
+        runCatching {
+            SetSubscriptionTierFingerprint.method.apply {
+                val lifetimeReference = instructions
+                    .firstNotNullOfOrNull {
+                        it.getReference<FieldReference>()?.takeIf { ref -> ref.name == "LIFETIME" }
+                    }
+                    ?: throw PatchException("Could not find the LIFETIME tier constant in the setter.")
 
-            val smaliReference =
-                "${lifetimeReference.definingClass}->${lifetimeReference.name}:${lifetimeReference.type}"
+                val smaliReference =
+                    "${lifetimeReference.definingClass}->${lifetimeReference.name}:${lifetimeReference.type}"
 
-            addInstructions(0, "sget-object p1, $smaliReference")
+                addInstructions(0, "sget-object p1, $smaliReference")
+            }
+        }.onSuccess {
+            logger.info("Gradient Weather: tier setter pinned to LIFETIME.")
+        }.onFailure {
+            logger.warning("Gradient Weather: tier setter edit skipped: ${it.message}")
         }
     }
 }
