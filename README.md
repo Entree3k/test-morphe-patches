@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.20.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.20.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;59 patches total
+> **[v1.21.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.21.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;60 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -64,6 +64,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Ling Pro |  |
+
+</details>
+
+<details open>
+<summary>📦 Pinnit&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.13.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Pinnit Pro (all features). |  |
 
 </details>
 

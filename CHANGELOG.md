@@ -1,3 +1,9 @@
+## [1.21.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.20.0...v1.21.0) (2026-07-28)
+
+### ✨ New Features
+
+* added pinnit ([1469a17](https://github.com/Entree3k/test-morphe-patches/commit/1469a17d3f90e3d62bb94c3ed04deb172e6d18be))
+
 ## [1.20.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.19.0...v1.20.0) (2026-07-28)
 
 ### ✨ New Features
