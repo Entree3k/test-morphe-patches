@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.28.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.28.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;71 patches total
+> **[v1.29.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.29.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;71 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -35,6 +35,22 @@ Patches for apps I like.
 |----------|----------------|-----------|
 | [Disable Signature Verification](#disable-signature-verification) | Stops Panels from killing itself on launch when the APK signature changes after patching. |  |
 | [Enable Premium](#enable-premium) | Unlocks Premium. Use with Spoof Install Source. |  |
+
+</details>
+
+<details open>
+<summary>📦 Nova Launcher&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 88600 (8.8.6) |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Disable analytics & ad tracking](#disable-analytics-ad-tracking) | Turns off Firebase/Google analytics & crashlytics collection and removes the advertising-ID / ad-services permissions. Does NOT remove SDK components (that crashes Nova on launch). Pair with "Remove internet permission" to fully block trackers. |  |
+| [Enable Prime](#enable-prime) | Unlocks Nova Launcher Prime and everything behind the Prime paywall, locally (no Google Play licensing / network check needed). |  |
 
 </details>
 
@@ -215,22 +231,6 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Vocabulary Premium |  |
-
-</details>
-
-<details open>
-<summary>📦 Nova Launcher&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 88600 (8.8.6) |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Prime](#enable-prime) | Unlocks Nova Launcher Prime and everything behind the Prime paywall, locally (no Google Play licensing / network check needed). |  |
-| [Remove trackers & analytics](#remove-trackers-analytics) | Strips bundled ad/analytics/attribution SDKs (Pangle, Vungle, Fyber, Moloco, Digital Turbine, Facebook Ads, AdMob, Amplitude, Google/Firebase Analytics, Branch, Instabridge) and disables analytics collection. Note: this also disables Nova's app-drawer web/app search, which is powered by Branch. |  |
 
 </details>
 

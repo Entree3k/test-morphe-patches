@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.28.0",
+  "version": "1.29.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -158,6 +158,32 @@
           "targets": [
             {
               "version": "1.596",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Disable analytics & ad tracking",
+      "description": "Turns off Firebase/Google analytics & crashlytics collection and removes the advertising-ID / ad-services permissions. Does NOT remove SDK components (that crashes Nova on launch). Pair with \"Remove internet permission\" to fully block trackers.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.teslacoilsw.launcher",
+          "name": "Nova Launcher",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#DA4624",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "88600 (8.8.6)",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -570,32 +596,6 @@
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
-      "options": []
-    },
-    {
-      "name": "Remove trackers & analytics",
-      "description": "Strips bundled ad/analytics/attribution SDKs (Pangle, Vungle, Fyber, Moloco, Digital Turbine, Facebook Ads, AdMob, Amplitude, Google/Firebase Analytics, Branch, Instabridge) and disables analytics collection. Note: this also disables Nova's app-drawer web/app search, which is powered by Branch.",
-      "default": false,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.teslacoilsw.launcher",
-          "name": "Nova Launcher",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#DA4624",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "88600 (8.8.6)",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
       "options": []
     },
     {

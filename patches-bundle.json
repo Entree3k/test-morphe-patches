@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-29T20:21:54",
-  "description": "## [1.28.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.27.0...v1.28.0) (2026-07-29)\n\n### ✨ New Features\n\n* added nova, autotools, autolocation and block internet ([a3e2bce](https://github.com/Entree3k/test-morphe-patches/commit/a3e2bcee704a4c88ccf2f97d7f7560763b4e62b0))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.28.0/patches-1.28.0.mpp",
+  "created_at": "2026-07-29T23:27:25",
+  "description": "## [1.29.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.28.0...v1.29.0) (2026-07-29)\n\n### ✨ New Features\n\n* update ([4b17aa4](https://github.com/Entree3k/test-morphe-patches/commit/4b17aa45d150e5d566faa5321f5215ab86e90799))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.29.0/patches-1.29.0.mpp",
   "signature_download_url": "",
-  "version": "1.28.0"
+  "version": "1.29.0"
 }
