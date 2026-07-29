@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.25.0",
+  "version": "1.26.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -143,8 +143,8 @@
       ]
     },
     {
-      "name": "Enable Premium",
-      "description": "Unlocks the Panels full version by forcing the fullVersion check to return true.",
+      "name": "Disable Signature Verification",
+      "description": "Stops Panels from killing itself on launch when the APK signature changes after patching.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -170,7 +170,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks all AutoApps by forcing the hub's license checks to report every app as licensed.",
+      "description": "Unlocks all AutoApps: reports every Play-Billing purchase as owned and every app as licensed.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -318,6 +318,34 @@
           "targets": [
             {
               "version": "2.7.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks the Panels full version by forcing the fullVersion check to return true.",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.fossor.panels",
+          "name": "Panels",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#2196F3",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.596",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

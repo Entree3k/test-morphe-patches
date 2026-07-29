@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-07-29T05:31:35",
-  "description": "## [1.25.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.24.0...v1.25.0) (2026-07-29)\n\n### ✨ New Features\n\n* added panels and autoapps ([30fbe71](https://github.com/Entree3k/test-morphe-patches/commit/30fbe712dec2634fd8374832fe51efac9c04567e))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.25.0/patches-1.25.0.mpp",
+  "created_at": "2026-07-29T05:56:36",
+  "description": "## [1.26.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.25.0...v1.26.0) (2026-07-29)\n\n### ✨ New Features\n\n* updated patches ([d857c5b](https://github.com/Entree3k/test-morphe-patches/commit/d857c5bd3a1b43e7e29e187290f4ce5b3e33fb8a))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.26.0/patches-1.26.0.mpp",
   "signature_download_url": "",
-  "version": "1.25.0"
+  "version": "1.26.0"
 }

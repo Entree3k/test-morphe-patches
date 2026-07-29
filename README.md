@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.25.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.25.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;65 patches total
+> **[v1.26.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.26.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;66 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -23,7 +23,7 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Panels&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Panels&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -33,6 +33,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Disable Signature Verification](#disable-signature-verification) | Stops Panels from killing itself on launch when the APK signature changes after patching. |  |
 | [Enable Premium](#enable-premium) | Unlocks the Panels full version by forcing the fullVersion check to return true. |  |
 
 </details>
@@ -48,7 +49,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks all AutoApps by forcing the hub's license checks to report every app as licensed. |  |
+| [Enable Premium](#enable-premium) | Unlocks all AutoApps: reports every Play-Billing purchase as owned and every app as licensed. |  |
 
 </details>
 
