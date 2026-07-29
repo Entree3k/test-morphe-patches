@@ -64,7 +64,7 @@ private fun Method.readsAnyBooleanPref(): Boolean =
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks NotiGuy premium",
+    description = "Unlocks NotiGuy premium. Use with Spoof Install Source",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 

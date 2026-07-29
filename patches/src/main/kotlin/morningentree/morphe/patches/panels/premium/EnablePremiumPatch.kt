@@ -8,7 +8,7 @@ import morningentree.morphe.patches.panels.shared.Constants
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks the Panels full version by forcing the fullVersion check to return true."
+    description = "Unlocks Premium. Use with Spoof Install Source."
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
