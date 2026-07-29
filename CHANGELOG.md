@@ -1,3 +1,9 @@
+## [1.25.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.24.0...v1.25.0) (2026-07-29)
+
+### ✨ New Features
+
+* added panels and autoapps ([30fbe71](https://github.com/Entree3k/test-morphe-patches/commit/30fbe712dec2634fd8374832fe51efac9c04567e))
+
 ## [1.24.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.23.0...v1.24.0) (2026-07-28)
 
 ### ✨ New Features
