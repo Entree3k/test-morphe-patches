@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.26.0",
+  "version": "1.27.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -196,6 +196,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks every AutoApp in AutoAppsHub as if the full AutoApps subscription is owned.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.joaomgcd.autoappshub",
+          "name": "AutoAppsHub",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#1BA8C4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.8.13",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks DynamicSpot premium",
       "default": true,
       "dependencies": [
@@ -304,7 +330,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks NotiGuy premium",
+      "description": "Unlocks NotiGuy premium. Use with Spoof Install Source",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -330,7 +356,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks the Panels full version by forcing the fullVersion check to return true.",
+      "description": "Unlocks Premium. Use with Spoof Install Source.",
       "default": true,
       "dependencies": [
         "BytecodePatch"
