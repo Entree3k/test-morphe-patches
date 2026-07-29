@@ -1,8 +1,9 @@
-package hoodles.morphe.patches.panels.premium
+package morningentree.morphe.patches.panels.premium
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import hoodles.morphe.patches.panels.shared.Constants
+import morningentree.morphe.patches.panels.misc.disableSignatureVerificationPatch
+import morningentree.morphe.patches.panels.shared.Constants
 
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
@@ -11,9 +12,13 @@ val enablePremiumPatch = bytecodePatch(
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
+    // Panels kills itself on launch if its signature changed, so premium is useless without
+    // also neutering that check.
+    dependsOn(disableSignatureVerificationPatch)
+
     execute {
-        // w92.o()Z -> return true. This is the single boolean gate every premium
-        // feature checks (getBoolean("fullVersion", false)).
+        // w92.o()Z -> return true. This is the single boolean gate every premium feature
+        // checks (getBoolean("fullVersion", false)).
         FullVersionCheckFingerprint.method.addInstructions(
             0,
             """

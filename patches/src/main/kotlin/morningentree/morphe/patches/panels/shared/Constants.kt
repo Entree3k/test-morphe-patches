@@ -1,4 +1,4 @@
-package hoodles.morphe.patches.panels.shared
+package morningentree.morphe.patches.panels.shared
 
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility

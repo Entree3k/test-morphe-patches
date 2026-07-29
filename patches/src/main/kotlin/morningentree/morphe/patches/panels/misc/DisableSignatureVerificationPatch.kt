@@ -1,0 +1,27 @@
+package morningentree.morphe.patches.panels.misc
+
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.patch.bytecodePatch
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import morningentree.morphe.patches.panels.shared.Constants
+
+@Suppress("unused")
+val disableSignatureVerificationPatch = bytecodePatch(
+    name = "Disable Signature Verification",
+    description = "Stops Panels from killing itself on launch when the APK signature changes after patching.",
+) {
+    compatibleWith(Constants.COMPATIBILITY)
+
+    execute {
+        MainActivitySignatureCheckFingerprint.apply {
+            // instructionMatches[1] is the `String.equals(storedSignature)` call; its
+            // move-result feeds `if-nez ... :ok`. Force that result to 1 (signatures "match")
+            // so the killProcess branch is never taken.
+            val equalsIndex = instructionMatches[1].index
+            val resultReg = method
+                .getInstruction<OneRegisterInstruction>(equalsIndex + 1).registerA
+            method.addInstructions(equalsIndex + 2, "const/4 v$resultReg, 0x1")
+        }
+    }
+}
