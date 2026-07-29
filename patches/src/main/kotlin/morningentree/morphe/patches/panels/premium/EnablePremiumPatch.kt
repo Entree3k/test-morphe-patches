@@ -1,0 +1,25 @@
+package hoodles.morphe.patches.panels.premium
+
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.patch.bytecodePatch
+import hoodles.morphe.patches.panels.shared.Constants
+
+@Suppress("unused")
+val enablePremiumPatch = bytecodePatch(
+    name = "Enable Premium",
+    description = "Unlocks the Panels full version by forcing the fullVersion check to return true."
+) {
+    compatibleWith(Constants.COMPATIBILITY)
+
+    execute {
+        // w92.o()Z -> return true. This is the single boolean gate every premium
+        // feature checks (getBoolean("fullVersion", false)).
+        FullVersionCheckFingerprint.method.addInstructions(
+            0,
+            """
+                const/4 v0, 0x1
+                return v0
+            """
+        )
+    }
+}
