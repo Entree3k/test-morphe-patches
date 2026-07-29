@@ -7,26 +7,9 @@ import morningentree.morphe.util.get
 import org.w3c.dom.Element
 import java.util.logging.Logger
 
-// Third-party ad / analytics / attribution SDK class-name prefixes bundled into Nova 8.8.6.
-// Any manifest component (activity/service/receiver/provider) whose android:name starts with one of
-// these is removed, which also kills the SDKs' auto-init ContentProviders so they never start.
-private val TRACKER_COMPONENT_PREFIXES = listOf(
-    // ByteDance / Pangle ad SDK
-    "com.bytedance.", "com.pgl.", "com.bykv.",
-    // Other ad networks
-    "com.vungle.", "com.fyber.", "com.moloco.", "com.digitalturbine.",
-    "com.facebook.ads.",
-    "com.google.android.gms.ads.",
-    // Analytics / attribution
-    "com.amplitude.",
-    "com.google.android.gms.measurement.",
-    "io.branch.", "nova.branch.",
-    "com.instabridge.",
-    "ninja.sesame.",
-)
-
 // Ad-ID / Privacy-Sandbox ad-services permissions — removed so the app can't read the advertising ID
-// or use the Topics/Attribution APIs.
+// or use the Topics/Attribution APIs. Removing a <uses-permission> never removes code, so it can't
+// crash the app; the OS simply denies the capability.
 private val TRACKER_PERMISSIONS = setOf(
     "com.google.android.gms.permission.AD_ID",
     "android.permission.ACCESS_ADSERVICES_AD_ID",
@@ -34,7 +17,8 @@ private val TRACKER_PERMISSIONS = setOf(
     "android.permission.ACCESS_ADSERVICES_TOPICS",
 )
 
-// Analytics/telemetry collection flags forced off via <application> meta-data.
+// Analytics/telemetry collection flags forced off via <application> meta-data. These are read by the
+// SDKs themselves (Firebase/GA honor them) — safe, no component/class is touched.
 private val COLLECTION_FLAGS_OFF = mapOf(
     "firebase_analytics_collection_enabled" to "false",
     "firebase_analytics_collection_deactivated" to "true",
@@ -44,26 +28,29 @@ private val COLLECTION_FLAGS_OFF = mapOf(
 )
 
 /**
- * Aggressively strips the ad / analytics / attribution SDKs that shipped with Nova after the Branch /
- * Instabridge acquisition, turning it into an offline-friendly privacy launcher.
+ * Disables the bundled analytics/ad tracking in Nova **without removing any manifest components**.
  *
- * Removes every manifest component belonging to Pangle/ByteDance, Vungle, Fyber, Moloco, Digital
- * Turbine, Facebook Audience Network, AdMob, GMS measurement (Google/Firebase Analytics dispatch),
- * Amplitude, Branch, Instabridge and the Sesame search bridge; forces Firebase analytics/crashlytics
- * collection off; and drops the ad-ID / ad-services permissions.
+ * ⚠️ HISTORY: an earlier version of this patch stripped the ad/analytics SDK components (Pangle,
+ * Vungle, Branch, Instabridge, GMS measurement, the Firebase analytics-connector registrar, …). That
+ * **crashed Nova on launch** — Firebase validates its component-discovery dependency graph at startup,
+ * and Nova's obfuscated `Application` initialises several of those SDKs directly, so a missing
+ * component / un-initialised auto-init provider throws before the launcher can draw. In a fully
+ * R8-obfuscated app that can't be made safe by static inspection alone.
  *
- * ⚠️ Removing Branch/Instabridge/Sesame **disables Nova's app-drawer web/app "search" backend** — that
- * is the tradeoff for cutting the attribution SDK. Ads themselves are already gone once Prime is
- * unlocked (they are a free-tier feature), and pairing this with "Remove internet permission" blocks
- * anything that survives. Opt-in (`default = false`) because of the search tradeoff.
+ * So this patch now only does the crash-proof things:
+ *  - forces analytics/crashlytics/ad-id **collection flags off** (SDKs read these and self-disable), and
+ *  - strips the **ad-ID / ad-services permissions**.
+ *
+ * The actual "trackers can't phone home" guarantee comes from the companion **"Remove internet
+ * permission"** patch — enable both together. With no network, every remaining SDK is inert; with
+ * Prime unlocked the ad SDKs are never invoked anyway (ads are a free-tier feature).
  */
 @Suppress("unused")
 val removeTrackersPatch = resourcePatch(
-    name = "Remove trackers & analytics",
-    description = "Strips bundled ad/analytics/attribution SDKs (Pangle, Vungle, Fyber, Moloco, " +
-        "Digital Turbine, Facebook Ads, AdMob, Amplitude, Google/Firebase Analytics, Branch, " +
-        "Instabridge) and disables analytics collection. Note: this also disables Nova's app-drawer " +
-        "web/app search, which is powered by Branch.",
+    name = "Disable analytics & ad tracking",
+    description = "Turns off Firebase/Google analytics & crashlytics collection and removes the " +
+        "advertising-ID / ad-services permissions. Does NOT remove SDK components (that crashes " +
+        "Nova on launch). Pair with \"Remove internet permission\" to fully block trackers.",
     default = false,
 ) {
     compatibleWith(Constants.COMPATIBILITY)
@@ -75,30 +62,7 @@ val removeTrackersPatch = resourcePatch(
             val manifest = document["manifest"]
             val application = document["application"]
 
-            // 1. Remove tracker/ad SDK components (incl. their auto-init ContentProviders).
-            var removedComponents = 0
-            listOf("activity", "activity-alias", "service", "receiver", "provider").forEach { tag ->
-                application.getElementsByTagName(tag)
-                    .asElementSequence()
-                    .filter { el ->
-                        val name = el.getAttribute("android:name")
-                        TRACKER_COMPONENT_PREFIXES.any(name::startsWith)
-                    }
-                    .toList()
-                    .forEach {
-                        it.parentNode.removeChild(it)
-                        removedComponents++
-                    }
-            }
-
-            // 2. Remove the Firebase Analytics connector registrar so it isn't component-discovered.
-            application.getElementsByTagName("meta-data")
-                .asElementSequence()
-                .filter { it.getAttribute("android:name").contains("analytics.connector") }
-                .toList()
-                .forEach { it.parentNode.removeChild(it) }
-
-            // 3. Force analytics/crashlytics/ad-id collection flags off (upsert <application> meta-data).
+            // 1. Force analytics/crashlytics/ad-id collection flags off (upsert <application> meta-data).
             COLLECTION_FLAGS_OFF.forEach { (name, value) ->
                 val existing = application.getElementsByTagName("meta-data")
                     .asElementSequence()
@@ -115,7 +79,7 @@ val removeTrackersPatch = resourcePatch(
                 }
             }
 
-            // 4. Strip ad-ID / ad-services permissions.
+            // 2. Strip ad-ID / ad-services permissions.
             var removedPermissions = 0
             manifest.getElementsByTagName("uses-permission")
                 .asElementSequence()
@@ -127,8 +91,8 @@ val removeTrackersPatch = resourcePatch(
                 }
 
             logger.info(
-                "Nova Remove trackers: removed $removedComponents component(s), " +
-                    "$removedPermissions ad permission(s); analytics collection forced off.",
+                "Nova disable analytics: collection flags forced off, " +
+                    "$removedPermissions ad permission(s) removed.",
             )
         }
     }
