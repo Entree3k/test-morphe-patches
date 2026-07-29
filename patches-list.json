@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.27.0",
+  "version": "1.28.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -210,6 +210,58 @@
           "targets": [
             {
               "version": "1.8.13",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks AutoLocation's full version by forcing every lite/trial (isLite) check to report the paid full version.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.joaomgcd.autolocation",
+          "name": "AutoLocation",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.2.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks AutoTools' full version by forcing every lite/trial (isLite) check to report the paid full version.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.joaomgcd.autotools",
+          "name": "AutoTools",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#FF9800",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.3.19",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -476,6 +528,66 @@
           "targets": [
             {
               "version": "5.5.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Prime",
+      "description": "Unlocks Nova Launcher Prime and everything behind the Prime paywall, locally (no Google Play licensing / network check needed).",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.teslacoilsw.launcher",
+          "name": "Nova Launcher",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#DA4624",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "88600 (8.8.6)",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Remove internet permission",
+      "description": "Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Remove trackers & analytics",
+      "description": "Strips bundled ad/analytics/attribution SDKs (Pangle, Vungle, Fyber, Moloco, Digital Turbine, Facebook Ads, AdMob, Amplitude, Google/Firebase Analytics, Branch, Instabridge) and disables analytics collection. Note: this also disables Nova's app-drawer web/app search, which is powered by Branch.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.teslacoilsw.launcher",
+          "name": "Nova Launcher",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#DA4624",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "88600 (8.8.6)",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

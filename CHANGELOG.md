@@ -1,3 +1,9 @@
+## [1.28.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.27.0...v1.28.0) (2026-07-29)
+
+### ✨ New Features
+
+* added nova, autotools, autolocation and block internet ([a3e2bce](https://github.com/Entree3k/test-morphe-patches/commit/a3e2bcee704a4c88ccf2f97d7f7560763b4e62b0))
+
 ## [1.27.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.26.0...v1.27.0) (2026-07-29)
 
 ### ✨ New Features

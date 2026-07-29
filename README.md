@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.27.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.27.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;66 patches total
+> **[v1.28.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.28.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;71 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -50,6 +50,36 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks all AutoApps: reports every Play-Billing purchase as owned and every app as licensed. |  |
+
+</details>
+
+<details open>
+<summary>📦 AutoLocation&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.2.6 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks AutoLocation's full version by forcing every lite/trial (isLite) check to report the paid full version. |  |
+
+</details>
+
+<details open>
+<summary>📦 AutoTools&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.3.19 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks AutoTools' full version by forcing every lite/trial (isLite) check to report the paid full version. |  |
 
 </details>
 
@@ -185,6 +215,22 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Vocabulary Premium |  |
+
+</details>
+
+<details open>
+<summary>📦 Nova Launcher&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 88600 (8.8.6) |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Prime](#enable-prime) | Unlocks Nova Launcher Prime and everything behind the Prime paywall, locally (no Google Play licensing / network check needed). |  |
+| [Remove trackers & analytics](#remove-trackers-analytics) | Strips bundled ad/analytics/attribution SDKs (Pangle, Vungle, Fyber, Moloco, Digital Turbine, Facebook Ads, AdMob, Amplitude, Google/Firebase Analytics, Branch, Instabridge) and disables analytics collection. Note: this also disables Nova's app-drawer web/app search, which is powered by Branch. |  |
 
 </details>
 
@@ -939,11 +985,12 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Remove internet permission](#remove-internet-permission) | Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline. |  |
 | [Spoof install source](#spoof-install-source) | Makes the app think it was installed from a specific store (default: Google Play). Useful when an app blocks features or errors because it detects it was not installed from the Play Store. Only affects what the app sees, not the real system record. | • Store to impersonate |
 
 </details>
