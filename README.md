@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.29.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.29.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;71 patches total
+> **[v1.30.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.30.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;72 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -34,7 +34,7 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Disable Signature Verification](#disable-signature-verification) | Stops Panels from killing itself on launch when the APK signature changes after patching. |  |
-| [Enable Premium](#enable-premium) | Unlocks Premium. Use with Spoof Install Source. |  |
+| [Enable Premium](#enable-premium) | Unlocks Premium. Use With Spoof Install Source. |  |
 
 </details>
 
@@ -65,7 +65,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks all AutoApps: reports every Play-Billing purchase as owned and every app as licensed. |  |
+| [Enable Premium](#enable-premium) | Unlocks AutoApps as if every app as licensed. |  |
 
 </details>
 
@@ -80,7 +80,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks AutoLocation's full version by forcing every lite/trial (isLite) check to report the paid full version. |  |
+| [Enable Premium](#enable-premium) | Unlocks AutoLocation's full version |  |
 
 </details>
 
@@ -95,7 +95,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks AutoTools' full version by forcing every lite/trial (isLite) check to report the paid full version. |  |
+| [Enable Premium](#enable-premium) | Unlocks AutoTools |  |
 
 </details>
 
@@ -125,7 +125,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Gradient Weather Premium (forces the paid Lifetime tier). |  |
+| [Enable Premium](#enable-premium) | Unlocks Gradient Weather Premium. Use With Spoof Install Source |  |
 
 </details>
 
@@ -165,8 +165,8 @@ Patches for apps I like.
 
 **🎯 Supported versions:**
 
-| 2.7.6 |
-| :---: |
+| 2.7.6 | 2.7.8 |
+| :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
@@ -185,7 +185,22 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Pinnit Pro. Must be installed with ADB/InstallerX Revived/Inure so it is not in Restricted Mode |  |
+| [Enable Premium](#enable-premium) | Unlocks Pinnit Pro. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode |  |
+
+</details>
+
+<details open>
+<summary>📦 Pixel Bookmarks&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.3.7 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Pixel Bookmarks premium by forcing an active RevenueCat entitlement into every CustomerInfo the Flutter/Dart layer reads. |  |
 
 </details>
 
@@ -215,7 +230,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks UbikiTouch premium |  |
+| [Enable Premium](#enable-premium) | Unlocks UbikiTouch Premium. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode |  |
 
 </details>
 

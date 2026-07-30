@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -196,7 +196,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks all AutoApps: reports every Play-Billing purchase as owned and every app as licensed.",
+      "description": "Unlocks AutoApps as if every app as licensed.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -222,7 +222,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks every AutoApp in AutoAppsHub as if the full AutoApps subscription is owned.",
+      "description": "Unlocks apps in AutoApps as if the full subscription is owned.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -248,7 +248,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks AutoLocation's full version by forcing every lite/trial (isLite) check to report the paid full version.",
+      "description": "Unlocks AutoLocation's full version",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -274,7 +274,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks AutoTools' full version by forcing every lite/trial (isLite) check to report the paid full version.",
+      "description": "Unlocks AutoTools",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -328,7 +328,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Gradient Weather Premium (forces the paid Lifetime tier).",
+      "description": "Unlocks Gradient Weather Premium. Use With Spoof Install Source",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -426,6 +426,13 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "2.7.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
@@ -434,7 +441,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Premium. Use with Spoof Install Source.",
+      "description": "Unlocks Premium. Use With Spoof Install Source.",
       "default": true,
       "dependencies": [
         "BytecodePatch"
@@ -462,7 +469,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Pinnit Pro. Must be installed with ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
+      "description": "Unlocks Pinnit Pro. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -476,6 +483,32 @@
           "targets": [
             {
               "version": "1.13.0",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Pixel Bookmarks premium by forcing an active RevenueCat entitlement into every CustomerInfo the Flutter/Dart layer reads.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.psh.pixel_bookmarks",
+          "name": "Pixel Bookmarks",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#EC3D42",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2.3.7",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -514,7 +547,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks UbikiTouch premium",
+      "description": "Unlocks UbikiTouch Premium. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
