@@ -10,7 +10,7 @@ import morningentree.morphe.util.getReference
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks UbikiTouch premium",
+    description = "Unlocks UbikiTouch Premium. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 

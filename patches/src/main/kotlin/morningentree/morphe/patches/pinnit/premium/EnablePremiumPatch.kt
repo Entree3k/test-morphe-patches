@@ -12,7 +12,7 @@ import morningentree.morphe.util.getReference
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks Pinnit Pro. Must be installed with ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
+    description = "Unlocks Pinnit Pro. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 

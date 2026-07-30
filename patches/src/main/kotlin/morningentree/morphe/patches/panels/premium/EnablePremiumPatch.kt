@@ -8,17 +8,13 @@ import morningentree.morphe.patches.panels.shared.Constants
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks Premium. Use with Spoof Install Source."
+    description = "Unlocks Premium. Use With Spoof Install Source."
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
-    // Panels kills itself on launch if its signature changed, so premium is useless without
-    // also neutering that check.
     dependsOn(disableSignatureVerificationPatch)
 
     execute {
-        // w92.o()Z -> return true. This is the single boolean gate every premium feature
-        // checks (getBoolean("fullVersion", false)).
         FullVersionCheckFingerprint.method.addInstructions(
             0,
             """

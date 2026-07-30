@@ -15,9 +15,6 @@ val disableSignatureVerificationPatch = bytecodePatch(
 
     execute {
         MainActivitySignatureCheckFingerprint.apply {
-            // instructionMatches[1] is the `String.equals(storedSignature)` call; its
-            // move-result feeds `if-nez ... :ok`. Force that result to 1 (signatures "match")
-            // so the killProcess branch is never taken.
             val equalsIndex = instructionMatches[1].index
             val resultReg = method
                 .getInstruction<OneRegisterInstruction>(equalsIndex + 1).registerA

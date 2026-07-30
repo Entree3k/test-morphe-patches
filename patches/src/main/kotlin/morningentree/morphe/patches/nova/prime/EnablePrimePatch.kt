@@ -1,6 +1,7 @@
 package morningentree.morphe.patches.nova.prime
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
@@ -40,5 +41,25 @@ val enablePrimePatch = bytecodePatch(
 
             addInstruction(moveResultIndex + 1, "const/16 v$register, 0x200")
         }
+
+        // Forcing the startup state in a() is not enough on its own: Nova's async licensing
+        // subsystem (created solely in Lvu/y0;->c(Context)) later flips the Prime gate Lny/h2;->h
+        // back to false — the key-app signature check in Lvu/x0; fails for a re-signed/absent Prime
+        // app, the LVL callbacks revoke, and the aa/p watchdog resets it 10s after any grant.
+        // Neuter that single entry point: set the in-memory gate (h = unlocked, c = isPrime) and the
+        // master "licensed" flag Lvu/y0;->b true, then return before any checker or watchdog spawns.
+        // With no checker ever created, nothing can revoke Prime. (Method is `.locals 6`, static with
+        // one param — v0/v1 are free; we return before the original body.)
+        LicenseCheckEntryFingerprint.method.addInstructions(
+            0,
+            """
+                sget-object v0, Lny/a3;->a:Lny/h2;
+                const/4 v1, 0x1
+                iput-boolean v1, v0, Lny/h2;->h:Z
+                iput-boolean v1, v0, Lny/h2;->c:Z
+                sput-boolean v1, Lvu/y0;->b:Z
+                return-void
+            """,
+        )
     }
 }

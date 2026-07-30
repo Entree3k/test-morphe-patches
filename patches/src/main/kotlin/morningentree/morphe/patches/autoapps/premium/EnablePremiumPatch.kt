@@ -9,7 +9,7 @@ import morningentree.morphe.util.returnEarly
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks all AutoApps: reports every Play-Billing purchase as owned and every app as licensed.",
+    description = "Unlocks AutoApps as if every app as licensed.",
 ) {
     compatibleWith(
         Compatibility(
@@ -21,9 +21,6 @@ val enablePremiumPatch = bytecodePatch(
     )
 
     execute {
-        // Primary gate: the hub's UI marks a project/app locked/unlocked from the Play-Billing
-        // purchase check. Every "is purchased" query reduces through this method; force it to
-        // report owned so nothing shows as locked.
         PurchasedMultipleResultFingerprint.method.addInstructions(
             0,
             """
@@ -32,8 +29,6 @@ val enablePremiumPatch = bytecodePatch(
             """,
         )
 
-        // Cross-app: other installed AutoApps ask this hub whether their package is licensed.
-        // Force every license read to report licensed.
         IsLicensedFingerprint.method.returnEarly(true)
         IsLicensedDefaultFalseFingerprint.method.returnEarly(true)
         IsLicensedDefaultTrueFingerprint.method.returnEarly(true)

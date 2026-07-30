@@ -54,13 +54,9 @@ private fun Method.hasInstallSourceTarget() =
 
 /**
  * Universal "Spoof install source" patch — makes the app believe it was installed from a chosen
- * store (default: Google Play). Walks every class and replaces the `move-result-object` after each
- * install-source getter call with a `const-string` returning the selected installer, covering:
- *   - `PackageManager.getInstallerPackageName(String)`                          [API 5+]
- *   - `InstallSourceInfo.get{Initiating,Installing,Originating,UpdateOwner}PackageName()` [API 30+]
- *   - `PackageInstaller.SessionInfo.getInstall{er,Initiating,Originating}PackageName()`   [API 21+/31+]
+ * store (default: Google Play).
  *
- * Based on Rushi's patch (Layer 1 only — the pure-DEX rewrite; no extension).
+ * Based on Rushi's patch
  */
 @Suppress("unused")
 val spoofInstallSourcePatch = bytecodePatch(

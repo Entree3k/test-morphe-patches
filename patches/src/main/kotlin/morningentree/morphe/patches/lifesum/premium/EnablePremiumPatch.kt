@@ -29,7 +29,7 @@ val enablePremiumPatch = bytecodePatch(
             """.trimIndent(),
         )
 
-        // Semantic gate used directly by feature checks; force it true
+        // Semantic gate used by feature checks
         HasPremiumFingerprint.method.returnEarly(true)
     }
 }

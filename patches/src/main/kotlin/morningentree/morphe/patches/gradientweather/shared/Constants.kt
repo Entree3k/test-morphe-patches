@@ -7,7 +7,6 @@ internal object Constants {
     val COMPATIBILITY = Compatibility(
         name = "Gradient Weather",
         packageName = "com.subtlesignals.gradientweather",
-        // Cosmetic only (patcher UI accent).
         appIconColor = 0x6C7BFF,
         targets = listOf(
             AppTarget("1.1.1"),

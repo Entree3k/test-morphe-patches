@@ -16,16 +16,13 @@ import java.util.logging.Logger
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks Gradient Weather Premium (forces the paid Lifetime tier).",
+    description = "Unlocks Gradient Weather Premium. Use With Spoof Install Source",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
 
-        // Primary gate: the constructor seeds the tier StateFlow the UI reads from the
-        // "is_lifetime"/"is_premium" prefs. Force the is_lifetime read to true so every launch
-        // starts on LIFETIME regardless of what's stored. This is the edit that unlocks premium.
         InitSubscriptionTierFingerprint.method.apply {
             val insns = instructions.toList()
             val stringIndex = insns.indexOfFirst {
@@ -34,7 +31,6 @@ val enablePremiumPatch = bytecodePatch(
             if (stringIndex < 0) {
                 throw PatchException("Could not find the is_lifetime pref read in the constructor.")
             }
-            // The boolean result of getBoolean("is_lifetime", false) lands in the next move-result.
             val moveResultIndex = ((stringIndex + 1) until insns.size).firstOrNull {
                 insns[it].opcode == Opcode.MOVE_RESULT
             } ?: throw PatchException("Could not find the is_lifetime getBoolean result.")
@@ -42,9 +38,6 @@ val enablePremiumPatch = bytecodePatch(
             addInstruction(moveResultIndex + 1, "const/4 v$register, 0x1")
         }
 
-        // Secondary (optional): force the runtime tier setter to LIFETIME so a billing callback
-        // can't downgrade the tier mid-session. Wrapped so that if this fingerprint drifts on a
-        // new version it never blocks the primary constructor edit above.
         runCatching {
             SetSubscriptionTierFingerprint.method.apply {
                 val lifetimeReference = instructions
