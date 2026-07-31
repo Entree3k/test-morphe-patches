@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.31.0",
+  "version": "1.32.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -288,6 +288,34 @@
           "targets": [
             {
               "version": "2.3.19",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Bend premium by forcing the RevenueCat entitlement resolver to always report an active subscription.",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.bowerydigital.bend",
+          "name": "Bend",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#00BFA5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "7.6.4",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
