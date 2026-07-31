@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.30.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.30.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;72 patches total
+> **[v1.31.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.31.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;75 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -19,6 +19,22 @@ Patches for apps I like.
 | [Always incognito mode](#always-incognito-mode) | Always opens Gboard in incognito mode to disable typing-history collection and personalization, while keeping clipboard and voice typing working in incognito. |  |
 | [Block tracking and analytics](#block-tracking-and-analytics) | Redirects Gboard's known tracking, analytics, and ad host literals to 0.0.0.0 using a built-in blocklist. Note: telemetry sent through Google Play Services is not affected; use the always-incognito patch for that. | • Wildcard blocking |
 | [Change package name](#change-package-name) | Installs Gboard as a clone by appending ".clone" to the package name (configurable), so it installs next to the stock Gboard. Changing an app's package name can lead to unexpected issues. | • Package name<br>• Update permissions<br>• Update other permissions<br>• Update content providers |
+
+</details>
+
+<details open>
+<summary>📦 Nova Launcher&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 88600 (8.8.6) |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Disable Analytics & AD Tracking](#disable-analytics-ad-tracking) | Turns off analytics, collection and removes the advertising-ID / ad-services permissions. Pair with "Block Internet Patch" to fully block trackers. |  |
+| [Enable Prime](#enable-prime) | Unlocks Nova Launcher Prime |  |
 
 </details>
 
@@ -35,22 +51,6 @@ Patches for apps I like.
 |----------|----------------|-----------|
 | [Disable Signature Verification](#disable-signature-verification) | Stops Panels from killing itself on launch when the APK signature changes after patching. |  |
 | [Enable Premium](#enable-premium) | Unlocks Premium. Use With Spoof Install Source. |  |
-
-</details>
-
-<details open>
-<summary>📦 Nova Launcher&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 88600 (8.8.6) |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Disable analytics & ad tracking](#disable-analytics-ad-tracking) | Turns off Firebase/Google analytics & crashlytics collection and removes the advertising-ID / ad-services permissions. Does NOT remove SDK components (that crashes Nova on launch). Pair with "Remove internet permission" to fully block trackers. |  |
-| [Enable Prime](#enable-prime) | Unlocks Nova Launcher Prime and everything behind the Prime paywall, locally (no Google Play licensing / network check needed). |  |
 
 </details>
 
@@ -115,6 +115,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 FlowStack&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.0.5 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks FlowStack premium by forcing RevenueCat to report an active entitlement. |  |
+
+</details>
+
+<details open>
 <summary>📦 Gradient Weather&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -160,6 +175,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Momentum&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.8.3-play |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Momentum Plus by forcing the RevenueCat "plus" entitlement check to true. |  |
+
+</details>
+
+<details open>
 <summary>📦 NotiGuy&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -171,6 +201,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks NotiGuy premium. Use with Spoof Install Source |  |
+
+</details>
+
+<details open>
+<summary>📦 Phi Launcher&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 3.5.1 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Phi Launcher Pro |  |
 
 </details>
 
