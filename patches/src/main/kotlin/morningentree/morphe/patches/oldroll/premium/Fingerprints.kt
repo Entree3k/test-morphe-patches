@@ -3,25 +3,45 @@ package morningentree.morphe.patches.oldroll.premium
 import app.morphe.patcher.Fingerprint
 
 /**
- * OldRoll (com.accordion.analogcam, code under com.lightcone.analogcam) gates cameras through
- * `AnalogCamera.isUnlockedCommon()`, but that method is a **leaf**: forcing it true reports a camera as
- * ready even when its downloadable (hot-update) resources were never fetched — which crashed the app on
- * launch. Instead we force the **source** of premium: the global "user owns Pro / is VIP" flag.
- *
- * In `isUnlockedCommon()` a Pro camera is unlocked iff `isPRO() && manager.j.r0()`. `r0()Z` (no args,
- * on the obfuscated singleton `Lcom/lightcone/analogcam/manager/j;`, obtained via `j.S()`) is that
- * app-wide VIP flag. Forcing it true makes the whole app treat the user exactly as a paying VIP — the
- * same state a real purchaser is in — so every Pro camera unlocks through the app's normal path and its
- * resource-provisioning still runs (no leaf-level "unlocked but no assets" crash).
- *
- * ⚠️ `j` / `r0` are R8-obfuscated single-letter names → version-pinned to 6.5.2. (Matched by the exact
- * DEX type string + a no-arg `Z` shape; morphe reads the real DEX, so Windows' case-insensitive
- * `j`/`J` filename collision on the extracted smali is irrelevant at patch time.)
+ * Camera unlock gate. OldRoll gates every camera through `AnalogCamera.isUnlockedCommon()Z` — the base
+ * of the whole unlock family (isUnlockedWithoutFreeUse -> isUnlocked -> isUnlockedAndCanUse /
+ * isUnlockedWithBFreeUse, plus isUnlockedWithoutCaptureDcrUnlock all funnel into it). Forcing it true
+ * makes every camera report unlocked. `AnalogCamera` keeps real (un-obfuscated) class/method names, so
+ * an exact class+method `custom` match is R8-proof.
  */
-internal object VipStatusFingerprint : Fingerprint(
+internal object IsCameraUnlockedFingerprint : Fingerprint(
+    custom = { method, classDef ->
+        classDef.type == "Lcom/lightcone/analogcam/model/camera/AnalogCamera;" &&
+            method.name == "isUnlockedCommon"
+    },
+)
+
+/**
+ * Anti-piracy / modified-app detection. OldRoll ships a Lightcone anti-crack module in the obfuscated
+ * `we` package. `we/i.f()Z` is the verdict — "is this build pirated?" (delegates to a `we/j` callback
+ * implemented by `com.lightcone.analogcam.app.a`, which inspects the app signature). When true, the app
+ * schedules a blocking, exit-only "your version has been cracked … the application will be
+ * automatically withdrawn" popup (`we/i.d()` -> string `pirate_pop_text`), re-shown on every activity.
+ *
+ * Because Morphe re-signs the APK, this verdict trips on ANY patched build and makes the app unusable —
+ * this, not the unlock patch, is what closed OldRoll on launch. Forcing `f()` false = "genuine".
+ *
+ * `we`/`i`/`f` are R8-obfuscated → version-pinned to 6.5.2 (matched by exact DEX type + method name;
+ * morphe reads the real DEX so the Windows `we`/`We` filename case-collision is irrelevant at patch time).
+ */
+internal object PiracyVerdictFingerprint : Fingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    custom = { method, classDef ->
-        classDef.type == "Lcom/lightcone/analogcam/manager/j;" && method.name == "r0"
-    },
+    custom = { method, classDef -> classDef.type == "Lwe/i;" && method.name == "f" },
+)
+
+/**
+ * `we/i.d()V` — schedules the pirate popup (posts a delayed runnable that shows the exit-only dialog and
+ * registers a lifecycle callback to re-show it). No-oped as belt-and-suspenders so the popup can never
+ * appear even if some path calls it without first checking `f()`.
+ */
+internal object PiracyPopupSchedulerFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = emptyList(),
+    custom = { method, classDef -> classDef.type == "Lwe/i;" && method.name == "d" },
 )

@@ -1,7 +1,6 @@
 package morningentree.morphe.patches.boosted.premium
 
 import app.morphe.patcher.Fingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * Boosted gates every premium feature through a single boolean state holder (verified in 1.6.21 as
@@ -17,11 +16,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * plus the unique WorkManager job name string — never the obfuscated `w3.d` name.
  */
 internal object PremiumStateInitFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.CONSTRUCTOR),
-    returnType = "V",
-    // No `parameters` constraint: the WorkManager job-name string is unique to this one constructor,
-    // and matching the obfuscated 2nd param (`La3/s0;`) with a "L" wildcard is what risks a
-    // resolve-failure across morphe versions. String + CONSTRUCTOR is enough and more robust.
+    // Match ONLY on the WorkManager job-name string, which is unique to this one constructor across the
+    // whole app. Earlier attempts that also constrained `accessFlags = [CONSTRUCTOR]` failed to resolve
+    // — R8 does not reliably set the ACC_CONSTRUCTOR flag on `<init>`, so matching on it drops the
+    // method even though the string is present. A `parameters` constraint with a "L" wildcard was a
+    // second failure source. The string alone is the robust anchor.
     strings = listOf("BILLING_REFRESH_WORKER"),
 )
 
