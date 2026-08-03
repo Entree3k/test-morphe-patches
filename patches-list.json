@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.32.0",
+  "version": "1.33.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -316,6 +316,32 @@
           "targets": [
             {
               "version": "7.6.4",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Boosted Productivity Premium (forces the app-wide premium flag on).",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.boostedproductivity.app",
+          "name": "Boosted Productivity",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#00C689",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.6.21",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -657,6 +683,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks Todo Mate Premium by injecting an active RevenueCat \"premium\" entitlement into the CustomerInfo handed to the Flutter layer.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.undefined.mate",
+          "name": "Todo Mate",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#00C9A7",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "5.15.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks UbikiTouch Premium. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
       "default": true,
       "dependencies": [],
@@ -764,6 +816,32 @@
           }
         }
       ]
+    },
+    {
+      "name": "Unlock All Cameras",
+      "description": "Unlocks every OldRoll camera by forcing the AnalogCamera unlock gate on.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.accordion.analogcam",
+          "name": "OldRoll",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#F5A623",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "6.5.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
     },
     {
       "name": "Unlock all questions",
