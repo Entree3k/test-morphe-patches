@@ -11,23 +11,11 @@ import morningentree.morphe.util.returnEarly
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks Todo Mate Premium by injecting an active RevenueCat \"premium\" " +
-        "entitlement into the CustomerInfo handed to the Flutter layer.",
+    description = "Unlocks Todo Mate Premium",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        // --- Primary: inject a synthetic active "premium" entitlement at the Flutter boundary ---
-        //
-        // `EntitlementInfosMapperKt.map()` builds the { "all": <Map>, "active": <Map>, ... } that
-        // every CustomerInfo carries into Dart. Both sub-maps are mutable LinkedHashMaps. Just before
-        // the method returns, we build a synthetic serialized EntitlementInfo (same key/value shape
-        // `EntitlementInfoMapperKt.map()` produces, so Dart's parser accepts it as-is) and put it into
-        // both sub-maps under the id "premium". For a free account both maps are empty, so this is
-        // what turns the account premium; for a lapsed account it simply adds the active entry.
-        //
-        // The block only uses registers v0..v5 (all within the method's existing `.locals 6`) plus the
-        // return register p0, so no register allocation is required.
         EntitlementInfosMapperFingerprint.method.apply {
             val returnIndex = instructions.toList().indexOfFirst { it.opcode == Opcode.RETURN_OBJECT }
             if (returnIndex < 0) {
@@ -141,9 +129,6 @@ val enablePremiumPatch = bytecodePatch(
             )
         }
 
-        // --- Secondary (belt-and-suspenders): force the per-entitlement active flag true ---
-        // Helps accounts that already have an entitlement object in the map (e.g. an expired
-        // subscriber) without depending on the injection above.
         EntitlementInfoIsActiveFingerprint.method.returnEarly(true)
     }
 }

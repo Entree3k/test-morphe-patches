@@ -3,28 +3,25 @@ package morningentree.morphe.patches.oldroll.premium
 import app.morphe.patcher.Fingerprint
 
 /**
- * OldRoll (com.accordion.analogcam, code under com.lightcone.analogcam) gates every camera behind
- * the `AnalogCamera` model's unlock family. Verified in 6.5.2, the whole family funnels through one
- * private base method:
+ * OldRoll (com.accordion.analogcam, code under com.lightcone.analogcam) gates cameras through
+ * `AnalogCamera.isUnlockedCommon()`, but that method is a **leaf**: forcing it true reports a camera as
+ * ready even when its downloadable (hot-update) resources were never fetched — which crashed the app on
+ * launch. Instead we force the **source** of premium: the global "user owns Pro / is VIP" flag.
  *
- *   isUnlockedCommon()            <- the base gate (VIP / per-camera purchase / limited-free / promos)
- *     ^ isUnlockedWithoutFreeUse()
- *         ^ isUnlocked()
- *             ^ isUnlockedAndCanUse()
- *             ^ isUnlockedWithBFreeUse()
- *     ^ isUnlockedWithoutCaptureDcrUnlock()
+ * In `isUnlockedCommon()` a Pro camera is unlocked iff `isPRO() && manager.j.r0()`. `r0()Z` (no args,
+ * on the obfuscated singleton `Lcom/lightcone/analogcam/manager/j;`, obtained via `j.S()`) is that
+ * app-wide VIP flag. Forcing it true makes the whole app treat the user exactly as a paying VIP — the
+ * same state a real purchaser is in — so every Pro camera unlocks through the app's normal path and its
+ * resource-provisioning still runs (no leaf-level "unlocked but no assets" crash).
  *
- * Forcing `isUnlockedCommon()` to return true makes every `AnalogCamera` instance report unlocked,
- * so every camera in the picker is selectable and usable.
- *
- * The billing/VIP state itself lives in obfuscated managers (`manager.j.r0()` = global VIP,
- * `manager.j.j0(id)` = per-camera purchase) whose names drift every release. The `AnalogCamera`
- * model, by contrast, keeps its real (un-obfuscated) class and method names, so we anchor there with
- * an exact class+method match rather than any obfuscated name or fragile instruction pattern.
+ * ⚠️ `j` / `r0` are R8-obfuscated single-letter names → version-pinned to 6.5.2. (Matched by the exact
+ * DEX type string + a no-arg `Z` shape; morphe reads the real DEX, so Windows' case-insensitive
+ * `j`/`J` filename collision on the extracted smali is irrelevant at patch time.)
  */
-internal object IsCameraUnlockedFingerprint : Fingerprint(
+internal object VipStatusFingerprint : Fingerprint(
+    returnType = "Z",
+    parameters = emptyList(),
     custom = { method, classDef ->
-        classDef.type == "Lcom/lightcone/analogcam/model/camera/AnalogCamera;" &&
-            method.name == "isUnlockedCommon"
+        classDef.type == "Lcom/lightcone/analogcam/manager/j;" && method.name == "r0"
     },
 )
