@@ -1,3 +1,9 @@
+## [1.38.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.37.0...v1.38.0) (2026-08-03)
+
+### ✨ New Features
+
+* updated fix ([c497f63](https://github.com/Entree3k/test-morphe-patches/commit/c497f635f1d38001ef64468163352c7fe3b9f052))
+
 ## [1.37.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.36.0...v1.37.0) (2026-08-03)
 
 ### ✨ New Features
