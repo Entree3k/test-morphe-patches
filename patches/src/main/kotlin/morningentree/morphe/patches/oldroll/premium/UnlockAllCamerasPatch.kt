@@ -7,7 +7,7 @@ import morningentree.morphe.util.returnEarly
 @Suppress("unused")
 val unlockAllCamerasPatch = bytecodePatch(
     name = "Unlock All Cameras",
-    description = "Unlocks every OldRoll camera by forcing the app-wide VIP flag on.",
+    description = "Unlocks OldRoll VIP",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
