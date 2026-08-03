@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.38.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.38.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
+> **[v1.39.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.39.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;11 patches total
 <details open>
 <summary>📦 AutoApps&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -112,6 +112,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Pixel Bookmarks premium by forcing an active RevenueCat entitlement into every CustomerInfo the Flutter/Dart layer reads. |  |
+
+</details>
+
+<details open>
+<summary>📦 Super Status Bar&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.13.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Super Status Bar Premium locally by forcing the entitlement "owned" check to always report a purchased subscription. Use with Spoof Install Source. |  |
 
 </details>
 
