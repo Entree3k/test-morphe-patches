@@ -19,10 +19,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object PremiumStateInitFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.CONSTRUCTOR),
     returnType = "V",
-    parameters = listOf(
-        "Lcom/boostedproductivity/billing/BillingRepository;",
-        "L",
-    ),
+    // No `parameters` constraint: the WorkManager job-name string is unique to this one constructor,
+    // and matching the obfuscated 2nd param (`La3/s0;`) with a "L" wildcard is what risks a
+    // resolve-failure across morphe versions. String + CONSTRUCTOR is enough and more robust.
     strings = listOf("BILLING_REFRESH_WORKER"),
 )
 
