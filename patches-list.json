@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.36.0",
+  "version": "1.37.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -819,7 +819,7 @@
     },
     {
       "name": "Unlock All Cameras",
-      "description": "Unlocks OldRoll VIP",
+      "description": "Unlocks every OldRoll camera and disables the modified-app (anti-piracy) check that otherwise closes the re-signed build on launch.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [

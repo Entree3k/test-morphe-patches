@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.36.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.36.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;79 patches total
+> **[v1.37.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.37.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;79 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
@@ -350,7 +350,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Unlock All Cameras](#unlock-all-cameras) | Unlocks OldRoll VIP |  |
+| [Unlock All Cameras](#unlock-all-cameras) | Unlocks every OldRoll camera and disables the modified-app (anti-piracy) check that otherwise closes the re-signed build on launch. |  |
 
 </details>
 
