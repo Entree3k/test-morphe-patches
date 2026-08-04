@@ -70,7 +70,11 @@ val spoofSignatureVerificationPatch = bytecodePatch(
             val signature =
                 if (customSignature == signatureOption.default) {
                     signature ?: throw PatchException(
-                        errorMessage = "Please provide a valid signature encoded in Base64."
+                        errorMessage = "Could not auto-extract the app's signing certificate. " +
+                            "Keep the original, unmodified app installed on this device, or set " +
+                            "'Path to original APK' in the 'Provide original app certificate' " +
+                            "patch, or paste the Base64-encoded signature in this patch's " +
+                            "'Base64-encoded signature' option."
                     )
                 } else {
                     customSignature.trim()
