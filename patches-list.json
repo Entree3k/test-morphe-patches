@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.43.0",
+  "version": "1.44.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -277,6 +277,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks Prompter Pal Premium. Use With Spoof Install Source",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.solid.teleprompter",
+          "name": "Prompter Pal",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#1C1C1E",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "7.0.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks Six Pack in 30 Days premium — removes ads and unlocks all workouts and plans.",
       "default": true,
       "dependencies": [],
@@ -300,6 +326,24 @@
         }
       ],
       "options": []
+    },
+    {
+      "name": "Provide original app certificate",
+      "description": "Extracts and Base64-encodes the original app's signing certificate (installed app on the device, then the v2/v3 signing block, then v1 META-INF). Applied automatically by 'Spoof signature verification'; you normally do not need to touch it unless the original app is not installed.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": [
+        {
+          "key": "originalApkPath",
+          "title": "Path to original APK (if uninstalled)",
+          "description": "Only needed if the original, unmodified app is NOT installed on the device and auto-extraction fails. Full path to the original APK or .apks/.xapk bundle, e.g. /sdcard/Download/app.apk",
+          "required": false,
+          "type": "kotlin.String",
+          "default": null,
+          "values": null
+        }
+      ]
     },
     {
       "name": "Remove internet permission",

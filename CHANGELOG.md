@@ -1,3 +1,12 @@
+## [1.44.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.43.0...v1.44.0) (2026-08-04)
+
+### ✨ New Features
+
+* added prompter pal ([59fbdd0](https://github.com/Entree3k/test-morphe-patches/commit/59fbdd06cfe809cb2fac9e5fefc0ab7044d4acd7))
+* fix ([a5f1c09](https://github.com/Entree3k/test-morphe-patches/commit/a5f1c09ed6229de1f8f530295a3ffcfb7e58538c))
+* fix ([4c7140a](https://github.com/Entree3k/test-morphe-patches/commit/4c7140a85b574dd3f70ad1c97d0955cd3d5c428b))
+* updated fingerprint ([7cba010](https://github.com/Entree3k/test-morphe-patches/commit/7cba010d3ff5881a18ad3e38dad85b273bca09ad))
+
 ## [1.43.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.42.0...v1.43.0) (2026-08-04)
 
 ### ✨ New Features
