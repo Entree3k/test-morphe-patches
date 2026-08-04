@@ -14,14 +14,8 @@ val enablePremiumPatch = bytecodePatch(
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        // Recover the (obfuscated) billing-helper class from the matched master gate.
         val helperType = RemoveAdsGateFingerprint.method.definingClass
 
-        // The helper's premium gates are the boolean methods that take either no arguments
-        // (the "any subscription owned" check) or a single Context (the master remove-ads
-        // aggregate and the cached remove_ads preference). Feature and ad-gate sites call each
-        // directly, so force them all to true. The only other boolean method here takes a
-        // String (a free-trial-offer pricing check) and is left untouched.
         classDefForEach { classDef ->
             if (classDef.type != helperType) return@classDefForEach
 

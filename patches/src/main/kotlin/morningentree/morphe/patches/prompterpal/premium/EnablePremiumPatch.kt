@@ -13,7 +13,7 @@ import morningentree.morphe.util.getReference
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
     name = "Enable Premium",
-    description = "Unlocks Prompter Pal Premium. Use With Spoof Install Source",
+    description = "Unlocks Prompter Pal Premium",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
@@ -21,10 +21,6 @@ val enablePremiumPatch = bytecodePatch(
         SubscriptionStateFingerprint.method.apply {
             val insns = instructions.toList()
 
-            // Each premium StateFlow<Boolean> is pushed through the app's setter helper
-            // `static (Z, StateFlow, Object)V`. Within this method the only static calls that
-            // take a boolean first argument and return void are those three pushes
-            // (hasLifetime, isTrial, hasSubscription). Force every one of them to true.
             val pushIndices = insns.withIndex().filter { (_, insn) ->
                 insn.opcode == Opcode.INVOKE_STATIC &&
                     insn.getReference<MethodReference>()?.let { ref ->
@@ -40,7 +36,6 @@ val enablePremiumPatch = bytecodePatch(
                 )
             }
 
-            // Insert high-to-low so earlier indices remain valid after each insertion.
             pushIndices.sortedDescending().forEach { index ->
                 val register = (insns[index] as FiveRegisterInstruction).registerC
                 val setTrue =
