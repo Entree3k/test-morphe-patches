@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-08-04T20:36:35",
-  "description": "## [1.44.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.43.0...v1.44.0) (2026-08-04)\n\n### ✨ New Features\n\n* added prompter pal ([59fbdd0](https://github.com/Entree3k/test-morphe-patches/commit/59fbdd06cfe809cb2fac9e5fefc0ab7044d4acd7))\n* fix ([a5f1c09](https://github.com/Entree3k/test-morphe-patches/commit/a5f1c09ed6229de1f8f530295a3ffcfb7e58538c))\n* fix ([4c7140a](https://github.com/Entree3k/test-morphe-patches/commit/4c7140a85b574dd3f70ad1c97d0955cd3d5c428b))\n* updated fingerprint ([7cba010](https://github.com/Entree3k/test-morphe-patches/commit/7cba010d3ff5881a18ad3e38dad85b273bca09ad))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.44.0/patches-1.44.0.mpp",
+  "created_at": "2026-08-04T23:47:51",
+  "description": "## [1.45.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.44.0...v1.45.0) (2026-08-04)\n\n### ✨ New Features\n\n* added apps ([39c5495](https://github.com/Entree3k/test-morphe-patches/commit/39c5495dc41c0091e5043cbf1654899c4b5c8142))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.45.0/patches-1.45.0.mpp",
   "signature_download_url": "",
-  "version": "1.44.0"
+  "version": "1.45.0"
 }

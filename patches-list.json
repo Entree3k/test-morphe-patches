@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.44.0",
+  "version": "1.45.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -110,6 +110,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks Dumbbell Workout at Home Premium",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "dumbbellworkout.dumbbellapp.homeworkout",
+          "name": "Dumbbell Workout at Home",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#2DA9B3",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.3.5",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks DynamicSpot premium",
       "default": true,
       "dependencies": [
@@ -164,7 +190,33 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Lose Weight App for Men premium — removes ads and unlocks all workouts and plans.",
+      "description": "Unlocks Home Workout Premium",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "homeworkout.homeworkouts.noequipment",
+          "name": "Home Workout - No Equipment",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#004AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.7.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Lose Weight App for Men Premium",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -277,7 +329,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Prompter Pal Premium. Use With Spoof Install Source",
+      "description": "Unlocks Prompter Pal Premium",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -344,6 +396,32 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Remove Ads",
+      "description": "Removes All ADs",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "legsworkout.slimlegs.fatburning.stronglegs",
+          "name": "Legs Workout - Women Legs Training",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#FD6376",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.2.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
     },
     {
       "name": "Remove internet permission",

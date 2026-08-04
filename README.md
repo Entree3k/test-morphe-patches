@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.44.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.44.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;16 patches total
+> **[v1.45.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.45.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;19 patches total
 <details open>
 <summary>📦 Arm Workout&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -56,6 +56,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Dumbbell Workout at Home&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.3.5 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Dumbbell Workout at Home Premium |  |
+
+</details>
+
+<details open>
 <summary>📦 DynamicSpot&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -86,6 +101,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Home Workout - No Equipment&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.7.6 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Home Workout Premium |  |
+
+</details>
+
+<details open>
 <summary>📦 Lose Weight App for Men&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -96,7 +126,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Lose Weight App for Men premium — removes ads and unlocks all workouts and plans. |  |
+| [Enable Premium](#enable-premium) | Unlocks Lose Weight App for Men Premium |  |
 
 </details>
 
@@ -156,7 +186,7 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Prompter Pal Premium. Use With Spoof Install Source |  |
+| [Enable Premium](#enable-premium) | Unlocks Prompter Pal Premium |  |
 
 </details>
 
@@ -172,6 +202,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Six Pack in 30 Days premium — removes ads and unlocks all workouts and plans. |  |
+
+</details>
+
+<details open>
+<summary>📦 Legs Workout - Women Legs Training&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.2.2 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Remove Ads](#remove-ads) | Removes All ADs |  |
 
 </details>
 
