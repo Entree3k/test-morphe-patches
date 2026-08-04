@@ -17,9 +17,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * We match the static gate by its unique encrypted-SKU string constant (a data literal that
  * is stable for this build) plus its exact signature — never by the obfuscated class/method
  * names, which drift between releases.
+ *
+ * Note: Morphe matches [accessFlags] exactly, so every flag the method carries must be listed.
+ * The target `C(Landroid/content/Context;)Z` is `public static final`, hence [AccessFlags.FINAL].
  */
 internal object IsPremiumGateFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL),
     returnType = "Z",
     parameters = listOf("Landroid/content/Context;"),
     strings = listOf("LmUmbARzLXc2aQFoTS4Kbz9lOGUjZ110EXA-ZgByImUtLj9lAmcgdD9vFXNfbxRtKW5hci9tWnYVYSpz"),
