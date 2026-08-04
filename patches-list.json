@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.42.0",
+  "version": "1.43.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -276,6 +276,32 @@
       "options": []
     },
     {
+      "name": "Enable Premium",
+      "description": "Unlocks Six Pack in 30 Days premium — removes ads and unlocks all workouts and plans.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "sixpack.sixpackabs.absworkout",
+          "name": "Six Pack in 30 Days",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#FF6D00",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.4.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Remove internet permission",
       "description": "Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline.",
       "default": false,
@@ -303,6 +329,41 @@
             "Huawei AppGallery": "com.huawei.appmarket",
             "Amazon Appstore": "com.amazon.venezia",
             "F-Droid": "org.fdroid.fdroid"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Spoof signature verification",
+      "description": "Spoofs the signature verification",
+      "default": false,
+      "dependencies": [
+        "ResourcePatch",
+        "RawResourcePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": null,
+      "options": [
+        {
+          "key": "packageName",
+          "title": "Package name",
+          "description": "The package name of the app, if modified. This must match the package name defined when the 'Change package name' patch is selected or as defined in the AndroidManifest.xml.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "Default",
+          "values": {
+            "Default": "Default"
+          }
+        },
+        {
+          "key": "signature",
+          "title": "Base64-encoded signature",
+          "description": "The base64-encoded signature from the original, unmodified APK. This extracts the certificate/signature in the APK by default if blank.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "Default",
+          "values": {
+            "Default": "Default"
           }
         }
       ]

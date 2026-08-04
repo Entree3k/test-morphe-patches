@@ -1,3 +1,9 @@
+## [1.43.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.42.0...v1.43.0) (2026-08-04)
+
+### ✨ New Features
+
+* added spoof ([44d8ccb](https://github.com/Entree3k/test-morphe-patches/commit/44d8ccbfb0f31f3be7a14237252bfd6d3389ef2a))
+
 ## [1.42.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.41.0...v1.42.0) (2026-08-04)
 
 ### ✨ New Features
