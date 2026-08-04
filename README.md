@@ -9,7 +9,22 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.41.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.41.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
+> **[v1.42.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.42.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;12 patches total
+<details open>
+<summary>📦 Arm Workout&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.4.3 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Arm Workout premium — removes ads and unlocks all workouts and plans. |  |
+
+</details>
+
 <details open>
 <summary>📦 AutoApps&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -71,17 +86,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Listy&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Lose Weight App for Men&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 1.3.4 |
+| 2.4.37 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Listy Premium. Use with Spoof Install Source |  |
+| [Enable Premium](#enable-premium) | Unlocks Lose Weight App for Men premium — removes ads and unlocks all workouts and plans. |  |
 
 </details>
 
@@ -127,36 +142,6 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Pixel Bookmarks premium by forcing an active RevenueCat entitlement into every CustomerInfo the Flutter/Dart layer reads. |  |
-
-</details>
-
-<details open>
-<summary>📦 Super Status Bar&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 2.13.0 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Super Status Bar Premium. Use with Spoof Install Source |  |
-
-</details>
-
-<details open>
-<summary>📦 Volume Styles&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 5.2.1 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Volume Styles Premium. Use with Spoof Install Source |  |
 
 </details>
 
