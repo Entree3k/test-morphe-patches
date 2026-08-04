@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.39.0",
+  "version": "1.40.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -138,6 +138,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks Listy Premium. Use with Spoof Install Source",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "pro.listy",
+          "name": "Listy",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#007AFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.3.4",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks Momentum Plus by forcing the RevenueCat \"plus\" entitlement check to true.",
       "default": true,
       "dependencies": [
@@ -225,7 +251,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Super Status Bar Premium locally by forcing the entitlement \"owned\" check to always report a purchased subscription. Use with Spoof Install Source.",
+      "description": "Unlocks Super Status Bar Premium. Use with Spoof Install Source",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -239,6 +265,32 @@
           "targets": [
             {
               "version": "2.13.0",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Volume Styles Premium. Use with Spoof Install Source",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.tombayley.volumepanel",
+          "name": "Volume Styles",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#2D7AED",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "5.2.1",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

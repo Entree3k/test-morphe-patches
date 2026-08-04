@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.39.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.39.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;11 patches total
+> **[v1.40.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.40.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
 <details open>
 <summary>📦 AutoApps&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -71,6 +71,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Listy&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.3.4 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Listy Premium. Use with Spoof Install Source |  |
+
+</details>
+
+<details open>
 <summary>📦 Momentum&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -126,7 +141,22 @@ Patches for apps I like.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Super Status Bar Premium locally by forcing the entitlement "owned" check to always report a purchased subscription. Use with Spoof Install Source. |  |
+| [Enable Premium](#enable-premium) | Unlocks Super Status Bar Premium. Use with Spoof Install Source |  |
+
+</details>
+
+<details open>
+<summary>📦 Volume Styles&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 5.2.1 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Volume Styles Premium. Use with Spoof Install Source |  |
 
 </details>
 
