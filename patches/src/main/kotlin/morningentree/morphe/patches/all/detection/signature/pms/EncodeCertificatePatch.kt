@@ -34,7 +34,7 @@ private fun parseFirstX509(stream: InputStream): ByteArray? =
 private fun isCertEntry(name: String): Boolean =
     name.startsWith("META-INF/") && name.substringAfterLast('.') in setOf("RSA", "DSA", "EC")
 
-/** v1 (JAR) signature: read the cert from META-INF/*.RSA|DSA|EC inside the APK zip. */
+/** v1 (JAR) signature: read the cert from a META-INF .RSA|.DSA|.EC file inside the APK zip. */
 private fun certFromApkBytes(apkBytes: ByteArray): ByteArray? {
     ZipInputStream(ByteArrayInputStream(apkBytes)).use { zis ->
         while (true) {
