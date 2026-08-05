@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.45.0",
+  "version": "1.46.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -381,15 +381,29 @@
     },
     {
       "name": "Provide original app certificate",
-      "description": "Extracts and Base64-encodes the original app's signing certificate (installed app on the device, then the v2/v3 signing block, then v1 META-INF). Applied automatically by 'Spoof signature verification'; you normally do not need to touch it unless the original app is not installed.",
+      "description": "Extracts and Base64-encodes the original app's signing certificate. Applied automatically by 'Spoof signature verification'; you normally do not need to touch it. Use 'Certificate source' to control where the certificate comes from.",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
       "options": [
         {
+          "key": "certificateSource",
+          "title": "Certificate source",
+          "description": "Where to read the original signing certificate from.\n• Automatic: reads the APK you're patching (v1 META-INF), then an 'Original APK file' if set, then the installed app. Works for most apps with no extra input.\n• Simple / decoded APK only: v1 META-INF of the APK being patched (same as the basic extractor). Fails on v2/v3-only apps that have no v1 signature.\n• Original APK file: reads the certificate (incl. v2/v3) from the APK you point to below.\n• Installed app: reads it from the stock app installed on this device (on-device only).",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "auto",
+          "values": {
+            "Automatic (recommended)": "auto",
+            "Simple / decoded APK only": "simple",
+            "Original APK file": "apkFile",
+            "Installed app": "installed"
+          }
+        },
+        {
           "key": "originalApkPath",
-          "title": "Path to original APK (if uninstalled)",
-          "description": "Only needed if the original, unmodified app is NOT installed on the device and auto-extraction fails. Full path to the original APK or .apks/.xapk bundle, e.g. /sdcard/Download/app.apk",
+          "title": "Original APK file",
+          "description": "The original, unmodified APK (or .apks/.xapk bundle) to read the certificate from. Select a file or paste the full file path. Required when 'Certificate source' is 'Original APK file'; also used as a fallback in 'Automatic'.",
           "required": false,
           "type": "kotlin.String",
           "default": null,
