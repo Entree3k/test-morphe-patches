@@ -13,10 +13,6 @@ import java.util.Base64
 import java.util.logging.Logger
 import java.util.zip.ZipInputStream
 
-/**
- * Base64-encoded DER certificate of the original, unmodified app.
- * Populated by [encodeCertificatePatch] and consumed by [spoofSignatureVerificationPatch].
- */
 internal var signature: String? = null
     private set
 
@@ -34,7 +30,6 @@ private fun parseFirstX509(stream: InputStream): ByteArray? =
 private fun isCertEntry(name: String): Boolean =
     name.startsWith("META-INF/") && name.substringAfterLast('.') in setOf("RSA", "DSA", "EC")
 
-/** v1 (JAR) signature: read the cert from a META-INF .RSA|.DSA|.EC file inside the APK zip. */
 private fun certFromApkBytes(apkBytes: ByteArray): ByteArray? {
     ZipInputStream(ByteArrayInputStream(apkBytes)).use { zis ->
         while (true) {
@@ -47,10 +42,6 @@ private fun certFromApkBytes(apkBytes: ByteArray): ByteArray? {
     return null
 }
 
-/**
- * v2/v3 signature: locate the "APK Sig Block 42" and read the signer certificate.
- * Works even when META-INF signature files are absent (v2/v3-only signed apps).
- */
 private fun extractFromSigningBlock(apkBytes: ByteArray): ByteArray? {
     val buf = ByteBuffer.wrap(apkBytes).order(ByteOrder.LITTLE_ENDIAN)
     var eocdOffset = -1
@@ -102,10 +93,6 @@ private fun extractFromSigningBlock(apkBytes: ByteArray): ByteArray? {
     return null
 }
 
-/**
- * Reads a certificate from an APK (or `.apks`/`.xapk` bundle → base.apk) file, preferring the
- * v2/v3 signing block and falling back to v1 META-INF. Returns true if [signature] was set.
- */
 private fun extractFromFile(file: File): Boolean {
     val fileBytes = file.readBytes()
     var apkBytes: ByteArray? = null
@@ -123,39 +110,64 @@ private fun extractFromFile(file: File): Boolean {
     return false
 }
 
+// Certificate-source modes (stored values for the dropdown).
+private const val SOURCE_AUTO = "auto"
+private const val SOURCE_SIMPLE = "simple"
+private const val SOURCE_APK_FILE = "apkFile"
+private const val SOURCE_INSTALLED = "installed"
+
 val encodeCertificatePatch = rawResourcePatch(
     name = "Provide original app certificate",
-    description = "Extracts and Base64-encodes the original app's signing certificate " +
-        "(installed app on the device, then the v2/v3 signing block, then v1 META-INF). " +
+    description = "Extracts and Base64-encodes the original app's signing certificate. " +
         "Applied automatically by 'Spoof signature verification'; you normally do not need " +
-        "to touch it unless the original app is not installed.",
+        "to touch it. Use 'Certificate source' to control where the certificate comes from.",
     default = false,
 ) {
+    val certificateSource by stringOption(
+        key = "certificateSource",
+        default = SOURCE_AUTO,
+        values = mapOf(
+            "Automatic (recommended)" to SOURCE_AUTO,
+            "Simple / decoded APK only" to SOURCE_SIMPLE,
+            "Original APK file" to SOURCE_APK_FILE,
+            "Installed app" to SOURCE_INSTALLED,
+        ),
+        title = "Certificate source",
+        description = "Where to read the original signing certificate from.\n" +
+            "• Automatic: reads the APK you're patching (v1 META-INF), then an 'Original APK file' " +
+            "if set, then the installed app. Works for most apps with no extra input.\n" +
+            "• Simple / decoded APK only: v1 META-INF of the APK being patched (same as the basic " +
+            "extractor). Fails on v2/v3-only apps that have no v1 signature.\n" +
+            "• Original APK file: reads the certificate (incl. v2/v3) from the APK you point to below.\n" +
+            "• Installed app: reads it from the stock app installed on this device (on-device only).",
+        required = true,
+    ) { it in setOf(SOURCE_AUTO, SOURCE_SIMPLE, SOURCE_APK_FILE, SOURCE_INSTALLED) }
+
     val originalApkPath by stringOption(
         key = "originalApkPath",
         default = null,
-        title = "Path to original APK (if uninstalled)",
-        description = "Only needed if the original, unmodified app is NOT installed on the device " +
-            "and auto-extraction fails. Full path to the original APK or .apks/.xapk bundle, " +
-            "e.g. /sdcard/Download/app.apk",
+        title = "Original APK file",
+        description = "The original, unmodified APK (or .apks/.xapk bundle) to read the certificate " +
+            "from. Select a file or paste the full file path. Required when 'Certificate source' is " +
+            "'Original APK file'; also used as a fallback in 'Automatic'.",
         required = false,
-    ) { path -> path == null || File(path).let { it.exists() && it.isFile } }
+    ) { path -> path.isNullOrBlank() || File(path.trim()).let { it.exists() && it.isFile } }
 
     execute {
-        // 1) Explicit APK path provided by the user.
-        originalApkPath?.takeIf { it.isNotBlank() }?.let { path ->
-            val file = File(path)
+        // --- Strategy: read from an explicitly provided APK file (handles v1 and v2/v3). ---
+        fun tryApkFile(): Boolean {
+            val path = originalApkPath?.takeIf { it.isNotBlank() } ?: return false
+            val file = File(path.trim())
             if (file.exists() && extractFromFile(file)) {
                 log.info("Cert extracted from provided APK: ${file.name}")
-                return@execute
+                return true
             }
             log.warning("Could not extract a certificate from provided path: $path")
+            return false
         }
 
-        // 2) The original app currently installed on the device (Morphe Manager runs on-device).
-        try {
-            // Prefer the package name resolved by packageNamePatch (DOM-parsed); fall back to a
-            // regex over the manifest text if that patch has not populated it yet.
+        // --- Strategy: read from the stock app installed on this device (on-device only). ---
+        fun tryInstalledApp(): Boolean = try {
             val pkgName = runCatching { appPackageName }.getOrNull()?.takeIf { it.isNotBlank() }
                 ?: Regex("""package="([^"]+)"""")
                     .find(get("AndroidManifest.xml").readText())?.groupValues?.get(1)
@@ -182,27 +194,43 @@ val encodeCertificatePatch = rawResourcePatch(
                 ) as? String ?: throw Exception("no sourceDir")
             if (extractFromFile(File(sourceDir))) {
                 log.info("Cert extracted from installed app: $sourceDir")
-                return@execute
+                true
+            } else {
+                false
             }
         } catch (e: Exception) {
             log.info("Installed-app cert strategy unavailable: ${e.message}")
+            false
         }
 
-        // 3) Fallback: cert files left in the decoded resources' META-INF folder.
-        val metaInf = get("META-INF")
-        val certFile = metaInf.listFiles()?.firstOrNull { it.isFile && isCertEntry("META-INF/${it.name}") }
-        if (certFile != null) {
+        // --- Strategy: v1 META-INF of the APK being patched (the "simple", adobo-style path). ---
+        fun trySimple(): Boolean {
+            val metaInf = get("META-INF")
+            val certFile = metaInf.listFiles()
+                ?.firstOrNull { it.isFile && isCertEntry("META-INF/${it.name}") } ?: return false
             certFile.inputStream().use { parseFirstX509(it) }?.let {
                 signature = it.toBase64()
                 log.info("Cert extracted from decoded META-INF/${certFile.name}")
-                return@execute
+                return true
             }
+            return false
         }
 
-        log.warning(
-            "No signing certificate could be extracted automatically. Keep the original app " +
-                "installed, set 'Path to original APK', or paste the Base64 signature in the " +
-                "Spoof signature verification patch options.",
-        )
+        val extracted = when (certificateSource) {
+            SOURCE_SIMPLE -> trySimple()
+            SOURCE_APK_FILE -> tryApkFile()
+            SOURCE_INSTALLED -> tryInstalledApp()
+            // Automatic: prefer the exact APK being patched, then a provided file, then installed.
+            else -> trySimple() || tryApkFile() || tryInstalledApp()
+        }
+
+        if (!extracted) {
+            log.warning(
+                "No signing certificate could be extracted (source='$certificateSource'). " +
+                    "Set 'Certificate source' to 'Original APK file' and pick the original APK, " +
+                    "keep the stock app installed, or paste the Base64 signature in the " +
+                    "'Spoof signature verification' patch options.",
+            )
+        }
     }
 }
