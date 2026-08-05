@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.46.0",
+  "version": "1.47.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -494,13 +494,11 @@
         {
           "key": "signature",
           "title": "Base64-encoded signature",
-          "description": "The base64-encoded signature from the original, unmodified APK. This extracts the certificate/signature in the APK by default if blank.",
+          "description": "The base64-encoded signature from the original, unmodified APK. Leave as \"Default\" to auto-extract the certificate from the APK. Otherwise, clear it and paste the full Base64 signature to override auto-extraction.",
           "required": true,
           "type": "kotlin.String",
           "default": "Default",
-          "values": {
-            "Default": "Default"
-          }
+          "values": null
         }
       ]
     },
