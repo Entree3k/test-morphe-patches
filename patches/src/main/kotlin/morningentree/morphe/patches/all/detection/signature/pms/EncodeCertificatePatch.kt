@@ -67,7 +67,6 @@ private fun extractFromSigningBlock(apkBytes: ByteArray): ByteArray? {
         val pairId = buf.getInt(pos + 8)
         val valueStart = pos + 12
         val valueEnd = pos + 8 + pairLen
-        // 0x7109871a = APK Signature Scheme v2 Block ID, 0xf05368c0 = v3.
         if (pairId == 0x7109871a || pairId == 0xf05368c0.toInt()) {
             if (valueEnd > valueStart + 28) {
                 try {
@@ -110,7 +109,6 @@ private fun extractFromFile(file: File): Boolean {
     return false
 }
 
-// Certificate-source modes (stored values for the dropdown).
 private const val SOURCE_AUTO = "auto"
 private const val SOURCE_SIMPLE = "simple"
 private const val SOURCE_APK_FILE = "apkFile"
@@ -154,7 +152,6 @@ val encodeCertificatePatch = rawResourcePatch(
     ) { path -> path.isNullOrBlank() || File(path.trim()).let { it.exists() && it.isFile } }
 
     execute {
-        // --- Strategy: read from an explicitly provided APK file (handles v1 and v2/v3). ---
         fun tryApkFile(): Boolean {
             val path = originalApkPath?.takeIf { it.isNotBlank() } ?: return false
             val file = File(path.trim())
@@ -166,7 +163,6 @@ val encodeCertificatePatch = rawResourcePatch(
             return false
         }
 
-        // --- Strategy: read from the stock app installed on this device (on-device only). ---
         fun tryInstalledApp(): Boolean = try {
             val pkgName = runCatching { appPackageName }.getOrNull()?.takeIf { it.isNotBlank() }
                 ?: Regex("""package="([^"]+)"""")
@@ -203,7 +199,6 @@ val encodeCertificatePatch = rawResourcePatch(
             false
         }
 
-        // --- Strategy: v1 META-INF of the APK being patched (the "simple", adobo-style path). ---
         fun trySimple(): Boolean {
             val metaInf = get("META-INF")
             val certFile = metaInf.listFiles()
@@ -220,7 +215,6 @@ val encodeCertificatePatch = rawResourcePatch(
             SOURCE_SIMPLE -> trySimple()
             SOURCE_APK_FILE -> tryApkFile()
             SOURCE_INSTALLED -> tryInstalledApp()
-            // Automatic: prefer the exact APK being patched, then a provided file, then installed.
             else -> trySimple() || tryApkFile() || tryInstalledApp()
         }
 

@@ -38,10 +38,10 @@ val spoofSignatureVerificationPatch = bytecodePatch(
         stringOption(
             key = "signature",
             default = "Default",
-            values = mapOf("Default" to "Default"),
             title = "Base64-encoded signature",
             description = "The base64-encoded signature from the original, unmodified APK. " +
-                "This extracts the certificate/signature in the APK by default if blank.",
+                "Leave as \"Default\" to auto-extract the certificate from the APK. " +
+                "Otherwise, clear it and paste the full Base64 signature to override auto-extraction.",
             required = true,
         ) { signature ->
             signature == "Default" || !signature.isNullOrEmpty()
