@@ -9,7 +9,22 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.47.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.47.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;19 patches total
+> **[v1.48.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.48.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;23 patches total
+<details open>
+<summary>📦 Smart AudioBook Player&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 11.8.2 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Full Version](#enable-full-version) | Unlocks the paid full version of Smart AudioBook Player by forcing the local license decision to Full. |  |
+
+</details>
+
 <details open>
 <summary>📦 Arm Workout&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -41,17 +56,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Bend&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Does Not Commute&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 7.6.4 |
+| 1.5.5 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Bend premium by forcing the RevenueCat entitlement resolver to always report an active subscription. |  |
+| [Enable Premium](#enable-premium) | Unlocks the paid premium upgrade of Does Not Commute without a purchase. The game's entitlement logic lives in native libcommute.so, which cannot be patched here, so if it ever re-verifies the purchase independently this may not take effect. |  |
 
 </details>
 
@@ -131,6 +146,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Material Capsule&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 15.7 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Material Capsule Pro. |  |
+
+</details>
+
+<details open>
 <summary>📦 Momentum&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -161,17 +191,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Pixel Bookmarks&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 PinOut&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 2.3.7 |
+| 1.0.7 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Pixel Bookmarks premium by forcing an active RevenueCat entitlement into every CustomerInfo the Flutter/Dart layer reads. |  |
+| [Enable Premium](#enable-premium) | Unlocks the paid premium upgrade of PinOut without a purchase. The game's entitlement logic lives in native code, which cannot be patched here, so if it ever re-verifies the purchase independently this may not take effect. |  |
 
 </details>
 
@@ -202,6 +232,36 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Six Pack in 30 Days premium — removes ads and unlocks all workouts and plans. |  |
+
+</details>
+
+<details open>
+<summary>📦 Sleep as Android&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 20260616 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Sleep as Android features locked behind the subscription paywall. |  |
+
+</details>
+
+<details open>
+<summary>📦 Smash Hit&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.5.14 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Smash Hit premium and all game modes without a purchase. |  |
 
 </details>
 
