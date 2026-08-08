@@ -11,7 +11,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import morningentree.morphe.patches.materialcapsule.shared.Constants
-import morningentree.morphe.patches.philauncher.shared.disablePairipLicenseCheckPatch
 import morningentree.morphe.util.getReference
 
 /**
@@ -45,10 +44,18 @@ val enablePremiumPatch = bytecodePatch(
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
-    // The app ships with the Pairip license check, which kills the re-signed APK on launch.
-    dependsOn(disablePairipLicenseCheckPatch)
-
     execute {
+        // The app ships with the Pairip license check, wired into Application.attachBaseContext,
+        // which kills the re-signed APK on launch. Short-circuit it before the licensing service
+        // is ever contacted.
+        classDefForEach { classDef ->
+            if (classDef.type != "Lcom/pairip/licensecheck/LicenseClient;") return@classDefForEach
+
+            mutableClassDefBy(classDef).methods
+                .filter { it.name == "checkLicense" && it.returnType == "V" }
+                .forEach { it.addInstruction(0, "return-void") }
+        }
+
         var patchedCount = 0
 
         classDefForEach { classDef ->
