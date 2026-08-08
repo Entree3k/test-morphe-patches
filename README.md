@@ -9,22 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.48.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.48.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;23 patches total
-<details open>
-<summary>📦 Smart AudioBook Player&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 11.8.2 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Full Version](#enable-full-version) | Unlocks the paid full version of Smart AudioBook Player by forcing the local license decision to Full. |  |
-
-</details>
-
+> **[v1.49.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.49.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;22 patches total
 <details open>
 <summary>📦 Arm Workout&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -56,17 +41,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Does Not Commute&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Automate&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 1.5.5 |
+| 1.51.1 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks the paid premium upgrade of Does Not Commute without a purchase. The game's entitlement logic lives in native libcommute.so, which cannot be patched here, so if it ever re-verifies the purchase independently this may not take effect. |  |
+| [Enable Premium](#enable-premium) | Unlocks Automate Premium by removing the per-flow block limit, so flows of any size run without a purchase. |  |
 
 </details>
 
@@ -97,6 +82,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks DynamicSpot premium |  |
+
+</details>
+
+<details open>
+<summary>📦 EOBD Facile&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 3.87.1179 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks EOBD Facile Premium and Expert. |  |
 
 </details>
 
@@ -146,17 +146,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Material Capsule&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 MacroDroid&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 15.7 |
+| 5.65.9 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Material Capsule Pro. |  |
+| [Enable Premium](#enable-premium) | Unlocks MacroDroid Pro, removing the macro limit and other paywalled features. |  |
 
 </details>
 
@@ -191,17 +191,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 PinOut&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Obd Mary&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 1.0.7 |
+| 1.318 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks the paid premium upgrade of PinOut without a purchase. The game's entitlement logic lives in native code, which cannot be patched here, so if it ever re-verifies the purchase independently this may not take effect. |  |
+| [Enable Premium](#enable-premium) | Unlocks Obd Mary's paid features, including the Diagnostics edition. |  |
 
 </details>
 
@@ -236,32 +236,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Sleep as Android&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Textra&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 20260616 |
+| 4.85 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Sleep as Android features locked behind the subscription paywall. |  |
-
-</details>
-
-<details open>
-<summary>📦 Smash Hit&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.5.14 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Smash Hit premium and all game modes without a purchase. |  |
+| [Enable Premium](#enable-premium) | Unlocks Textra Pro, removing the ads. |  |
 
 </details>
 

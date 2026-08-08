@@ -1,33 +1,7 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.48.0",
+  "version": "1.49.0",
   "patches": [
-    {
-      "name": "Enable Full Version",
-      "description": "Unlocks the paid full version of Smart AudioBook Player by forcing the local license decision to Full.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "ak.alizandro.smartaudiobookplayer",
-          "name": "Smart AudioBook Player",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#EF5350",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "11.8.2",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
     {
       "name": "Enable Premium",
       "description": "Unlocks Arm Workout premium — removes ads and unlocks all workouts and plans.",
@@ -108,20 +82,20 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks the paid premium upgrade of Does Not Commute without a purchase. The game's entitlement logic lives in native libcommute.so, which cannot be patched here, so if it ever re-verifies the purchase independently this may not take effect.",
+      "description": "Unlocks Automate Premium by removing the per-flow block limit, so flows of any size run without a purchase.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.mediocre.commute",
-          "name": "Does Not Commute",
+          "packageName": "com.llamalab.automate",
+          "name": "Automate",
           "description": null,
           "apkFileType": "APK",
-          "appIconColor": "#2E7D6F",
+          "appIconColor": "#7CB342",
           "signatures": null,
           "targets": [
             {
-              "version": "1.5.5",
+              "version": "1.51.1",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -176,6 +150,32 @@
           "targets": [
             {
               "version": "2.01",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks EOBD Facile Premium and Expert.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "org.eobdfacile.android",
+          "name": "EOBD Facile",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#1565C0",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "3.87.1179",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -266,20 +266,20 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Material Capsule Pro.",
+      "description": "Unlocks MacroDroid Pro, removing the macro limit and other paywalled features.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.pryshedko.mtisland",
-          "name": "Material Capsule",
+          "packageName": "com.arlosoft.macrodroid",
+          "name": "MacroDroid",
           "description": null,
-          "apkFileType": null,
-          "appIconColor": "#212121",
+          "apkFileType": "APK",
+          "appIconColor": "#20334D",
           "signatures": null,
           "targets": [
             {
-              "version": "15.7",
+              "version": "5.65.9",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -353,20 +353,20 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks the paid premium upgrade of PinOut without a purchase. The game's entitlement logic lives in native code, which cannot be patched here, so if it ever re-verifies the purchase independently this may not take effect.",
+      "description": "Unlocks Obd Mary's paid features, including the Diagnostics edition.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.mediocre.pinout",
-          "name": "PinOut",
+          "packageName": "com.elm.elm327.obd2.eobd.obd.car.scanner.diagnostics.tool.dashboard.doctor.check.engine.torque.speed.trouble.codes.mary",
+          "name": "Obd Mary",
           "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#E91E63",
+          "apkFileType": null,
+          "appIconColor": "#17364C",
           "signatures": null,
           "targets": [
             {
-              "version": "1.0.7",
+              "version": "1.318",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -431,46 +431,20 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Sleep as Android features locked behind the subscription paywall.",
+      "description": "Unlocks Textra Pro, removing the ads.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.urbandroid.sleep",
-          "name": "Sleep as Android",
+          "packageName": "com.textra",
+          "name": "Textra",
           "description": null,
           "apkFileType": null,
-          "appIconColor": "#80C583",
+          "appIconColor": "#00A0E9",
           "signatures": null,
           "targets": [
             {
-              "version": "20260616",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Smash Hit premium and all game modes without a purchase.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.mediocre.smashhit",
-          "name": "Smash Hit",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#1E88E5",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.5.14",
+              "version": "4.85",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
