@@ -1,3 +1,9 @@
+## [1.50.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.49.0...v1.50.0) (2026-08-08)
+
+### ✨ New Features
+
+* added photon ([3968857](https://github.com/Entree3k/test-morphe-patches/commit/396885758919863f42482c5027706b02a431a7dd))
+
 ## [1.49.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.48.0...v1.49.0) (2026-08-08)
 
 ### ✨ New Features

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.49.0",
+  "version": "1.50.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -367,6 +367,32 @@
           "targets": [
             {
               "version": "1.318",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Photon Camera Pro — the VIP LUTs, AI photo analysis and LUT Creator — without a purchase.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.hinnka.mycamera",
+          "name": "Photon Camera",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#252525",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.25.1.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
