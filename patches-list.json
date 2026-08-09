@@ -1,7 +1,35 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.50.0",
+  "version": "1.51.0",
   "patches": [
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Notepad Premium by removing all ads. Use with Spoof Install Source.",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.splendapps.adler",
+          "name": "Notepad",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#1E88E5",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "3.0.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
     {
       "name": "Enable Premium",
       "description": "Unlocks Arm Workout premium — removes ads and unlocks all workouts and plans.",
@@ -379,6 +407,32 @@
     },
     {
       "name": "Enable Premium",
+      "description": "Unlocks Paisa Premium. Use With Spoof Install Source.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "dev.hemanths.paisa",
+          "name": "Paisa",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#009688",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "2026.06.230",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
       "description": "Unlocks Photon Camera Pro — the VIP LUTs, AI photo analysis and LUT Creator — without a purchase.",
       "default": true,
       "dependencies": [],
@@ -419,6 +473,32 @@
           "targets": [
             {
               "version": "7.0.1",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Remyn Premium. Use With Spoof Install Source.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.mahersafadi.remyn",
+          "name": "Remyn",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#7C4DFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.7.3",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
