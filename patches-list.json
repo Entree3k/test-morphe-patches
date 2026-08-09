@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.53.0",
+  "version": "1.54.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -734,6 +734,22 @@
           ]
         }
       ],
+      "options": []
+    },
+    {
+      "name": "Unlock RevenueCat",
+      "description": "(TESTING) Premium patch for apps that use RevenueCat. Probably Won't Work Most Apps",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Unlock encrypted Pro flag",
+      "description": "(TESTING) Unlocks apps that gate Pro behind an AES-decrypted \"yes\" flag emitted through a Kotlin Flow. No-ops on apps that don't use this scheme. Probably Won't Work Most Apps",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": null,
       "options": []
     }
   ]
