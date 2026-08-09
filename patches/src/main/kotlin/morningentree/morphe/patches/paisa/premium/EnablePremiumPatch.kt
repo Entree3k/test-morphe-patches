@@ -6,7 +6,6 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import morningentree.morphe.patches.paisa.shared.Constants
-import morningentree.morphe.patches.philauncher.shared.disablePairipLicenseCheckPatch
 import morningentree.morphe.util.returnEarly
 
 @Suppress("unused")
@@ -16,9 +15,9 @@ val enablePremiumPatch = bytecodePatch(
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
-    // Paisa is wrapped by Pairip (checkLicense — non-fatal, but neutralize it so
-    // nothing the license result gates can interfere with the re-signed build).
-    dependsOn(disablePairipLicenseCheckPatch)
+    // Note: Paisa's Pairip is only LicenseClient.checkLicense (non-fatal — the app
+    // still launches) and premium is decided by RevenueCat, so no Pairip patch is
+    // needed here.
 
     execute {
         // Paisa is Flutter: the premium decision is in AOT Dart, but billing runs
