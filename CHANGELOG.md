@@ -1,3 +1,9 @@
+## [1.57.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.56.0...v1.57.0) (2026-08-10)
+
+### ✨ New Features
+
+* added magic ([e17f64e](https://github.com/Entree3k/test-morphe-patches/commit/e17f64efe1260fbb0515e7bbc1f0dffd0477061a))
+
 ## [1.56.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.55.0...v1.56.0) (2026-08-09)
 
 ### ✨ New Features

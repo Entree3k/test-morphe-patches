@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.56.0",
+  "version": "1.57.0",
   "patches": [
     {
       "name": "Enable Premium",
@@ -20,32 +20,6 @@
           "targets": [
             {
               "version": "3.0.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Arm Workout premium — removes ads and unlocks all workouts and plans.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "armworkout.armworkoutformen.armexercises",
-          "name": "Arm Workout",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#FF5252",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "2.4.3",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -190,32 +164,6 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks EOBD Facile Premium and Expert.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "org.eobdfacile.android",
-          "name": "EOBD Facile",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#1565C0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "3.87.1179",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
       "description": "Unlocks Fake GPS Pro",
       "default": true,
       "dependencies": [],
@@ -237,39 +185,6 @@
             },
             {
               "version": "5.8.2",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Fake GPS Location Premium",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.hopefactory2021.fakegpslocation",
-          "name": "Fake GPS Location",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#5F7C8A",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "125.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -308,72 +223,22 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Home Workout Premium",
+      "description": "Unlocks Magic Eraser premium (removes ads/watermark and unlocks pro tools) by forcing the app-wide subscription gate. Use with Spoof Install Source.",
       "default": true,
-      "dependencies": [],
+      "dependencies": [
+        "BytecodePatch"
+      ],
       "compatiblePackages": [
         {
-          "packageName": "homeworkout.homeworkouts.noequipment",
-          "name": "Home Workout - No Equipment",
+          "packageName": "com.duygiangdg.magiceraser",
+          "name": "Magic Eraser",
           "description": null,
           "apkFileType": null,
-          "appIconColor": "#004AFF",
+          "appIconColor": "#7C4DFF",
           "signatures": null,
           "targets": [
             {
-              "version": "1.7.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Lose Weight App for Men Premium",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "menloseweight.loseweightappformen.weightlossformen",
-          "name": "Lose Weight App for Men",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#0DA98D",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "2.4.37",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks MacroDroid Pro, removing the macro limit and other paywalled features.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.arlosoft.macrodroid",
-          "name": "MacroDroid",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#20334D",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "5.65.9",
+              "version": "3.3.9",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -447,84 +312,6 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Obd Mary's paid features, including the Diagnostics edition.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.elm.elm327.obd2.eobd.obd.car.scanner.diagnostics.tool.dashboard.doctor.check.engine.torque.speed.trouble.codes.mary",
-          "name": "Obd Mary",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#17364C",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.318",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Paisa Premium. Use With Spoof Install Source.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "dev.hemanths.paisa",
-          "name": "Paisa",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#009688",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "2026.06.230",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Photon Camera Pro — the VIP LUTs, AI photo analysis and LUT Creator — without a purchase.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.hinnka.mycamera",
-          "name": "Photon Camera",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#252525",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.25.1.2",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
       "description": "Unlocks Prompter Pal Premium",
       "default": true,
       "dependencies": [],
@@ -539,32 +326,6 @@
           "targets": [
             {
               "version": "7.0.1",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Remyn Premium. Use With Spoof Install Source.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.mahersafadi.remyn",
-          "name": "Remyn",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#7C4DFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.7.3",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
