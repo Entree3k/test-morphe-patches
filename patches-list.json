@@ -1,7 +1,54 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.58.0",
+  "version": "1.59.0",
   "patches": [
+    {
+      "name": "Change package name",
+      "description": "Renames the app (default: append \".entree\") so it installs as a clone next to the original. The name is configurable. Changing a package name can lead to unexpected issues.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": [
+        {
+          "key": "packageName",
+          "title": "Package name",
+          "description": "Leave as \"Default\" to append \".entree\" to the original package. Or type a custom value: a suffix starting with \".\" (appended to the original package) or a full replacement package name.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "Default",
+          "values": {
+            "Default": "Default"
+          }
+        },
+        {
+          "key": "updatePermissions",
+          "title": "Update permissions",
+          "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but can also break features in certain apps.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        },
+        {
+          "key": "updateOtherPermissions",
+          "title": "Update other permissions",
+          "description": "Update other permissions declared by the app. Enabling this can fix installation errors, but can also break features in certain apps.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        },
+        {
+          "key": "updateProviders",
+          "title": "Update content providers",
+          "description": "Update content provider URI authorities. Enabling this can fix installation errors, but can also break features in certain apps.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        }
+      ]
+    },
     {
       "name": "Enable Premium",
       "description": "Unlocks Notepad Premium by removing all ads. Use with Spoof Install Source.",
