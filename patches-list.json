@@ -1,7 +1,36 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.59.0",
+  "version": "1.60.0",
   "patches": [
+    {
+      "name": "Block tracking hosts",
+      "description": "Redirects known tracking, analytics, and ad host literals to 0.0.0.0 using a built-in blocklist, optionally extended with your own hosts file. Only affects hosts that appear as literal strings in the app; telemetry sent through Google Play Services is not affected.",
+      "default": false,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": null,
+      "options": [
+        {
+          "key": "isWildcard",
+          "title": "Wildcard blocking",
+          "description": "When enabled, an entry like \"example.com\" also blocks subdomains such as \"www.example.com\".",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        },
+        {
+          "key": "userHostsFile",
+          "title": "Additional hosts file",
+          "description": "Optional absolute path to a hosts/blocklist file (hosts-file lines, bare domains, or URLs; one per line, \"#\" comments allowed). Its entries are added to the built-in blocklist. Leave empty to use the built-in list only.",
+          "required": false,
+          "type": "kotlin.String",
+          "default": null,
+          "values": null
+        }
+      ]
+    },
     {
       "name": "Change package name",
       "description": "Renames the app (default: append \".entree\") so it installs as a clone next to the original. The name is configurable. Changing a package name can lead to unexpected issues.",
@@ -12,12 +41,12 @@
         {
           "key": "packageName",
           "title": "Package name",
-          "description": "Leave as \"Default\" to append \".entree\" to the original package. Or type a custom value: a suffix starting with \".\" (appended to the original package) or a full replacement package name.",
+          "description": "Type any word (e.g. \"clone\") to append it as \".clone\", a suffix starting with \".\", or a full replacement package name. Defaults to appending \".entree\".",
           "required": true,
           "type": "kotlin.String",
-          "default": "Default",
+          "default": ".entree",
           "values": {
-            "Default": "Default"
+            "Append \".entree\"": ".entree"
           }
         },
         {
@@ -48,6 +77,32 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Disable Pairip protection",
+      "description": "Neutralizes Pairip's client-side signature and license checks so the re-signed APK launches instead of crashing. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity attestation.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": [
+        {
+          "key": "gutVmRunner",
+          "title": "Gut Pairip VM (advanced)",
+          "description": "Also neutralizes the Pairip VM: makes VMRunner.invoke() return null and drops the pairipcore native library load. Only enable this for apps whose VM merely runs the startup integrity/license program (its result is discarded). If the app routes real functionality through the VM — e.g. broadcast receivers — enabling this breaks those features instead of unlocking anything. Leave off unless you know the app needs it.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        }
+      ]
+    },
+    {
+      "name": "Disable analytics & ad tracking",
+      "description": "Turns off Firebase / Google Analytics collection and removes the advertising-ID and ad-services permissions. Blocks ad personalization and analytics opt-in without cutting off the app's legitimate network features. Pair with a host blocker to also stop the traffic.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
     },
     {
       "name": "Enable Premium",
