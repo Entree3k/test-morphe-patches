@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.60.0",
+  "version": "1.61.0",
   "patches": [
     {
       "name": "Block tracking hosts",
@@ -313,6 +313,34 @@
           "targets": [
             {
               "version": "2.0.5",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Hobi Pro.",
+      "default": true,
+      "dependencies": [
+        "RawResourcePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.hobi.android",
+          "name": "Hobi",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#023C69",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "3.4.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
