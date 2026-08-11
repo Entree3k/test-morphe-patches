@@ -23,6 +23,7 @@ private fun ResourcePatchContext.androidManifest(
 
 private val fullPackagePattern = """^[a-z]\w*(\.[a-z]\w*)+$""".toRegex()
 private val suffixPattern = """^(\.[a-z]\w*)+$""".toRegex()
+private val wordPattern = """^[a-z]\w*$""".toRegex()
 
 @Suppress("unused")
 val changePackageNamePatch = resourcePatch(
@@ -35,16 +36,20 @@ val changePackageNamePatch = resourcePatch(
 
     val packageNameOption = stringOption(
         key = "packageName",
-        default = "Default",
-        values = mapOf("Default" to "Default"),
+        default = DEFAULT_SUFFIX,
+        values = mapOf(
+            "Append \"$DEFAULT_SUFFIX\"" to DEFAULT_SUFFIX,
+        ),
         title = "Package name",
-        description = "Leave as \"Default\" to append \"$DEFAULT_SUFFIX\" to the original package. " +
-            "Or type a custom value: a suffix starting with \".\" (appended to the original " +
-            "package) or a full replacement package name.",
+        description = "Type any word (e.g. \"clone\") to append it as \".clone\", a suffix " +
+            "starting with \".\", or a full replacement package name. Defaults to appending " +
+            "\"$DEFAULT_SUFFIX\".",
         required = true,
     ) { value ->
-        value == "Default" ||
-            (value != null && (value.matches(suffixPattern) || value.matches(fullPackagePattern)))
+        value != null &&
+            (value.matches(wordPattern) ||
+                value.matches(suffixPattern) ||
+                value.matches(fullPackagePattern))
     }
 
     val updatePermissions by booleanOption(
@@ -78,11 +83,8 @@ val changePackageNamePatch = resourcePatch(
 
             val configured = packageNameOption.value!!
             val newPackageName = when {
-                // "Default" sentinel -> append the default suffix.
-                configured == "Default" -> "$packageName$DEFAULT_SUFFIX"
-                // Custom suffix (".mod", ".patched", …) -> append to original.
                 configured.startsWith(".") -> "$packageName$configured"
-                // Full replacement package name.
+                configured.matches(wordPattern) -> "$packageName.$configured"
                 else -> configured
             }
 
