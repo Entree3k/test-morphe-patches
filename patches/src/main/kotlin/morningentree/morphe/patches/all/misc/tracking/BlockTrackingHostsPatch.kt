@@ -3,10 +3,10 @@ package morningentree.morphe.patches.all.misc.tracking
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.stringOption
-import morningentree.morphe.patches.google.gboard.tracking.DEFAULT_REDIRECTION_IP
-import morningentree.morphe.patches.google.gboard.tracking.HostsBlocker
-import morningentree.morphe.patches.google.gboard.tracking.HostsBlockerConfig
-import morningentree.morphe.patches.google.gboard.tracking.baseHostsBlockerPatch
+import morningentree.morphe.patches.shared.misc.hosts.DEFAULT_REDIRECTION_IP
+import morningentree.morphe.patches.shared.misc.hosts.HostsBlocker
+import morningentree.morphe.patches.shared.misc.hosts.HostsBlockerConfig
+import morningentree.morphe.patches.shared.misc.hosts.baseHostsBlockerPatch
 import java.io.File
 
 /**
