@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.61.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.61.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;27 patches total
+> **[v1.62.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.62.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;34 patches total
 <details open>
 <summary>📦 Notepad&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -116,6 +116,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Habitica&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 4.10.3 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Marks the account as a subscriber on the client (server-side subscriber benefits like gems/hourglasses are granted by Habitica's server and are not affected). |  |
+
+</details>
+
+<details open>
 <summary>📦 Hobi&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -142,6 +157,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Hydro Coach Pro |  |
+
+</details>
+
+<details open>
+<summary>📦 Lightmeter&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.5.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Lightmeter Pro. Use With Spoof Install Source. |  |
 
 </details>
 
@@ -236,6 +266,51 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 TheFor&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.4.6 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks TheFor Pro. Use With Spoof Install Source. |  |
+
+</details>
+
+<details open>
+<summary>📦 Tide&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 5.6.2 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Tide VIP membership on the client. |  |
+
+</details>
+
+<details open>
+<summary>📦 Flud&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.0.13-beta02 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Remove Ads](#remove-ads) | Removes all ads in Flud. |  |
+
+</details>
+
+<details open>
 <summary>📦 Legs Workout - Women Legs Training&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -251,6 +326,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 nzb360&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 24.1 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Unlock All Access](#unlock-all-access) | Unlocks All Access in nzb360. |  |
+
+</details>
+
+<details open>
 <summary>📦 OldRoll&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -262,6 +352,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Unlock All Cameras](#unlock-all-cameras) | Unlocks every OldRoll camera and lifetime Pro, spoofs the app's signature/license verdict to "genuine", and disables the modified-app (anti-piracy) popup that otherwise closes the re-signed build on launch. |  |
+
+</details>
+
+<details open>
+<summary>📦 Bluetooth Volume Manager&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 3.4.3 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Unlock Pro](#unlock-pro) | Unlocks the Pro |  |
 
 </details>
 
