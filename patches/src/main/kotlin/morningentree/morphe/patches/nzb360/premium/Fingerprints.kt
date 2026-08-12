@@ -3,7 +3,7 @@ package morningentree.morphe.patches.nzb360.premium
 import app.morphe.patcher.Fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-val IsAASubscriptionActiveFingerprint = Fingerprint(
+internal object IsAASubscriptionActiveFingerprint : Fingerprint(
     definingClass = "Lcom/kevinforeman/nzb360/helpers/NZB360LicenseHelper;",
     name = "isAASubscriptionActive",
     parameters = listOf(),
@@ -11,7 +11,7 @@ val IsAASubscriptionActiveFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
 )
 
-val IsUnlockedFingerprint = Fingerprint(
+internal object IsUnlockedFingerprint : Fingerprint(
     definingClass = "Lcom/kevinforeman/nzb360/helpers/NZB360LicenseHelper;",
     name = "isUnlocked",
     parameters = listOf(
@@ -22,7 +22,7 @@ val IsUnlockedFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
 )
 
-val IsLockedTwoArgFingerprint = Fingerprint(
+internal object IsLockedTwoArgFingerprint : Fingerprint(
     definingClass = "Lcom/kevinforeman/nzb360/helpers/NZB360LicenseHelper;",
     name = "isLocked",
     parameters = listOf(
@@ -33,7 +33,7 @@ val IsLockedTwoArgFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
 )
 
-val IsLockedOneArgFingerprint = Fingerprint(
+internal object IsLockedOneArgFingerprint : Fingerprint(
     definingClass = "Lcom/kevinforeman/nzb360/helpers/NZB360LicenseHelper;",
     name = "isLocked",
     parameters = listOf("Lcom/kevinforeman/nzb360/helpers/NZB360LicenseHelper\$Service;"),
@@ -44,7 +44,7 @@ val IsLockedOneArgFingerprint = Fingerprint(
 // UpgradeCenterKt.SubscriptionSection — mutableStateOf("Monthly") initial plan seed.
 // Matching on "Monthly" string; patch changes it to "Yearly" so the toggle
 // opens on the yearly plan by default.
-val SubscriptionSectionDefaultPlanFingerprint = Fingerprint(
+internal object SubscriptionSectionDefaultPlanFingerprint : Fingerprint(
     definingClass = "Lcom/kevinforeman/nzb360/upgradecenter/UpgradeCenterKt;",
     name = "SubscriptionSection",
     strings = listOf("Monthly"),
@@ -52,7 +52,7 @@ val SubscriptionSectionDefaultPlanFingerprint = Fingerprint(
 
 // Contract$UIState.isSubscribed()Z
 // Read by UpgradeCenter composable to decide whether to show the paywall or "already subscribed" UI.
-val IsSubscribedFingerprint = Fingerprint(
+internal object IsSubscribedFingerprint : Fingerprint(
     definingClass = "Lcom/kevinforeman/nzb360/upgradecenter/Contract\$UIState;",
     name = "isSubscribed",
     parameters = listOf(),

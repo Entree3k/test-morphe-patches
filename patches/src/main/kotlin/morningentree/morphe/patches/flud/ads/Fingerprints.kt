@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 // Layer 1: AdViewHelper.loadAds() (s13.a) — loads both AdMob interstitial and banner.
 // Unique: only method in the app containing the AdMob interstitial unit ID.
-val AdLoaderFingerprint = Fingerprint(
+internal object AdLoaderFingerprint : Fingerprint(
     strings = listOf("ca-app-pub-8308447967239879/5050482671"),
     returnType = "V",
     parameters = emptyList(),
@@ -15,7 +15,7 @@ val AdLoaderFingerprint = Fingerprint(
 
 // Layer 2: AdViewHelper.maybeShowInterstitial() (s13.b) — decides when to show the
 // interstitial and calls InterstitialAd.show(). Unique via "interstitial_minimum_triggers".
-val InterstitialTriggerFingerprint = Fingerprint(
+internal object InterstitialTriggerFingerprint : Fingerprint(
     strings = listOf("interstitial_minimum_triggers"),
     returnType = "Ljava/lang/Object;",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -28,7 +28,7 @@ val InterstitialTriggerFingerprint = Fingerprint(
 )
 
 // Layer 3: PairIP LicenseClient.checkLicense(Context) — static entry for license check.
-val LicenseClientFingerprint = Fingerprint(
+internal object LicenseClientFingerprint : Fingerprint(
     definingClass = "Lcom/pairip/licensecheck/LicenseClient;",
     name = "checkLicense",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
@@ -37,7 +37,7 @@ val LicenseClientFingerprint = Fingerprint(
 )
 
 // Layer 4: PairIP LicenseActivity kill-switch.
-val LicenseActivityOnCreateFingerprint = Fingerprint(
+internal object LicenseActivityOnCreateFingerprint : Fingerprint(
     definingClass = "Lcom/pairip/licensecheck/LicenseActivity;",
     name = "onCreate",
     accessFlags = listOf(AccessFlags.PUBLIC),
