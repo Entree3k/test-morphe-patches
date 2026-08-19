@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.62.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.62.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;34 patches total
+> **[v1.63.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.63.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;34 patches total
 <details open>
 <summary>📦 Notepad&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.62.0",
+  "version": "1.63.0",
   "patches": [
     {
       "name": "Block tracking hosts",
@@ -41,12 +41,15 @@
         {
           "key": "packageName",
           "title": "Package name",
-          "description": "Type any word (e.g. \"clone\") to append it as \".clone\", a suffix starting with \".\", or a full replacement package name. Defaults to appending \".entree\".",
+          "description": "Pick a preset from the dropdown (e.g. \".clone\", \".clone2\", \".clone3\") to install several copies of the same app side by side, or type any word (e.g. \"clone\") to append it as \".clone\", a suffix starting with \".\", or a full replacement package name. Defaults to appending \".entree\".",
           "required": true,
           "type": "kotlin.String",
           "default": ".entree",
           "values": {
-            "Append \".entree\"": ".entree"
+            "Append \".entree\"": ".entree",
+            "Clone (append \".clone\")": ".clone",
+            "Clone 2 (append \".clone2\")": ".clone2",
+            "Clone 3 (append \".clone3\")": ".clone3"
           }
         },
         {
