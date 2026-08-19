@@ -39,10 +39,15 @@ val changePackageNamePatch = resourcePatch(
         default = DEFAULT_SUFFIX,
         values = mapOf(
             "Append \"$DEFAULT_SUFFIX\"" to DEFAULT_SUFFIX,
+            "Clone (append \".clone\")" to ".clone",
+            "Clone 2 (append \".clone2\")" to ".clone2",
+            "Clone 3 (append \".clone3\")" to ".clone3",
         ),
         title = "Package name",
-        description = "Type any word (e.g. \"clone\") to append it as \".clone\", a suffix " +
-            "starting with \".\", or a full replacement package name. Defaults to appending " +
+        description = "Pick a preset from the dropdown (e.g. \".clone\", \".clone2\", " +
+            "\".clone3\") to install several copies of the same app side by side, or type " +
+            "any word (e.g. \"clone\") to append it as \".clone\", a suffix starting with " +
+            "\".\", or a full replacement package name. Defaults to appending " +
             "\"$DEFAULT_SUFFIX\".",
         required = true,
     ) { value ->
