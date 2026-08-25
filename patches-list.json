@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.63.0",
+  "version": "1.64.0",
   "patches": [
     {
       "name": "Block tracking hosts",
@@ -30,6 +30,39 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Bypass Pairip License Check",
+      "description": "Disables client-side Pairip installer and enforcement",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.slowlyapp",
+          "name": "Slowly",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5A5F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.5.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "9.5.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
     },
     {
       "name": "Change package name",
@@ -687,6 +720,62 @@
       "options": []
     },
     {
+      "name": "GmsCore support (MicroG)",
+      "description": "Routes Google Play Services calls through MicroG instead of real GPS.\n\nWorks for: Google apps (YouTube, Maps, News, Photos) and third-party apps using classic Google Sign-In (Android 13 and below).\n\nDoes not work for: Android 14+ Credential Manager sign-in (most modern third-party apps), Play Integrity / SafetyNet checks, or apps with custom auth.\n\nRequires MicroG RE installed. Apply with the original app certificate patch.",
+      "default": false,
+      "dependencies": [
+        "RawResourcePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": null,
+      "options": [
+        {
+          "key": "gmsCoreVendor",
+          "title": "MicroG package name",
+          "description": "Which MicroG / GmsCore app is installed on your device. Check your device's app list for \"MicroG\" or \"GmsCore\" if unsure — most users should leave this as the default.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "app.revanced.android.gms",
+          "values": {
+            "app.revanced.android.gms (default)": "app.revanced.android.gms",
+            "app.morphe.android.gms": "app.morphe.android.gms",
+            "app.morphe.manager": "app.morphe.manager",
+            "app.revanced.manager": "app.revanced.manager",
+            "app.rvx.manager": "app.rvx.manager",
+            "com.google.android.gms": "com.google.android.gms",
+            "org.microg.gms": "org.microg.gms"
+          }
+        },
+        {
+          "key": "mainActivityName",
+          "title": "Main activity class (optional)",
+          "description": "The app's main Activity class name ending with a semicolon, e.g. /MainActivity; Used to inject the MicroG check at startup. Leave blank for auto-detection.",
+          "required": false,
+          "type": "kotlin.String",
+          "default": null,
+          "values": null
+        },
+        {
+          "key": "packageName",
+          "title": "Custom package name (optional)",
+          "description": "Rename the app to this package name. Leave blank to keep the original. Must be a valid package name (e.g. com.example.myapp).",
+          "required": false,
+          "type": "kotlin.String",
+          "default": null,
+          "values": null
+        },
+        {
+          "key": "spoofedPackageSignature",
+          "title": "Spoofed signing certificate SHA-256 (optional)",
+          "description": "Overrides the auto-computed SHA-256 written to SPOOFED_PACKAGE_SIGNATURE. Leave blank to derive it from the original app's certificate automatically.",
+          "required": false,
+          "type": "kotlin.String",
+          "default": null,
+          "values": null
+        }
+      ]
+    },
+    {
       "name": "Provide original app certificate",
       "description": "Extracts and Base64-encodes the original app's signing certificate. Applied automatically by 'Spoof signature verification'; you normally do not need to touch it. Use 'Certificate source' to control where the certificate comes from.",
       "default": false,
@@ -783,6 +872,80 @@
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Reset trial period",
+      "description": "Makes apps see themselves as freshly installed (spoofs the install/update time to the current time) so time-limited trials that count days since install never expire. Does not affect trials validated on a server or stored in the app's own saved timestamp.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Slowly avatar builder items",
+      "description": "Enables Avatar Builder items marked as subscription-only without changing coin-priced item checks.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.slowlyapp",
+          "name": "Slowly",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5A5F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.5.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "9.5.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Slowly extended Explore filters",
+      "description": "Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.slowlyapp",
+          "name": "Slowly",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5A5F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.5.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "9.5.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
       "options": []
     },
     {

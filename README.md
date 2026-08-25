@@ -9,7 +9,24 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.63.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.63.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;34 patches total
+> **[v1.64.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.64.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;39 patches total
+<details open>
+<summary>📦 Slowly&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 9.5.6 | 9.5.8 |
+| :---: | :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Pairip License Check](#bypass-pairip-license-check) | Disables client-side Pairip installer and enforcement |  |
+| [Slowly avatar builder items](#slowly-avatar-builder-items) | Enables Avatar Builder items marked as subscription-only without changing coin-priced item checks. |  |
+| [Slowly extended Explore filters](#slowly-extended-explore-filters) | Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits. |  |
+
+</details>
+
 <details open>
 <summary>📦 Notepad&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -371,7 +388,7 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;10 patches</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;12 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -380,8 +397,10 @@ Patches for apps I like.
 | [Change package name](#change-package-name) | Renames the app (default: append ".entree") so it installs as a clone next to the original. The name is configurable. Changing a package name can lead to unexpected issues. | • Package name<br>• Update permissions<br>• Update other permissions<br>• Update content providers |
 | [Disable Pairip protection](#disable-pairip-protection) | Neutralizes Pairip's client-side signature and license checks so the re-signed APK launches instead of crashing. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity attestation. | • Gut Pairip VM (advanced) |
 | [Disable analytics & ad tracking](#disable-analytics-ad-tracking) | Turns off Firebase / Google Analytics collection and removes the advertising-ID and ad-services permissions. Blocks ad personalization and analytics opt-in without cutting off the app's legitimate network features. Pair with a host blocker to also stop the traffic. |  |
+| [GmsCore support (MicroG)](#gmscore-support-microg) | Routes Google Play Services calls through MicroG instead of real GPS.<br><br>Works for: Google apps (YouTube, Maps, News, Photos) and third-party apps using classic Google Sign-In (Android 13 and below).<br><br>Does not work for: Android 14+ Credential Manager sign-in (most modern third-party apps), Play Integrity / SafetyNet checks, or apps with custom auth.<br><br>Requires MicroG RE installed. Apply with the original app certificate patch. | • MicroG package name<br>• Main activity class (optional)<br>• Custom package name (optional)<br>• Spoofed signing certificate SHA-256 (optional) |
 | [Provide original app certificate](#provide-original-app-certificate) | Extracts and Base64-encodes the original app's signing certificate. Applied automatically by 'Spoof signature verification'; you normally do not need to touch it. Use 'Certificate source' to control where the certificate comes from. | • Certificate source<br>• Original APK file |
 | [Remove internet permission](#remove-internet-permission) | Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline. |  |
+| [Reset trial period](#reset-trial-period) | Makes apps see themselves as freshly installed (spoofs the install/update time to the current time) so time-limited trials that count days since install never expire. Does not affect trials validated on a server or stored in the app's own saved timestamp. |  |
 | [Spoof install source](#spoof-install-source) | Makes the app think it was installed from a specific store (default: Google Play). Useful when an app blocks features or errors because it detects it was not installed from the Play Store. Only affects what the app sees, not the real system record. | • Store to impersonate |
 | [Spoof signature verification](#spoof-signature-verification) | Spoofs the signature verification | • Package name<br>• Base64-encoded signature |
 | [Unlock RevenueCat](#unlock-revenuecat) | (TESTING) Premium patch for apps that use RevenueCat. Probably Won't Work Most Apps |  |
