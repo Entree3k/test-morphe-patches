@@ -9,7 +9,23 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.64.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.64.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;39 patches total
+> **[v1.65.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.65.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;46 patches total
+<details open>
+<summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Always incognito mode](#always-incognito-mode) | Always opens Gboard in incognito mode to disable typing-history collection and personalization, while keeping clipboard and voice typing working in incognito. |  |
+| [Block tracking and analytics](#block-tracking-and-analytics) | Redirects Gboard's known tracking, analytics, and ad host to 0.0.0.0. Note: telemetry sent through Google Play Services is not affected; use the always-incognito patch for that. | • Wildcard blocking |
+| [Change package name](#change-package-name) | Installs Gboard as a clone by appending ".clone" to the package name (configurable), so it installs next to the stock Gboard. Changing an app's package name can lead to unexpected issues. | • Package name<br>• Update permissions<br>• Update other permissions<br>• Update content providers |
+| [Disable telemetry & federated learning](#disable-telemetry-federated-learning) | Forces Gboard's "Improve Gboard" / usage-statistics and federated-learning flags off at startup, regardless of the in-app settings, so your typing is not used for training or metrics. Best combined with the "Network privacy" patch. |  |
+| [Network privacy](#network-privacy) | Controls what Gboard is allowed to talk to. Choose a network level: block only telemetry (keep all features), lock it down to GIFs and voice typing only, or block all internet access. | • Network level<br>• Wildcard blocking |
+| [Remove promotional banners](#remove-promotional-banners) | Hides Gboard's in-keyboard promotional / "try this feature" banners by forcing their promo flags off. Does not disable the underlying features, only their nag banners. |  |
+| [Toggle feature flags](#toggle-feature-flags) | Turn Gboard feature flags on or off. Tap features from the curated lists, or enter any flag name yourself. Unknown or already-default flags are skipped safely. | • Enable features<br>• Disable features<br>• Custom flags (advanced)<br>• Turn custom flags ON |
+
+</details>
+
 <details open>
 <summary>📦 Slowly&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>

@@ -1,7 +1,79 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.64.0",
+  "version": "1.65.0",
   "patches": [
+    {
+      "name": "Always incognito mode",
+      "description": "Always opens Gboard in incognito mode to disable typing-history collection and personalization, while keeping clipboard and voice typing working in incognito.",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Block tracking and analytics",
+      "description": "Redirects Gboard's known tracking, analytics, and ad host to 0.0.0.0. Note: telemetry sent through Google Play Services is not affected; use the always-incognito patch for that.",
+      "default": false,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "isWildcard",
+          "title": "Wildcard blocking",
+          "description": "When enabled, an entry like \"example.com\" also blocks subdomains such as \"www.example.com\".",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        }
+      ]
+    },
     {
       "name": "Block tracking hosts",
       "description": "Redirects known tracking, analytics, and ad host literals to 0.0.0.0 using a built-in blocklist, optionally extended with your own hosts file. Only affects hosts that appear as literal strings in the app; telemetry sent through Google Play Services is not affected.",
@@ -115,6 +187,74 @@
       ]
     },
     {
+      "name": "Change package name",
+      "description": "Installs Gboard as a clone by appending \".clone\" to the package name (configurable), so it installs next to the stock Gboard. Changing an app's package name can lead to unexpected issues.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "packageName",
+          "title": "Package name",
+          "description": "The package name to rename the app to. \"Default\" appends \".clone\".",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "Default",
+          "values": {
+            "Default": "Default"
+          }
+        },
+        {
+          "key": "updatePermissions",
+          "title": "Update permissions",
+          "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but can also break features in certain apps.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        },
+        {
+          "key": "updateOtherPermissions",
+          "title": "Update other permissions",
+          "description": "Update other permissions declared by the app. Enabling this can fix installation errors, but can also break features in certain apps.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        },
+        {
+          "key": "updateProviders",
+          "title": "Update content providers",
+          "description": "Update content provider URI authorities. Enabling this can fix installation errors, but can also break features in certain apps.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        }
+      ]
+    },
+    {
       "name": "Disable Pairip protection",
       "description": "Neutralizes Pairip's client-side signature and license checks so the re-signed APK launches instead of crashing. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity attestation.",
       "default": false,
@@ -138,6 +278,37 @@
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Disable telemetry & federated learning",
+      "description": "Forces Gboard's \"Improve Gboard\" / usage-statistics and federated-learning flags off at startup, regardless of the in-app settings, so your typing is not used for training or metrics. Best combined with the \"Network privacy\" patch.",
+      "default": false,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
       "options": []
     },
     {
@@ -776,6 +947,61 @@
       ]
     },
     {
+      "name": "Network privacy",
+      "description": "Controls what Gboard is allowed to talk to. Choose a network level: block only telemetry (keep all features), lock it down to GIFs and voice typing only, or block all internet access.",
+      "default": false,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "gboardNetworkLevel",
+          "title": "Network level",
+          "description": "How much of Gboard's network access to cut. \"Telemetry only\" keeps every feature working. \"Privacy lockdown\" keeps GIF search and cloud voice typing but blocks everything else. \"Block all internet\" removes network access entirely.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "telemetry",
+          "values": {
+            "Block telemetry only": "telemetry",
+            "Allow only GIFs & voice typing)": "lockdown",
+            "Block all internet": "block_all"
+          }
+        },
+        {
+          "key": "isWildcard",
+          "title": "Wildcard blocking",
+          "description": "When enabled, a blocked entry like \"example.com\" also covers subdomains such as \"sub.example.com\".",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
+          "values": null
+        }
+      ]
+    },
+    {
       "name": "Provide original app certificate",
       "description": "Extracts and Base64-encodes the original app's signing certificate. Applied automatically by 'Spoof signature verification'; you normally do not need to touch it. Use 'Certificate source' to control where the certificate comes from.",
       "default": false,
@@ -872,6 +1098,37 @@
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
+      "options": []
+    },
+    {
+      "name": "Remove promotional banners",
+      "description": "Hides Gboard's in-keyboard promotional / \"try this feature\" banners by forcing their promo flags off. Does not disable the underlying features, only their nag banners.",
+      "default": false,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
       "options": []
     },
     {
@@ -1001,6 +1258,178 @@
           "required": true,
           "type": "kotlin.String",
           "default": "Default",
+          "values": null
+        }
+      ]
+    },
+    {
+      "name": "Toggle feature flags",
+      "description": "Turn Gboard feature flags on or off. Tap features from the curated lists, or enter any flag name yourself. Unknown or already-default flags are skipped safely.",
+      "default": false,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.inputmethod.latin",
+          "name": "Gboard",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": null,
+          "signatures": [
+            "7ce83c1b71f3d572fed04c8d40c5cb10ff75e6d87d9df6fbd53f0468c2905053",
+            "f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83"
+          ],
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "gboardEnableFeatures",
+          "title": "Enable features",
+          "description": "Tap the features you want turned ON.",
+          "required": false,
+          "type": "kotlin.collections.List<kotlin.String>",
+          "default": [],
+          "values": {
+            "Email suggestions (from device accounts)": [
+              "enable_email_provider_completion"
+            ],
+            "Android Autofill in keyboard": [
+              "enable_autofill_ime_integration"
+            ],
+            "Number row": [
+              "enable_number_row"
+            ],
+            "Fast access bar (symbols row)": [
+              "enable_fast_access_bar"
+            ],
+            "Grammar checker": [
+              "enable_grammar_checker"
+            ],
+            "Multilingual typing": [
+              "enable_multilingual_typing"
+            ],
+            "Settings search": [
+              "enable_settings_search"
+            ],
+            "AI writing tools": [
+              "enable_writing_tools_v2"
+            ],
+            "Emojify (text to emoji)": [
+              "enable_emojify"
+            ],
+            "Semantic emoji search": [
+              "enable_semantic_emoji"
+            ],
+            "Proactive Emoji Kitchen": [
+              "enable_proactive_emoji_kitchen"
+            ],
+            "Expression moment stickers": [
+              "enable_expression_moment"
+            ],
+            "Sticker predictions while typing": [
+              "enable_sticker_predictions_while_typing"
+            ],
+            "Dynamic art stickers": [
+              "enable_dynamic_art"
+            ],
+            "Trending GIFs": [
+              "enable_tenor_trending_gifs"
+            ],
+            "Text conversion (CJK)": [
+              "enable_text_conversion"
+            ],
+            "Split keyboard (large tablet)": [
+              "enable_split_keyboard_on_tablet_large"
+            ]
+          }
+        },
+        {
+          "key": "gboardDisableFeatures",
+          "title": "Disable features",
+          "description": "Tap the features you want turned OFF.",
+          "required": false,
+          "type": "kotlin.collections.List<kotlin.String>",
+          "default": [],
+          "values": {
+            "Email suggestions (from device accounts)": [
+              "enable_email_provider_completion"
+            ],
+            "Android Autofill in keyboard": [
+              "enable_autofill_ime_integration"
+            ],
+            "Number row": [
+              "enable_number_row"
+            ],
+            "Fast access bar (symbols row)": [
+              "enable_fast_access_bar"
+            ],
+            "Grammar checker": [
+              "enable_grammar_checker"
+            ],
+            "Multilingual typing": [
+              "enable_multilingual_typing"
+            ],
+            "Settings search": [
+              "enable_settings_search"
+            ],
+            "AI writing tools": [
+              "enable_writing_tools_v2"
+            ],
+            "Emojify (text to emoji)": [
+              "enable_emojify"
+            ],
+            "Semantic emoji search": [
+              "enable_semantic_emoji"
+            ],
+            "Proactive Emoji Kitchen": [
+              "enable_proactive_emoji_kitchen"
+            ],
+            "Expression moment stickers": [
+              "enable_expression_moment"
+            ],
+            "Sticker predictions while typing": [
+              "enable_sticker_predictions_while_typing"
+            ],
+            "Dynamic art stickers": [
+              "enable_dynamic_art"
+            ],
+            "Trending GIFs": [
+              "enable_tenor_trending_gifs"
+            ],
+            "Text conversion (CJK)": [
+              "enable_text_conversion"
+            ],
+            "Split keyboard (large tablet)": [
+              "enable_split_keyboard_on_tablet_large"
+            ]
+          }
+        },
+        {
+          "key": "gboardCustomFlags",
+          "title": "Custom flags (advanced)",
+          "description": "Enter any Gboard flag name(s) not in the lists above. Use the toggle below to choose whether these are turned on or off.",
+          "required": false,
+          "type": "kotlin.collections.List<kotlin.String>",
+          "default": [],
+          "values": null
+        },
+        {
+          "key": "gboardEnableCustomFlags",
+          "title": "Turn custom flags ON",
+          "description": "When enabled, the custom flags above are turned on; when disabled, off.",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": true,
           "values": null
         }
       ]
