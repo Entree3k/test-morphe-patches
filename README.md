@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.65.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.65.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;46 patches total
+> **[v1.66.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.66.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;47 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
@@ -355,6 +355,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Remove Ads](#remove-ads) | Removes All ADs |  |
+
+</details>
+
+<details open>
+<summary>📦 Step Up&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 5.0.71 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Spoof step count](#spoof-step-count) | Multiplies your real step count by a chosen factor (2x/4x/5x/10x) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement. | • Step multiplier |
 
 </details>
 

@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.65.0",
+  "version": "1.66.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -1259,6 +1259,47 @@
           "type": "kotlin.String",
           "default": "Default",
           "values": null
+        }
+      ]
+    },
+    {
+      "name": "Spoof step count",
+      "description": "Multiplies your real step count by a chosen factor (2x/4x/5x/10x) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.thestepupapp.stepup",
+          "name": "Step Up",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#4CAF50",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "5.0.71",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "stepMultiplier",
+          "title": "Step multiplier",
+          "description": "How much to multiply your real steps by. Higher factors are more likely to look implausible to the app's server-side anomaly checks — 2x is the safest choice.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "2",
+          "values": {
+            "2x (recommended — most plausible)": "2",
+            "4x": "4",
+            "5x": "5",
+            "10x (aggressive — easiest to flag)": "10"
+          }
         }
       ]
     },
