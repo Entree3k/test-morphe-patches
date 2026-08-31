@@ -6,28 +6,6 @@ import app.morphe.patcher.patch.stringOption
 import morningentree.morphe.patches.stepup.shared.Constants
 import java.util.logging.Logger
 
-/**
- * Multiplies the phone's measured step count by a chosen factor.
- *
- * Step Up reads today's cumulative steps from whichever tracker you selected (the "Phone"
- * option is Google's on-device Fitness Recording API; "Health Connect" is Google's Fit
- * successor) and every source funnels the fresh count through one method,
- * `GenericTrackerHelper.a(...)`, before it is displayed, stored and synced. This patch scales
- * that single value, so the boost is applied exactly once and stays internally consistent:
- * the number shown in-app, the number persisted locally, and the number uploaded to the
- * leaderboard are all the same multiple of your real steps.
- *
- * Consistency matters for staying under the radar. The app's own `InflatedStepsMonitor`
- * compares the client's stored step count against the server's — both of which now reflect
- * the multiplied value — so a uniform multiplier does not create the client/server divergence
- * it looks for. The multiplier is proportional (2x of zero is still zero), so it never
- * fabricates steps out of no movement, which is what the "no steps from sensor" watchdog flags.
- *
- * Caveats worth knowing: this is a social/competitive app with a server backend and anomaly
- * telemetry (reported to the operators via Crashlytics). A modest factor that still looks human
- * is far safer than a large one; 10x of a normal day is not a plausible human number and is the
- * kind of thing a backend fraud check can act on. Choose accordingly.
- */
 @Suppress("unused")
 val spoofStepCountPatch = bytecodePatch(
     name = "Spoof step count",
@@ -42,6 +20,7 @@ val spoofStepCountPatch = bytecodePatch(
         default = "2",
         values = mapOf(
             "2x (recommended — most plausible)" to "2",
+            "3x" to "3",
             "4x" to "4",
             "5x" to "5",
             "10x (aggressive — easiest to flag)" to "10",
@@ -50,12 +29,12 @@ val spoofStepCountPatch = bytecodePatch(
         description = "How much to multiply your real steps by. Higher factors are more likely to " +
             "look implausible to the app's server-side anomaly checks — 2x is the safest choice.",
         required = true,
-    ) { it in setOf("2", "4", "5", "10") }
+    ) { it in setOf("2", "3", "4", "5", "10") }
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)
 
-        // Constrained by the option validator to {2,4,5,10}; all fit mul-int/lit8's -128..127 range.
+        // Constrained by the option validator to {2,3,4,5,10}; all fit mul-int/lit8's -128..127 range.
         val factor = multiplier?.toIntOrNull() ?: 2
 
         // Inject at index 0: multiply the incoming step count (p8, an Integer) by `factor`, then
