@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.66.0",
+  "version": "1.67.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -1264,7 +1264,7 @@
     },
     {
       "name": "Spoof step count",
-      "description": "Multiplies your real step count by a chosen factor (2x/4x/5x/10x) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement.",
+      "description": "Multiplies your real step count by a chosen factor (2x/3x/4x/5x/10x) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -1296,6 +1296,7 @@
           "default": "2",
           "values": {
             "2x (recommended — most plausible)": "2",
+            "3x": "3",
             "4x": "4",
             "5x": "5",
             "10x (aggressive — easiest to flag)": "10"
