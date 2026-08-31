@@ -37,7 +37,7 @@ val spoofStepCountPatch = bytecodePatch(
         // Constrained by the option validator to {2,3,4,5,10}; all fit mul-int/lit8's -128..127 range.
         val factor = multiplier?.toIntOrNull() ?: 2
 
-        // Inject at index 0: multiply the incoming step count (p8, an Integer) by `factor`, then
+        // Inject at - index 0: multiply the incoming step count (p8, an Integer) by `factor`, then
         // let the existing `move-object/from16 v3, p8` pick up the boosted value. p8 is null-guarded
         // so the app's existing "trackerSteps is null" failure path is left untouched. At method
         // entry v0 is a free local (.locals 11, none assigned yet), used here as scratch.
