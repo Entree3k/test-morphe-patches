@@ -9,7 +9,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val spoofStepCountPatch = bytecodePatch(
     name = "Spoof step count",
-    description = "Multiplies your real step count by a chosen factor (2x/4x/5x/10x) at the single " +
+    description = "Multiplies your real step count by a chosen factor (2x/3x/4x/5x/10x) at the single " +
         "point every tracker source funnels through. Boost is consistent across the in-app display, " +
         "local storage and the leaderboard upload. Proportional to real movement.",
 ) {
