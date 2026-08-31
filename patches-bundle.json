@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-08-31T19:27:35",
-  "description": "## [1.67.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.66.0...v1.67.0) (2026-08-31)\n\n### ✨ New Features\n\n* test ([d86b024](https://github.com/Entree3k/test-morphe-patches/commit/d86b0243be23c315f4ab418cd84937c02793f71c))\n* update ([5117a81](https://github.com/Entree3k/test-morphe-patches/commit/5117a815aaa78ccac7d55dfe721d91f70cde22e8))",
-  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.67.0/patches-1.67.0.mpp",
+  "created_at": "2026-08-31T19:34:16",
+  "description": "## [1.68.0](https://github.com/Entree3k/test-morphe-patches/compare/v1.67.0...v1.68.0) (2026-08-31)\n\n### ✨ New Features\n\n* update ([7b86c8a](https://github.com/Entree3k/test-morphe-patches/commit/7b86c8a78e9852d3515a263834d6f8c6cc303de3))",
+  "download_url": "https://github.com/Entree3k/test-morphe-patches/releases/download/v1.68.0/patches-1.68.0.mpp",
   "signature_download_url": "",
-  "version": "1.67.0"
+  "version": "1.68.0"
 }
