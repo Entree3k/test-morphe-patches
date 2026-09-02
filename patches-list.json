@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.70.0",
+  "version": "1.71.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -419,7 +419,7 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Droplert premium (RevenueCat \"premium\" entitlement) by forcing the app's own premium-override flag, which every premium check falls back to. Use with Spoof Install Source.",
+      "description": "Unlocks Droplert premium (lifetime) by forcing the RevenueCat state refresh to publish the PREMIUM tier regardless of the real \"premium\" entitlement. Use with Spoof Install Source.",
       "default": true,
       "dependencies": [
         "BytecodePatch"
@@ -548,34 +548,6 @@
           "targets": [
             {
               "version": "2.0.5",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Fylo — File Manager Pro (all Pro and AI features) by forcing the app's own DebugFeatureUnlock switch, which drives the app-wide isPro/entitlement state. Use with Spoof Install Source.",
-      "default": true,
-      "dependencies": [
-        "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.aeroloom.fylofilemanager",
-          "name": "Fylo — File Manager",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#3DDC84",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.9",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -936,6 +908,34 @@
             },
             {
               "version": "5.6.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Pro",
+      "description": "Unlocks Fylo File Manager Pro",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.aeroloom.fylofilemanager",
+          "name": "Fylo — File Manager",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#3DDC84",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.9",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
