@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.68.0",
+  "version": "1.69.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -1264,7 +1264,7 @@
     },
     {
       "name": "Spoof step count",
-      "description": "Multiplies your real step count by a chosen factor (2x/3x/4x/5x/10x) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement.",
+      "description": "Multiplies your real step count by a chosen factor (whole or decimal, e.g. 2, 2.5, 3, 10) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
@@ -1290,13 +1290,17 @@
         {
           "key": "stepMultiplier",
           "title": "Step multiplier",
-          "description": "How much to multiply your real steps by. Higher factors are more likely to look implausible to the app's server-side anomaly checks — 2x is the safest choice.",
+          "description": "How much to multiply your real steps by. Whole numbers or decimals are both accepted (1.0–20.0). Higher factors are more likely to look implausible to the app's server-side anomaly checks — a modest 2x–2.5x is the safest choice.",
           "required": true,
           "type": "kotlin.String",
           "default": "2",
           "values": {
             "2x (recommended — most plausible)": "2",
+            "2.3x": "2.3",
+            "2.5x": "2.5",
             "3x": "3",
+            "3.2x": "3.2",
+            "3.5x": "3.5",
             "4x": "4",
             "5x": "5",
             "10x (aggressive — easiest to flag)": "10"
