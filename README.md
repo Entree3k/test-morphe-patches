@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.69.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.69.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;47 patches total
+> **[v1.70.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.70.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;49 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
@@ -89,6 +89,21 @@ Patches for apps I like.
 </details>
 
 <details open>
+<summary>📦 Droplert&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.2.1 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Droplert premium (RevenueCat "premium" entitlement) by forcing the app's own premium-override flag, which every premium check falls back to. Use with Spoof Install Source. |  |
+
+</details>
+
+<details open>
 <summary>📦 Dumbbell Workout at Home&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -145,6 +160,21 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks FlowStack premium by forcing RevenueCat to report an active entitlement. |  |
+
+</details>
+
+<details open>
+<summary>📦 Fylo — File Manager&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 1.9 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Enable Premium](#enable-premium) | Unlocks Fylo — File Manager Pro (all Pro and AI features) by forcing the app's own DebugFeatureUnlock switch, which drives the app-wide isPro/entitlement state. Use with Spoof Install Source. |  |
 
 </details>
 
