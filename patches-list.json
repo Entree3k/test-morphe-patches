@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.73.0",
+  "version": "1.74.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -271,6 +271,14 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Disable Pairip startup integrity program",
+      "description": "No-ops StartupLauncher.launch() so Pairip's native startup anti-tamper program never runs, while leaving the functional VM (VMRunner.invoke) intact.",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
     },
     {
       "name": "Disable analytics & ad tracking",
@@ -1166,6 +1174,35 @@
           "targets": [
             {
               "version": "1.2.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Remove device restrictions (dev)",
+      "description": "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.recorder",
+          "name": "Google Recorder",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#EA4335",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
