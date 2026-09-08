@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.71.0",
+  "version": "1.72.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -548,6 +548,34 @@
           "targets": [
             {
               "version": "2.0.5",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Gradient Weather Premium. Use With Spoof Install Source",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.subtlesignals.gradientweather",
+          "name": "Gradient Weather",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#6C7BFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "1.2.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
