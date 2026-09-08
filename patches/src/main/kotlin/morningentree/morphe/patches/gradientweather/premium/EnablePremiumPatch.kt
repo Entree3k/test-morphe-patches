@@ -2,7 +2,6 @@ package morningentree.morphe.patches.gradientweather.premium
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
@@ -17,7 +16,7 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val enablePremiumPatch = bytecodePatch(
-    name = "Enable Premium",
+    name = "Enable Premium (dev)",
     description = "Unlocks Gradient Weather Premium. Use With Spoof Install Source",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
@@ -27,47 +26,63 @@ val enablePremiumPatch = bytecodePatch(
     execute {
         val logger = Logger.getLogger(this::class.java.name)
 
-        InitSubscriptionTierFingerprint.method.apply {
-            val insns = instructions.toList()
-            val stringIndex = insns.indexOfFirst {
-                it.getReference<StringReference>()?.string == "is_lifetime"
-            }
-            if (stringIndex < 0) {
-                throw PatchException("Could not find the is_lifetime pref read in the constructor.")
-            }
-            val moveResultIndex = ((stringIndex + 1) until insns.size).firstOrNull {
-                insns[it].opcode == Opcode.MOVE_RESULT
-            } ?: throw PatchException("Could not find the is_lifetime getBoolean result.")
-            val register = (insns[moveResultIndex] as OneRegisterInstruction).registerA
-            addInstruction(moveResultIndex + 1, "const/4 v$register, 0x1")
-        }
-
         val setter = SetSubscriptionTierFingerprint.method
+        val managerType = setter.definingClass
         val tierEnumType = setter.parameterTypes.first()
 
         var lifetimeField: FieldReference? = null
         classDefForEach { classDef ->
             if (classDef.type != tierEnumType) return@classDefForEach
-            for (method in mutableClassDefBy(classDef).methods) {
+            for (method in classDef.methods) {
                 if (method.name != "<clinit>") continue
                 val insns = method.instructionsOrNull?.toList() ?: continue
                 val nameIndex = insns.indexOfFirst {
                     it.getReference<StringReference>()?.string == "LIFETIME"
                 }
                 if (nameIndex < 0) continue
-                val sputIndex = ((nameIndex + 1) until insns.size).firstOrNull {
-                    insns[it].opcode == Opcode.SPUT_OBJECT &&
-                        insns[it].getReference<FieldReference>()?.type == tierEnumType
+                lifetimeField = ((nameIndex + 1) until insns.size).firstNotNullOfOrNull { i ->
+                    val insn = insns[i]
+                    if (insn.opcode == Opcode.SPUT_OBJECT &&
+                        insn.getReference<FieldReference>()?.type == tierEnumType
+                    ) {
+                        insn.getReference<FieldReference>()
+                    } else {
+                        null
+                    }
+                }
+                break
+            }
+        }
+        val lifetime = lifetimeField
+            ?: throw PatchException("Gradient Weather: could not resolve the LIFETIME tier constant.")
+        val lifetimeRef = "${lifetime.definingClass}->${lifetime.name}:${lifetime.type}"
+
+        setter.addInstructions(0, "sget-object p1, $lifetimeRef")
+        logger.info("Gradient Weather: tier setter pinned to LIFETIME.")
+
+        var seeded = false
+        classDefForEach { classDef ->
+            if (seeded || classDef.type != managerType) return@classDefForEach
+            for (method in mutableClassDefBy(classDef).methods) {
+                val insns = method.instructionsOrNull?.toList() ?: continue
+                val stringIndex = insns.indexOfFirst {
+                    it.getReference<StringReference>()?.string == "is_lifetime"
+                }
+                if (stringIndex < 0) continue
+                val moveResultIndex = ((stringIndex + 1) until insns.size).firstOrNull {
+                    insns[it].opcode == Opcode.MOVE_RESULT
                 } ?: continue
-                lifetimeField = insns[sputIndex].getReference<FieldReference>()
+                val register = (insns[moveResultIndex] as OneRegisterInstruction).registerA
+                method.addInstruction(moveResultIndex + 1, "const/4 v$register, 0x1")
+                seeded = true
                 break
             }
         }
 
-        val ref = lifetimeField
-            ?: throw PatchException("Could not resolve the LIFETIME tier constant.")
-        val smaliReference = "${ref.definingClass}->${ref.name}:${ref.type}"
-        setter.addInstructions(0, "sget-object p1, $smaliReference")
-        logger.info("Gradient Weather: tier seeded and setter pinned to LIFETIME.")
+        if (seeded) {
+            logger.info("Gradient Weather: initial tier seeded to LIFETIME.")
+        } else {
+            logger.warning("Gradient Weather: is_lifetime seed not found; relying on setter pin only.")
+        }
     }
 }
