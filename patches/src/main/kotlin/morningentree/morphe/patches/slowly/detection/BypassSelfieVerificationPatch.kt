@@ -16,7 +16,7 @@ val slowlyBypassSelfieVerificationPatch = bytecodePatch(
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        // Bit 0 of the attestation flags: reported clean so the server does not deny the device.
+        // Bit 0 of attestation flags: reported clean so the server does not deny the device.
         AttestationLooksRootedFingerprint.method.returnEarly(false)
         // Bit 2 of the attestation flags: reported clean (no frida/xposed detected).
         AttestationLooksHookedFingerprint.method.returnEarly(false)
