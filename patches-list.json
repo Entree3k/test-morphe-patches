@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.74.0",
+  "version": "1.75.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -1294,8 +1294,74 @@
       "options": []
     },
     {
+      "name": "Slowly bypass selfie verification",
+      "description": "Neutralizes the root and hook probes that feed Slowly's attestation token (com.slowlyapp.AttestationModule) so a modified/emulated device is no longer flagged as suspicious. This removes the device-fraud trigger that forces the selfie / ID (IDV) verification flow. It does not affect verification that the server mandates by country or for an already-flagged account, which is enforced server-side.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.slowlyapp",
+          "name": "Slowly",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5A5F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.5.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "9.5.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Slowly extended Explore filters",
       "description": "Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.slowlyapp",
+          "name": "Slowly",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5A5F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.5.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "9.5.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Slowly hide emulator",
+      "description": "Reports the device as a physical device by forcing react-native-device-info's isEmulator/isEmulatorSync to return false, so Slowly no longer detects that it is running in an emulator or simulated device.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
