@@ -40,3 +40,18 @@ internal object AttestationLooksHookedFingerprint : Fingerprint(
     returnType = "Z",
     parameters = emptyList(),
 )
+
+/**
+ * Static initializer of @react-native-community/netinfo's connection-type enum.
+ * Each enum constant carries a lowercase `label` that NetInfo hands to JS as
+ * `state.type` ("wifi", "cellular", "vpn", ...). Relabeling the VPN constant here
+ * is a single chokepoint that both the NetworkCallback and Broadcast receivers
+ * funnel through.
+ */
+internal object ConnectionTypeClinitFingerprint : Fingerprint(
+    definingClass = "Lcom/reactnativecommunity/netinfo/types/ConnectionType;",
+    name = "<clinit>",
+    returnType = "V",
+    parameters = emptyList(),
+    strings = listOf("vpn", "wifi", "cellular"),
+)
