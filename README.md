@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.75.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.75.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;54 patches total
+> **[v1.76.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.76.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;55 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
@@ -27,7 +27,7 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Slowly&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
+<summary>📦 Slowly&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -41,6 +41,7 @@ Patches for apps I like.
 | [Slowly avatar builder items](#slowly-avatar-builder-items) | Enables Avatar Builder items marked as subscription-only without changing coin-priced item checks. |  |
 | [Slowly bypass selfie verification](#slowly-bypass-selfie-verification) | Neutralizes the root and hook probes that feed Slowly's attestation token (com.slowlyapp.AttestationModule) so a modified/emulated device is no longer flagged as suspicious. This removes the device-fraud trigger that forces the selfie / ID (IDV) verification flow. It does not affect verification that the server mandates by country or for an already-flagged account, which is enforced server-side. |  |
 | [Slowly extended Explore filters](#slowly-extended-explore-filters) | Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits. |  |
+| [Slowly hide VPN](#slowly-hide-vpn) | Reports an active VPN as an ordinary Wi-Fi connection by relabeling the @react-native-community/netinfo VPN connection type, so Slowly's client-side VPN warning ("Your connection appears to be using a VPN") never triggers. Server-side IP geolocation checks (REG_GEO_USING_VPN) are enforced on the server and are not affected. |  |
 | [Slowly hide emulator](#slowly-hide-emulator) | Reports the device as a physical device by forcing react-native-device-info's isEmulator/isEmulatorSync to return false, so Slowly no longer detects that it is running in an emulator or simulated device. |  |
 
 </details>

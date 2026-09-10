@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.75.0",
+  "version": "1.76.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -1329,6 +1329,39 @@
     {
       "name": "Slowly extended Explore filters",
       "description": "Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.slowlyapp",
+          "name": "Slowly",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#FF5A5F",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "9.5.6",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "9.5.8",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Slowly hide VPN",
+      "description": "Reports an active VPN as an ordinary Wi-Fi connection by relabeling the @react-native-community/netinfo VPN connection type, so Slowly's client-side VPN warning (\"Your connection appears to be using a VPN\") never triggers. Server-side IP geolocation checks (REG_GEO_USING_VPN) are enforced on the server and are not affected.",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
