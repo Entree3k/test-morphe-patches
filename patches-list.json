@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.78.0",
+  "version": "1.79.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -427,9 +427,11 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Bottled Premium. Use With Spoof Install Source.",
+      "description": "Unlocks Bottled Premium.",
       "default": true,
-      "dependencies": [],
+      "dependencies": [
+        "BytecodePatch"
+      ],
       "compatiblePackages": [
         {
           "packageName": "com.bottledapp.bottled",
@@ -997,7 +999,7 @@
           "signatures": null,
           "targets": [
             {
-              "version": "1.9",
+              "version": "2.1",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
