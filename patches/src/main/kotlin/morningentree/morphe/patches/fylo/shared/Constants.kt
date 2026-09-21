@@ -9,7 +9,7 @@ internal object Constants {
         packageName = "com.aeroloom.fylofilemanager",
         appIconColor = 0x3DDC84,
         targets = listOf(
-            AppTarget("1.9"),
+            AppTarget("2.1"),
         ),
     )
 }
