@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.79.0",
+  "version": "1.80.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -711,6 +711,34 @@
             },
             {
               "version": "2.5.0",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Enable Premium",
+      "description": "Unlocks Ling Pro",
+      "default": true,
+      "dependencies": [
+        "RawResourcePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.simyasolutions.ling.universal",
+          "name": "Ling",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": "#F8485E",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "8.9.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
