@@ -21,14 +21,6 @@ private val COLLECTION_FLAGS_OFF = mapOf(
     "google_analytics_default_allow_ad_personalization_signals" to "false",
 )
 
-/**
- * Universal "Disable analytics & ad tracking".
- *
- * Pure manifest work: forces the Firebase / Google Analytics collection meta-data flags off and
- * strips the advertising-ID / ad-services permissions. Works on any app because these keys and
- * permission names are Google-defined, not app-specific. Pairs with "Remove internet permission"
- * (blunt) or "Block tracking hosts" (surgical) to also stop the traffic itself.
- */
 @Suppress("unused")
 val disableAnalyticsPatch = resourcePatch(
     name = "Disable analytics & ad tracking",

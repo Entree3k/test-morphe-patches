@@ -1,0 +1,15 @@
+extension {
+    name = "extensions/__generated__/{{APP}}.mpe"
+}
+
+android {
+    namespace = "morningentree.morphe.extension.{{APP}}"
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
+}
+
+dependencies {
+    compileOnly(project(":extensions:__generated__:{{APP}}:stub"))
+}

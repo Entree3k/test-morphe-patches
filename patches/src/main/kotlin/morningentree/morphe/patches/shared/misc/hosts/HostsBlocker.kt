@@ -7,9 +7,15 @@ import java.net.URI
 /**
  * Parses a hosts/blocklist and answers whether a given host is blocked. Ported from the adobo
  * patches. Supports "hosts file" lines (`0.0.0.0 example.com`), bare domains, and URLs.
+ *
+ * Allowlist support: a line prefixed with `@@` is an allow rule (AdBlock-style). Allow rules win
+ * over block rules, so you can block a broad wildcard (`googleapis.com`) while keeping specific
+ * subdomains reachable (`@@tenor.googleapis.com`). No `@@` lines means identical behaviour to the
+ * original block-only parser.
  */
 class HostsBlocker private constructor(
     private val blocklist: HashSet<String>,
+    private val allowlist: HashSet<String>,
 ) {
     fun isBlocked(
         host: String,
@@ -17,27 +23,32 @@ class HostsBlocker private constructor(
     ): Boolean {
         if (host.isBlank()) return false
 
-        var normalizedHost = normalizeDomain(host)
+        val normalizedHost = normalizeDomain(host)
             .let(::extractHost)
             ?.takeIf(::isHostValid)
             ?: return false
 
-        if (blocklist.contains(normalizedHost)) {
-            return true
-        }
+        // Allow rules win over block rules.
+        if (matches(allowlist, normalizedHost, wildcard)) return false
+        return matches(blocklist, normalizedHost, wildcard)
+    }
+
+    private fun matches(set: Set<String>, host: String, wildcard: Boolean): Boolean {
+        if (set.isEmpty()) return false
+        if (set.contains(host)) return true
         if (!wildcard) return false
 
-        while (normalizedHost.contains(DOT_CHAR)) {
-            normalizedHost = normalizedHost.substringAfter(DOT_CHAR)
-            if (blocklist.contains(normalizedHost)) {
-                return true
-            }
+        var current = host
+        while (current.contains(DOT_CHAR)) {
+            current = current.substringAfter(DOT_CHAR)
+            if (set.contains(current)) return true
         }
         return false
     }
 
     fun close() {
         blocklist.clear()
+        allowlist.clear()
     }
 
     private fun normalizeDomain(domain: String): String {
@@ -76,19 +87,22 @@ class HostsBlocker private constructor(
             "ip6-allhosts",
         )
 
+        private const val ALLOW_PREFIX = "@@"
+
         fun fromString(input: String): HostsBlocker {
             val blocklist = hashSetOf<String>()
-            val lines = input.lineSequence()
-            parseLines(lines, blocklist)
-            return HostsBlocker(blocklist)
+            val allowlist = hashSetOf<String>()
+            parseLines(input.lineSequence(), blocklist, allowlist)
+            return HostsBlocker(blocklist, allowlist)
         }
 
         fun fromFile(file: File): HostsBlocker {
             val blocklist = hashSetOf<String>()
+            val allowlist = hashSetOf<String>()
             file.useLines { lines ->
-                parseLines(lines, blocklist)
+                parseLines(lines, blocklist, allowlist)
             }
-            return HostsBlocker(blocklist)
+            return HostsBlocker(blocklist, allowlist)
         }
 
         fun extractHost(input: String): String? {
@@ -98,11 +112,19 @@ class HostsBlocker private constructor(
 
         private fun parseLines(
             lines: Sequence<String>,
-            out: MutableSet<String>,
+            blockOut: MutableSet<String>,
+            allowOut: MutableSet<String>,
         ) {
             for (line in lines) {
-                val trimmed = line.substringBefore(COMMENT_CHAR).trim()
+                var trimmed = line.substringBefore(COMMENT_CHAR).trim()
                 if (trimmed.isBlank()) continue
+
+                val out = if (trimmed.startsWith(ALLOW_PREFIX)) {
+                    trimmed = trimmed.removePrefix(ALLOW_PREFIX).trim()
+                    allowOut
+                } else {
+                    blockOut
+                }
 
                 val host =
                     extractHost(

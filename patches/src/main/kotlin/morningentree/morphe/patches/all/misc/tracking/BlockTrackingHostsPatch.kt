@@ -9,13 +9,6 @@ import morningentree.morphe.patches.shared.misc.hosts.HostsBlockerConfig
 import morningentree.morphe.patches.shared.misc.hosts.baseHostsBlockerPatch
 import java.io.File
 
-/**
- * Universal "Block tracking hosts".
- *
- * Reuses the app-agnostic [baseHostsBlockerPatch] machinery (ported from adobo) to rewrite known
- * tracking/analytics/ad host literals in the app's own bytecode to 0.0.0.0. Ships with a bundled
- * blocklist ([UNIVERSAL_TRACKING_HOSTS]); an optional user hosts-file path is merged on top.
- */
 @Suppress("unused")
 val blockTrackingHostsPatch = bytecodePatch(
     name = "Block tracking hosts",

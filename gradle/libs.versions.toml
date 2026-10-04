@@ -3,6 +3,17 @@ morphe-patcher = "1.6.0"
 #noinspection GradleDependency
 smali = "d92701d947"
 gson = "2.14.0"
+jte = "3.2.4"
+jelf = "0.12.0"
+kotlinx-serialization-json = "1.11.0"
+native-lib-loader = "2.5.0"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+jte = { module = "gg.jte:jte", version.ref = "jte" }
+jelf = { module = "net.fornwall:jelf", version.ref = "jelf" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+native-lib-loader = { module = "org.scijava:native-lib-loader", version.ref = "native-lib-loader" }
+
+[plugins]
+android-library = { id = "com.android.library" }

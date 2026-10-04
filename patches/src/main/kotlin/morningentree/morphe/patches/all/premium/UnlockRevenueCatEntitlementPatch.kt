@@ -23,7 +23,7 @@ internal object EntitlementInfoIsActiveFingerprint : Fingerprint(
 @Suppress("unused")
 val unlockRevenueCatEntitlementPatch = bytecodePatch(
     name = "Unlock RevenueCat",
-    description = "(TESTING) Premium patch for apps that use RevenueCat. Probably Won't Work Most Apps",
+    description = "Premium patch for apps that use RevenueCat",
 ) {
     execute {
         val logger = Logger.getLogger(this::class.java.name)
