@@ -23,7 +23,11 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version: '21'
+          # 17 is required by the patches module (jelf 0.12.0 + jvmToolchain(17));
+          # 21 remains the default JAVA_HOME. Both are discoverable by Gradle toolchains.
+          java-version: |
+            17
+            21
 
       - name: Setup Node.js
         uses: actions/setup-node@v6

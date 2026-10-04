@@ -19,7 +19,17 @@ patches {
 kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xcontext-parameters")
+        // jelf 0.12.0 (used by the Pairip native patch) requires a JVM 17 runtime,
+        // so the patches module must target 17 (default was 11).
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
+
+    jvmToolchain(17)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 // Separate configuration so gson is available at runtime for the
