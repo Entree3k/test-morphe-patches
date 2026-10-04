@@ -6,7 +6,6 @@
 package morningentree.morphe.patches.shared.misc.pairip.native
 
 import app.morphe.patcher.patch.rawResourcePatch
-import app.morphe.util.inputStreamFromBundledResource
 import kotlinx.serialization.json.Json
 import net.fornwall.jelf.ElfFile
 import java.io.ByteArrayInputStream
@@ -25,14 +24,14 @@ internal fun getNativeLibsPatch(app: String) = rawResourcePatch {
     execute {
         // replace pairipcore with stub
         val pairipLib = get(apkLibsPath + "libpairipcore.so", true)
-        val stubStream = inputStreamFromBundledResource("pairip", "libpairipcore_stub.so")!!
+        val stubStream = bundledResourceStream("pairip/libpairipcore_stub.so")!!
         stubStream.use { input ->
             pairipLib.outputStream().use { output ->
                 input.copyTo(output)
             }
         }
 
-        inputStreamFromBundledResource("pairip/apps", "$app.json")?.let { stream ->
+        bundledResourceStream("pairip/apps/$app.json")?.let { stream ->
             val json = stream.bufferedReader().use { it.readText() }
             val nativeLibMap = Json.decodeFromString<Map<String, LibPatchInfo>>(json)
 
@@ -59,7 +58,7 @@ internal fun getNativeLibsPatch(app: String) = rawResourcePatch {
 
                 // fix GOT
                 if (!data.relocations.isNullOrEmpty()) {
-                    ElfPatcher.init(this)
+                    ElfPatcher.init()
                     val result =
                         ElfPatcher.patch(lib.path, data.relocations.toTypedArray())
                     if (!result)

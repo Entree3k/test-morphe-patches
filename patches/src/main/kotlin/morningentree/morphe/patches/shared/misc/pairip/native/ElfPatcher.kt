@@ -5,16 +5,14 @@
 
 package morningentree.morphe.patches.shared.misc.pairip.native
 
-import app.morphe.patcher.patch.ResourcePatchContext
-
 object ElfPatcher {
     @Volatile
     private var initialized = false
 
-    fun init(context: ResourcePatchContext) {
+    fun init() {
         synchronized(this) {
             if (!initialized) {
-                CrossEnvNativeLoader.load("elf_jni_patcher", context)
+                CrossEnvNativeLoader.load("elf_jni_patcher")
                 initialized = true
             }
         }

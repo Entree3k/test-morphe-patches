@@ -5,9 +5,6 @@
 
 package morningentree.morphe.patches.shared.misc.pairip.native
 
-import android.annotation.SuppressLint
-import app.morphe.patcher.patch.ResourcePatchContext
-import app.morphe.util.inputStreamFromBundledResource
 import org.scijava.nativelib.NativeLoader
 import java.io.File
 import java.io.FileOutputStream
@@ -15,9 +12,15 @@ import java.io.FileOutputStream
 const val NATIVE_DIR_PREFIX = "pairip/native"
 
 object CrossEnvNativeLoader {
-    fun load(libName: String, context: ResourcePatchContext) {
+    fun load(libName: String) {
         val isAndroid = System.getProperty("java.vendor")?.contains("Android", ignoreCase = true) == true
-        if (isAndroid) AndroidLoader.load(libName, context.fileWorkspace) else DesktopLoader.load(libName)
+        if (isAndroid) {
+            // On Android java.io.tmpdir is the app's writable cache dir.
+            val workDir = File(System.getProperty("java.io.tmpdir") ?: ".")
+            AndroidLoader.load(libName, workDir)
+        } else {
+            DesktopLoader.load(libName)
+        }
     }
 }
 
@@ -28,7 +31,6 @@ private object DesktopLoader {
 }
 
 private object AndroidLoader {
-    @SuppressLint("SetWorldReadable", "UnsafeDynamicallyLoadedCode")
     fun load(libName: String, codeCache: File) {
         val targetDir = File(codeCache, "native_libs").apply { mkdirs() }
         val targetSoFile = File(targetDir, "lib$libName.so")
@@ -36,12 +38,12 @@ private object AndroidLoader {
         targetDir.setWritable(true, true)
         targetSoFile.setWritable(true, true)
 
-        inputStreamFromBundledResource("$NATIVE_DIR_PREFIX/android_arm64", "lib$libName.so").use { input ->
-            if (input == null)
-                throw RuntimeException("Could not extract bundled library ($libName)")
+        val input = bundledResourceStream("$NATIVE_DIR_PREFIX/android_arm64/lib$libName.so")
+            ?: throw RuntimeException("Could not extract bundled library ($libName)")
 
+        input.use { ins ->
             FileOutputStream(targetSoFile).use { output ->
-                input.copyTo(output)
+                ins.copyTo(output)
             }
         }
 

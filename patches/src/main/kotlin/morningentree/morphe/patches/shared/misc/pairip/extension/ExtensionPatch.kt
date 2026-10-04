@@ -9,7 +9,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -31,7 +30,7 @@ internal fun getExtensionPatch(appName: String) = bytecodePatch {
                 val instr = method.getInstruction(i) as? Instruction21c
                 if (instr == null || instr.opcode != Opcode.SPUT_OBJECT) continue
 
-                val field = instr.getReference<FieldReference>()
+                val field = instr.reference as? FieldReference
                 if (field != null && field.definingClass.contains("__HYPHEN__")) {
                     val fixedClassName = field.definingClass.replace("__HYPHEN__", "-")
                     method.replaceInstruction(
