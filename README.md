@@ -9,7 +9,7 @@ Patches for apps I like.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.81.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.81.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;57 patches total
+> **[v1.82.0](https://github.com/Entree3k/test-morphe-patches/releases/tag/v1.82.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;38 patches total
 <details open>
 <summary>📦 Gboard&nbsp;&nbsp;•&nbsp;&nbsp;7 patches</summary>
 <br>
@@ -20,119 +20,9 @@ Patches for apps I like.
 | [Block tracking and analytics](#block-tracking-and-analytics) | Redirects Gboard's known tracking, analytics, and ad host to 0.0.0.0. Note: telemetry sent through Google Play Services is not affected; use the always-incognito patch for that. | • Wildcard blocking |
 | [Change package name](#change-package-name) | Installs Gboard as a clone by appending ".clone" to the package name (configurable), so it installs next to the stock Gboard. Changing an app's package name can lead to unexpected issues. | • Package name<br>• Update permissions<br>• Update other permissions<br>• Update content providers |
 | [Disable telemetry & federated learning](#disable-telemetry-federated-learning) | Forces Gboard's "Improve Gboard" / usage-statistics and federated-learning flags off at startup, regardless of the in-app settings, so your typing is not used for training or metrics. Best combined with the "Network privacy" patch. |  |
-| [Network privacy](#network-privacy) | Controls what Gboard is allowed to talk to. Choose a network level: block only telemetry (keep all features), lock it down to GIFs and voice typing only, or block all internet access. | • Network level<br>• Wildcard blocking |
+| [Network privacy](#network-privacy) | Controls what Gboard is allowed to talk to. Choose a network level: block core telemetry, block ads & telemetry more aggressively (all typing features still work), or block all internet access. | • Network level<br>• Wildcard blocking |
 | [Remove promotional banners](#remove-promotional-banners) | Hides Gboard's in-keyboard promotional / "try this feature" banners by forcing their promo flags off. Does not disable the underlying features, only their nag banners. |  |
-| [Toggle feature flags](#toggle-feature-flags) | Turn Gboard feature flags on or off. Tap features from the curated lists, or enter any flag name yourself. Unknown or already-default flags are skipped safely. | • Enable features<br>• Disable features<br>• Custom flags (advanced)<br>• Turn custom flags ON |
-
-</details>
-
-<details open>
-<summary>📦 Slowly&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 9.5.6 | 9.5.8 |
-| :---: | :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Bypass Pairip License Check](#bypass-pairip-license-check) | Disables client-side Pairip installer and enforcement |  |
-| [Slowly avatar builder items](#slowly-avatar-builder-items) | Enables Avatar Builder items marked as subscription-only without changing coin-priced item checks. |  |
-| [Slowly bypass selfie verification](#slowly-bypass-selfie-verification) | Neutralizes the root and hook probes that feed Slowly's attestation token (com.slowlyapp.AttestationModule) so a modified/emulated device is no longer flagged as suspicious. This removes the device-fraud trigger that forces the selfie / ID (IDV) verification flow. It does not affect verification that the server mandates by country or for an already-flagged account, which is enforced server-side. |  |
-| [Slowly extended Explore filters](#slowly-extended-explore-filters) | Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits. |  |
-| [Slowly hide VPN](#slowly-hide-vpn) | Reports an active VPN as an ordinary Wi-Fi connection by relabeling the @react-native-community/netinfo VPN connection type, so Slowly's client-side VPN warning ("Your connection appears to be using a VPN") never triggers. Server-side IP geolocation checks (REG_GEO_USING_VPN) are enforced on the server and are not affected. |  |
-| [Slowly hide emulator](#slowly-hide-emulator) | Reports the device as a physical device by forcing react-native-device-info's isEmulator/isEmulatorSync to return false, so Slowly no longer detects that it is running in an emulator or simulated device. |  |
-
-</details>
-
-<details open>
-<summary>📦 Notepad&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 3.0.8 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Notepad Premium by removing all ads. Use with Spoof Install Source. |  |
-
-</details>
-
-<details open>
-<summary>📦 AutoApps&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.8.13 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks AutoApps as if every app as licensed. |  |
-
-</details>
-
-<details open>
-<summary>📦 Automate&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.51.1 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Automate Premium by removing the per-flow block limit, so flows of any size run without a purchase. |  |
-
-</details>
-
-<details open>
-<summary>📦 Bottled&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 2.15.6 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Bottled Premium. |  |
-
-</details>
-
-<details open>
-<summary>📦 Droplert&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 2.2.1 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Droplert premium (lifetime) by forcing the RevenueCat state refresh to publish the PREMIUM tier regardless of the real "premium" entitlement. Use with Spoof Install Source. |  |
-
-</details>
-
-<details open>
-<summary>📦 Dumbbell Workout at Home&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.3.5 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Dumbbell Workout at Home Premium |  |
+| [Toggle feature flags](#toggle-feature-flags) | Turn Gboard features on with individual switches. Each switch maps to a Gboard feature flag; flip it on to enable that feature. Unknown or already-default flags are skipped safely. | • Email suggestions (from device accounts)<br>• Android Autofill in keyboard<br>• Number row<br>• Fast access bar (symbols row)<br>• Grammar checker<br>• Multilingual typing<br>• Settings search<br>• AI writing tools<br>• Emojify (text to emoji)<br>• Semantic emoji search<br>• Proactive Emoji Kitchen<br>• Expression moment stickers<br>• Sticker predictions while typing<br>• Dynamic art stickers<br>• Trending GIFs<br>• Text conversion (CJK)<br>• Split keyboard (large tablet)<br>• Custom flags to enable (advanced)<br>• Custom flags to disable (advanced) |
 
 </details>
 
@@ -152,21 +42,6 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Fake GPS&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 5.8.2 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Fake GPS Pro |  |
-
-</details>
-
-<details open>
 <summary>📦 FlowStack&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -178,21 +53,6 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks FlowStack premium by forcing RevenueCat to report an active entitlement. |  |
-
-</details>
-
-<details open>
-<summary>📦 Habitica&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 4.10.3 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Marks the account as a subscriber on the client (server-side subscriber benefits like gems/hourglasses are granted by Habitica's server and are not affected). |  |
 
 </details>
 
@@ -212,36 +72,6 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Hydro Coach&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 5.1.9 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Hydro Coach Pro |  |
-
-</details>
-
-<details open>
-<summary>📦 Lightmeter&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 2.5.0 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Lightmeter Pro. Use With Spoof Install Source. |  |
-
-</details>
-
-<details open>
 <summary>📦 Ling&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -253,21 +83,6 @@ Patches for apps I like.
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Enable Premium](#enable-premium) | Unlocks Ling Pro |  |
-
-</details>
-
-<details open>
-<summary>📦 Magic Eraser&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 3.3.9 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Magic Eraser premium (removes ads/watermark and unlocks pro tools) by forcing the app-wide subscription gate. Use with Spoof Install Source. |  |
 
 </details>
 
@@ -317,47 +132,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Six Pack in 30 Days&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Super Status Bar&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 1.4.8 |
+| 2.13.0 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Six Pack in 30 Days premium — removes ads and unlocks all workouts and plans. |  |
-
-</details>
-
-<details open>
-<summary>📦 Textra&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 4.85 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks Textra Pro, removing the ads. |  |
-
-</details>
-
-<details open>
-<summary>📦 TheFor&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.4.6 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Enable Premium](#enable-premium) | Unlocks TheFor Pro. Use With Spoof Install Source. |  |
+| [Enable Premium](#enable-premium) | Unlocks Super Status Bar Premium. Use with Spoof Install Source |  |
 
 </details>
 
@@ -407,72 +192,17 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Flud&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Send Files To TV&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 2.0.13-beta02 |
+| 1.4.22 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Remove Ads](#remove-ads) | Removes all ads in Flud. |  |
-
-</details>
-
-<details open>
-<summary>📦 Legs Workout - Women Legs Training&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.2.2 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Remove Ads](#remove-ads) | Removes All ADs |  |
-
-</details>
-
-<details open>
-<summary>📦 Google Recorder&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Remove device restrictions (dev)](#remove-device-restrictions-dev) | Removes restrictions from using the app on any device. Requires mounting patched app over original. |  |
-
-</details>
-
-<details open>
-<summary>📦 Step Up&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 5.0.71 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Spoof step count](#spoof-step-count) | Multiplies your real step count by a chosen factor (whole or decimal, e.g. 2, 2.5, 3, 10) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement. | • Step multiplier |
-
-</details>
-
-<details open>
-<summary>📦 nzb360&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 24.1 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Unlock All Access](#unlock-all-access) | Unlocks All Access in nzb360. |  |
+| [Remove Ads](#remove-ads) | Removes ads |  |
 
 </details>
 
@@ -492,38 +222,28 @@ Patches for apps I like.
 </details>
 
 <details open>
-<summary>📦 Bluetooth Volume Manager&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 3.4.3 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Unlock Pro](#unlock-pro) | Unlocks the Pro |  |
-
-</details>
-
-<details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;13 patches</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;18 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Block tracking hosts](#block-tracking-hosts) | Redirects known tracking, analytics, and ad host literals to 0.0.0.0 using a built-in blocklist, optionally extended with your own hosts file. Only affects hosts that appear as literal strings in the app; telemetry sent through Google Play Services is not affected. | • Wildcard blocking<br>• Additional hosts file |
+| [Bypass battery optimization nag](#bypass-battery-optimization-nag) | Makes apps believe they are already exempt from battery optimization so they stop prompting you to disable it. Only affects what the app sees, not the real system setting. |  |
 | [Change package name](#change-package-name) | Renames the app (default: append ".entree") so it installs as a clone next to the original. The name is configurable. Changing a package name can lead to unexpected issues. | • Package name<br>• Update permissions<br>• Update other permissions<br>• Update content providers |
-| [Disable Pairip protection](#disable-pairip-protection) | Neutralizes Pairip's client-side signature and license checks so the re-signed APK launches instead of crashing. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity attestation. | • Gut Pairip VM (advanced) |
-| [Disable Pairip startup integrity program](#disable-pairip-startup-integrity-program) | No-ops StartupLauncher.launch() so Pairip's native startup anti-tamper program never runs, while leaving the functional VM (VMRunner.invoke) intact. |  |
+| [Disable Pairip protection](#disable-pairip-protection) | Neutralizes Pairip's client-side signature and license checks (including the LicenseActivity paywall/close-app enforcement) so the re-signed APK launches and stays open. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity. | • Gut Pairip VM |
 | [Disable analytics & ad tracking](#disable-analytics-ad-tracking) | Turns off Firebase / Google Analytics collection and removes the advertising-ID and ad-services permissions. Blocks ad personalization and analytics opt-in without cutting off the app's legitimate network features. Pair with a host blocker to also stop the traffic. |  |
+| [Disable clipboard access](#disable-clipboard-access) | Blocks apps from clipboard access |  |
 | [GmsCore support (MicroG)](#gmscore-support-microg) | Routes Google Play Services calls through MicroG instead of real GPS.<br><br>Works for: Google apps (YouTube, Maps, News, Photos) and third-party apps using classic Google Sign-In (Android 13 and below).<br><br>Does not work for: Android 14+ Credential Manager sign-in (most modern third-party apps), Play Integrity / SafetyNet checks, or apps with custom auth.<br><br>Requires MicroG RE installed. Apply with the original app certificate patch. | • MicroG package name<br>• Main activity class (optional)<br>• Custom package name (optional)<br>• Spoofed signing certificate SHA-256 (optional) |
 | [Provide original app certificate](#provide-original-app-certificate) | Extracts and Base64-encodes the original app's signing certificate. Applied automatically by 'Spoof signature verification'; you normally do not need to touch it. Use 'Certificate source' to control where the certificate comes from. | • Certificate source<br>• Original APK file |
-| [Remove internet permission](#remove-internet-permission) | Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline. |  |
+| [Remove internet permission](#remove-internet-permission) | Removes the INTERNET permission so the app cannot access the network at all |  |
 | [Reset trial period](#reset-trial-period) | Makes apps see themselves as freshly installed (spoofs the install/update time to the current time) so time-limited trials that count days since install never expire. Does not affect trials validated on a server or stored in the app's own saved timestamp. |  |
-| [Spoof install source](#spoof-install-source) | Makes the app think it was installed from a specific store (default: Google Play). Useful when an app blocks features or errors because it detects it was not installed from the Play Store. Only affects what the app sees, not the real system record. | • Store to impersonate |
+| [Spoof SIM provider](#spoof-sim-provider) | Spoofs TelephonyManager SIM/network provider values. | • Country ISO<br>• Operator code<br>• Operator name |
+| [Spoof Wi-Fi connection](#spoof-wi-fi-connection) | Spoof Wi-Fi connection |  |
+| [Spoof Wi-Fi identifiers](#spoof-wi-fi-identifiers) | Spoofs Wi-Fi SSID, BSSID, and MAC address reads. | • SSID<br>• BSSID<br>• MAC address |
+| [Spoof install source](#spoof-install-source) | Makes the app think it was installed from a specific store (default: Google Play) | • Store to impersonate |
 | [Spoof signature verification](#spoof-signature-verification) | Spoofs the signature verification | • Package name<br>• Base64-encoded signature |
-| [Unlock RevenueCat](#unlock-revenuecat) | (TESTING) Premium patch for apps that use RevenueCat. Probably Won't Work Most Apps |  |
+| [Spoof telephony IDs](#spoof-telephony-ids) | Spoofs IMEI, MEID, subscriber ID, SIM serial, and line number reads. | • IMEI<br>• MEID<br>• Subscriber ID<br>• SIM serial<br>• Line number |
+| [Unlock RevenueCat](#unlock-revenuecat) | Premium patch for apps that use RevenueCat |  |
 | [Unlock encrypted Pro flag](#unlock-encrypted-pro-flag) | (TESTING) Unlocks apps that gate Pro behind an AES-decrypted "yes" flag emitted through a Kotlin Flow. No-ops on apps that don't use this scheme. Probably Won't Work Most Apps |  |
 
 </details>

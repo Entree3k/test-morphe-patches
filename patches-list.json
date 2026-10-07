@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.81.0",
+  "version": "1.82.0",
   "patches": [
     {
       "name": "Always incognito mode",
@@ -104,36 +104,11 @@
       ]
     },
     {
-      "name": "Bypass Pairip License Check",
-      "description": "Disables client-side Pairip installer and enforcement",
-      "default": true,
+      "name": "Bypass battery optimization nag",
+      "description": "Makes apps believe they are already exempt from battery optimization so they stop prompting you to disable it. Only affects what the app sees, not the real system setting.",
+      "default": false,
       "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.slowlyapp",
-          "name": "Slowly",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#FF5A5F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "9.5.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "9.5.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
+      "compatiblePackages": null,
       "options": []
     },
     {
@@ -256,15 +231,15 @@
     },
     {
       "name": "Disable Pairip protection",
-      "description": "Neutralizes Pairip's client-side signature and license checks so the re-signed APK launches instead of crashing. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity attestation.",
+      "description": "Neutralizes Pairip's client-side signature and license checks (including the LicenseActivity paywall/close-app enforcement) so the re-signed APK launches and stays open. Optionally guts the Pairip VM as well. Does not bypass server-side Play Integrity.",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
       "options": [
         {
           "key": "gutVmRunner",
-          "title": "Gut Pairip VM (advanced)",
-          "description": "Also neutralizes the Pairip VM: makes VMRunner.invoke() return null and drops the pairipcore native library load. Only enable this for apps whose VM merely runs the startup integrity/license program (its result is discarded). If the app routes real functionality through the VM — e.g. broadcast receivers — enabling this breaks those features instead of unlocking anything. Leave off unless you know the app needs it.",
+          "title": "Gut Pairip VM",
+          "description": "Also neutralizes the Pairip VM: makes VMRunner.invoke() return null, drops the pairipcore native library load, and no-ops StartupLauncher.launch(). Only enable this for apps whose VM merely runs the startup integrity/license program (its result is discarded). If the app routes real functionality through the VM — e.g. broadcast receivers or IAP — enabling this breaks those features. Leave off unless the app needs it.",
           "required": false,
           "type": "kotlin.Boolean",
           "default": false,
@@ -273,16 +248,16 @@
       ]
     },
     {
-      "name": "Disable Pairip startup integrity program",
-      "description": "No-ops StartupLauncher.launch() so Pairip's native startup anti-tamper program never runs, while leaving the functional VM (VMRunner.invoke) intact.",
+      "name": "Disable analytics & ad tracking",
+      "description": "Turns off Firebase / Google Analytics collection and removes the advertising-ID and ad-services permissions. Blocks ad personalization and analytics opt-in without cutting off the app's legitimate network features. Pair with a host blocker to also stop the traffic.",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
       "options": []
     },
     {
-      "name": "Disable analytics & ad tracking",
-      "description": "Turns off Firebase / Google Analytics collection and removes the advertising-ID and ad-services permissions. Blocks ad personalization and analytics opt-in without cutting off the app's legitimate network features. Pair with a host blocker to also stop the traffic.",
+      "name": "Disable clipboard access",
+      "description": "Blocks apps from clipboard access",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
@@ -309,194 +284,6 @@
           "targets": [
             {
               "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Notepad Premium by removing all ads. Use with Spoof Install Source.",
-      "default": true,
-      "dependencies": [
-        "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.splendapps.adler",
-          "name": "Notepad",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#1E88E5",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "3.0.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks AutoApps as if every app as licensed.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.joaomgcd.autoappshub",
-          "name": "AutoApps",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#FF5722",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.8.13",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks apps in AutoApps as if the full subscription is owned.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.joaomgcd.autoappshub",
-          "name": "AutoAppsHub",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#1BA8C4",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.8.13",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Automate Premium by removing the per-flow block limit, so flows of any size run without a purchase.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.llamalab.automate",
-          "name": "Automate",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#7CB342",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.51.1",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Bottled Premium.",
-      "default": true,
-      "dependencies": [
-        "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.bottledapp.bottled",
-          "name": "Bottled",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#00BCD4",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "2.15.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Droplert premium (lifetime) by forcing the RevenueCat state refresh to publish the PREMIUM tier regardless of the real \"premium\" entitlement. Use with Spoof Install Source.",
-      "default": true,
-      "dependencies": [
-        "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.shahzaman.pricetracker",
-          "name": "Droplert",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#DE5C53",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "2.2.1",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Dumbbell Workout at Home Premium",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "dumbbellworkout.dumbbellapp.homeworkout",
-          "name": "Dumbbell Workout at Home",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#2DA9B3",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.3.5",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -537,39 +324,6 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Fake GPS Pro",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.blogspot.newapphorizons.fakegps",
-          "name": "Fake GPS",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#2196F3",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "5.8.2",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
       "description": "Unlocks FlowStack premium by forcing RevenueCat to report an active entitlement.",
       "default": true,
       "dependencies": [],
@@ -584,39 +338,6 @@
           "targets": [
             {
               "version": "2.0.5",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Marks the account as a subscriber on the client (server-side subscriber benefits like gems/hourglasses are granted by Habitica's server and are not affected).",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.habitrpg.android.habitica",
-          "name": "Habitica",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#5A2CC8",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "4.10.3",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -657,77 +378,11 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Hydro Coach Pro",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.codium.hydrocoach",
-          "name": "Hydro Coach",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#2196F3",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "5.1.9",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Lightmeter Pro. Use With Spoof Install Source.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.vodemn.lightmeter",
-          "name": "Lightmeter",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#212121",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "2.5.0",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
       "description": "Unlocks Ling Pro",
       "default": true,
       "dependencies": [
         "RawResourcePatch",
-        "BytecodePatch"
+        "RawResourcePatch"
       ],
       "compatiblePackages": [
         {
@@ -740,34 +395,6 @@
           "targets": [
             {
               "version": "8.9.0",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Magic Eraser premium (removes ads/watermark and unlocks pro tools) by forcing the app-wide subscription gate. Use with Spoof Install Source.",
-      "default": true,
-      "dependencies": [
-        "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.duygiangdg.magiceraser",
-          "name": "Magic Eraser",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#7C4DFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "3.3.9",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -867,79 +494,20 @@
     },
     {
       "name": "Enable Premium",
-      "description": "Unlocks Six Pack in 30 Days premium — removes ads and unlocks all workouts and plans.",
+      "description": "Unlocks Super Status Bar Premium. Use with Spoof Install Source",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "sixpack.sixpackabs.absworkout",
-          "name": "Six Pack in 30 Days",
+          "packageName": "com.tombayley.statusbar",
+          "name": "Super Status Bar",
           "description": null,
           "apkFileType": null,
-          "appIconColor": "#FF6D00",
+          "appIconColor": "#20C26B",
           "signatures": null,
           "targets": [
             {
-              "version": "1.4.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks Textra Pro, removing the ads.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.textra",
-          "name": "Textra",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#00A0E9",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "4.85",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Enable Premium",
-      "description": "Unlocks TheFor Pro. Use With Spoof Install Source.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "xyz.thefor.habits.habits",
-          "name": "TheFor",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#4CAF50",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "1.4.6",
+              "version": "2.13.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -1097,7 +665,7 @@
     },
     {
       "name": "Network privacy",
-      "description": "Controls what Gboard is allowed to talk to. Choose a network level: block only telemetry (keep all features), lock it down to GIFs and voice typing only, or block all internet access.",
+      "description": "Controls what Gboard is allowed to talk to. Choose a network level: block core telemetry, block ads & telemetry more aggressively (all typing features still work), or block all internet access.",
       "default": false,
       "dependencies": [
         "BytecodePatch",
@@ -1129,13 +697,13 @@
         {
           "key": "gboardNetworkLevel",
           "title": "Network level",
-          "description": "How much of Gboard's network access to cut. \"Telemetry only\" keeps every feature working. \"Privacy lockdown\" keeps GIF search and cloud voice typing but blocks everything else. \"Block all internet\" removes network access entirely.",
+          "description": "How much of Gboard's network access to cut. \"Telemetry only\" nulls the core analytics/logging hosts. \"Ads & telemetry\" is a wider deny-list of known ad, analytics, and federated-learning hosts — GIF search, cloud voice typing, stickers and translation keep working because their hosts are never touched. \"Block all internet\" removes network access entirely (which also disables GIFs and cloud voice typing).",
           "required": true,
           "type": "kotlin.String",
           "default": "telemetry",
           "values": {
             "Block telemetry only": "telemetry",
-            "Allow only GIFs & voice typing)": "lockdown",
+            "Block ads & telemetry (keeps GIFs & voice)": "lockdown",
             "Block all internet": "block_all"
           }
         },
@@ -1184,82 +752,20 @@
     },
     {
       "name": "Remove Ads",
-      "description": "Removes all ads in Flud.",
+      "description": "Removes ads",
       "default": true,
       "dependencies": [],
       "compatiblePackages": [
         {
-          "packageName": "com.delphicoder.flud",
-          "name": "Flud",
+          "packageName": "com.yablio.sendfilestotv",
+          "name": "Send Files To TV",
           "description": null,
           "apkFileType": "APKS",
-          "appIconColor": "#F16522",
+          "appIconColor": "#1565C0",
           "signatures": null,
           "targets": [
             {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "2.0.13-beta02",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Remove Ads",
-      "description": "Removes All ADs",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "legsworkout.slimlegs.fatburning.stronglegs",
-          "name": "Legs Workout - Women Legs Training",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#FD6376",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "1.2.2",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Remove device restrictions (dev)",
-      "description": "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
-      "default": true,
-      "dependencies": [
-        "BytecodePatch",
-        "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.recorder",
-          "name": "Google Recorder",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#EA4335",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
+              "version": "1.4.22",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -1272,7 +778,7 @@
     },
     {
       "name": "Remove internet permission",
-      "description": "Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline.",
+      "description": "Removes the INTERNET permission so the app cannot access the network at all",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
@@ -1318,173 +824,88 @@
       "options": []
     },
     {
-      "name": "Slowly avatar builder items",
-      "description": "Enables Avatar Builder items marked as subscription-only without changing coin-priced item checks.",
-      "default": true,
+      "name": "Spoof SIM provider",
+      "description": "Spoofs TelephonyManager SIM/network provider values.",
+      "default": false,
       "dependencies": [],
-      "compatiblePackages": [
+      "compatiblePackages": null,
+      "options": [
         {
-          "packageName": "com.slowlyapp",
-          "name": "Slowly",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#FF5A5F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "9.5.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "9.5.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
+          "key": "universalSimCountryIso",
+          "title": "Country ISO",
+          "description": "Value returned for getSimCountryIso / getNetworkCountryIso.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "us",
+          "values": null
+        },
+        {
+          "key": "universalSimOperator",
+          "title": "Operator code",
+          "description": "MCC+MNC returned for getSimOperator / getNetworkOperator.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "310260",
+          "values": null
+        },
+        {
+          "key": "universalSimOperatorName",
+          "title": "Operator name",
+          "description": "Value returned for getSimOperatorName / getNetworkOperatorName.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "T-Mobile",
+          "values": null
         }
-      ],
+      ]
+    },
+    {
+      "name": "Spoof Wi-Fi connection",
+      "description": "Spoof Wi-Fi connection",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
       "options": []
     },
     {
-      "name": "Slowly bypass selfie verification",
-      "description": "Neutralizes the root and hook probes that feed Slowly's attestation token (com.slowlyapp.AttestationModule) so a modified/emulated device is no longer flagged as suspicious. This removes the device-fraud trigger that forces the selfie / ID (IDV) verification flow. It does not affect verification that the server mandates by country or for an already-flagged account, which is enforced server-side.",
-      "default": true,
+      "name": "Spoof Wi-Fi identifiers",
+      "description": "Spoofs Wi-Fi SSID, BSSID, and MAC address reads.",
+      "default": false,
       "dependencies": [],
-      "compatiblePackages": [
+      "compatiblePackages": null,
+      "options": [
         {
-          "packageName": "com.slowlyapp",
-          "name": "Slowly",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#FF5A5F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "9.5.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "9.5.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Slowly extended Explore filters",
-      "description": "Enables verified client-side Explore filters, including Last online within 48 hours and New Members Only, and raises excluded-country and excluded-topic selection limits.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
+          "key": "universalWifiSsid",
+          "title": "SSID",
+          "description": "Value returned for WifiInfo.getSSID.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "Pixel_WiFi",
+          "values": null
+        },
         {
-          "packageName": "com.slowlyapp",
-          "name": "Slowly",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#FF5A5F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "9.5.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "9.5.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Slowly hide VPN",
-      "description": "Reports an active VPN as an ordinary Wi-Fi connection by relabeling the @react-native-community/netinfo VPN connection type, so Slowly's client-side VPN warning (\"Your connection appears to be using a VPN\") never triggers. Server-side IP geolocation checks (REG_GEO_USING_VPN) are enforced on the server and are not affected.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
+          "key": "universalWifiBssid",
+          "title": "BSSID",
+          "description": "Value returned for WifiInfo.getBSSID.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "02:00:00:12:34:56",
+          "values": null
+        },
         {
-          "packageName": "com.slowlyapp",
-          "name": "Slowly",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#FF5A5F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "9.5.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "9.5.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
+          "key": "universalWifiMac",
+          "title": "MAC address",
+          "description": "Value returned for WifiInfo.getMacAddress.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "02:00:00:65:43:21",
+          "values": null
         }
-      ],
-      "options": []
-    },
-    {
-      "name": "Slowly hide emulator",
-      "description": "Reports the device as a physical device by forcing react-native-device-info's isEmulator/isEmulatorSync to return false, so Slowly no longer detects that it is running in an emulator or simulated device.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.slowlyapp",
-          "name": "Slowly",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#FF5A5F",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "9.5.6",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "9.5.8",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Spoof install source",
-      "description": "Makes the app think it was installed from a specific store (default: Google Play). Useful when an app blocks features or errors because it detects it was not installed from the Play Store. Only affects what the app sees, not the real system record.",
+      "description": "Makes the app think it was installed from a specific store (default: Google Play)",
       "default": false,
       "dependencies": [],
       "compatiblePackages": null,
@@ -1540,54 +961,62 @@
       ]
     },
     {
-      "name": "Spoof step count",
-      "description": "Multiplies your real step count by a chosen factor (whole or decimal, e.g. 2, 2.5, 3, 10) at the single point every tracker source funnels through. Boost is consistent across the in-app display, local storage and the leaderboard upload. Proportional to real movement.",
-      "default": true,
+      "name": "Spoof telephony IDs",
+      "description": "Spoofs IMEI, MEID, subscriber ID, SIM serial, and line number reads.",
+      "default": false,
       "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.thestepupapp.stepup",
-          "name": "Step Up",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": "#4CAF50",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "5.0.71",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
+      "compatiblePackages": null,
       "options": [
         {
-          "key": "stepMultiplier",
-          "title": "Step multiplier",
-          "description": "How much to multiply your real steps by. Whole numbers or decimals are both accepted (1.0–20.0). Higher factors are more likely to look implausible to the app's server-side anomaly checks — a modest 2x–2.5x is the safest choice.",
+          "key": "universalImei",
+          "title": "IMEI",
+          "description": "Value returned for getDeviceId / getImei.",
           "required": true,
           "type": "kotlin.String",
-          "default": "2",
-          "values": {
-            "2x (recommended — most plausible)": "2",
-            "2.3x": "2.3",
-            "2.5x": "2.5",
-            "3x": "3",
-            "3.2x": "3.2",
-            "3.5x": "3.5",
-            "4x": "4",
-            "5x": "5",
-            "10x (aggressive — easiest to flag)": "10"
-          }
+          "default": "356938035643809",
+          "values": null
+        },
+        {
+          "key": "universalMeid",
+          "title": "MEID",
+          "description": "Value returned for getMeid.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "A000004E4F4F50",
+          "values": null
+        },
+        {
+          "key": "universalSubscriberId",
+          "title": "Subscriber ID",
+          "description": "Value returned for getSubscriberId (IMSI).",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "310260000000000",
+          "values": null
+        },
+        {
+          "key": "universalSimSerial",
+          "title": "SIM serial",
+          "description": "Value returned for getSimSerialNumber.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "89014103211118510720",
+          "values": null
+        },
+        {
+          "key": "universalLineNumber",
+          "title": "Line number",
+          "description": "Value returned for getLine1Number.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "+15551234567",
+          "values": null
         }
       ]
     },
     {
       "name": "Toggle feature flags",
-      "description": "Turn Gboard feature flags on or off. Tap features from the curated lists, or enter any flag name yourself. Unknown or already-default flags are skipped safely.",
+      "description": "Turn Gboard features on with individual switches. Each switch maps to a Gboard feature flag; flip it on to enable that feature. Unknown or already-default flags are skipped safely.",
       "default": false,
       "dependencies": [
         "BytecodePatch"
@@ -1616,179 +1045,177 @@
       ],
       "options": [
         {
-          "key": "gboardEnableFeatures",
-          "title": "Enable features",
-          "description": "Tap the features you want turned ON.",
+          "key": "gboardEmailSuggestions",
+          "title": "Email suggestions (from device accounts)",
+          "description": "On-device email autocomplete in email fields (flag: enable_email_provider_completion).",
           "required": false,
-          "type": "kotlin.collections.List<kotlin.String>",
-          "default": [],
-          "values": {
-            "Email suggestions (from device accounts)": [
-              "enable_email_provider_completion"
-            ],
-            "Android Autofill in keyboard": [
-              "enable_autofill_ime_integration"
-            ],
-            "Number row": [
-              "enable_number_row"
-            ],
-            "Fast access bar (symbols row)": [
-              "enable_fast_access_bar"
-            ],
-            "Grammar checker": [
-              "enable_grammar_checker"
-            ],
-            "Multilingual typing": [
-              "enable_multilingual_typing"
-            ],
-            "Settings search": [
-              "enable_settings_search"
-            ],
-            "AI writing tools": [
-              "enable_writing_tools_v2"
-            ],
-            "Emojify (text to emoji)": [
-              "enable_emojify"
-            ],
-            "Semantic emoji search": [
-              "enable_semantic_emoji"
-            ],
-            "Proactive Emoji Kitchen": [
-              "enable_proactive_emoji_kitchen"
-            ],
-            "Expression moment stickers": [
-              "enable_expression_moment"
-            ],
-            "Sticker predictions while typing": [
-              "enable_sticker_predictions_while_typing"
-            ],
-            "Dynamic art stickers": [
-              "enable_dynamic_art"
-            ],
-            "Trending GIFs": [
-              "enable_tenor_trending_gifs"
-            ],
-            "Text conversion (CJK)": [
-              "enable_text_conversion"
-            ],
-            "Split keyboard (large tablet)": [
-              "enable_split_keyboard_on_tablet_large"
-            ]
-          }
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
         },
         {
-          "key": "gboardDisableFeatures",
-          "title": "Disable features",
-          "description": "Tap the features you want turned OFF.",
+          "key": "gboardAndroidAutofill",
+          "title": "Android Autofill in keyboard",
+          "description": "Show Android Autofill entries as a suggestion (flag: enable_autofill_ime_integration).",
           "required": false,
-          "type": "kotlin.collections.List<kotlin.String>",
-          "default": [],
-          "values": {
-            "Email suggestions (from device accounts)": [
-              "enable_email_provider_completion"
-            ],
-            "Android Autofill in keyboard": [
-              "enable_autofill_ime_integration"
-            ],
-            "Number row": [
-              "enable_number_row"
-            ],
-            "Fast access bar (symbols row)": [
-              "enable_fast_access_bar"
-            ],
-            "Grammar checker": [
-              "enable_grammar_checker"
-            ],
-            "Multilingual typing": [
-              "enable_multilingual_typing"
-            ],
-            "Settings search": [
-              "enable_settings_search"
-            ],
-            "AI writing tools": [
-              "enable_writing_tools_v2"
-            ],
-            "Emojify (text to emoji)": [
-              "enable_emojify"
-            ],
-            "Semantic emoji search": [
-              "enable_semantic_emoji"
-            ],
-            "Proactive Emoji Kitchen": [
-              "enable_proactive_emoji_kitchen"
-            ],
-            "Expression moment stickers": [
-              "enable_expression_moment"
-            ],
-            "Sticker predictions while typing": [
-              "enable_sticker_predictions_while_typing"
-            ],
-            "Dynamic art stickers": [
-              "enable_dynamic_art"
-            ],
-            "Trending GIFs": [
-              "enable_tenor_trending_gifs"
-            ],
-            "Text conversion (CJK)": [
-              "enable_text_conversion"
-            ],
-            "Split keyboard (large tablet)": [
-              "enable_split_keyboard_on_tablet_large"
-            ]
-          }
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
         },
         {
-          "key": "gboardCustomFlags",
-          "title": "Custom flags (advanced)",
-          "description": "Enter any Gboard flag name(s) not in the lists above. Use the toggle below to choose whether these are turned on or off.",
+          "key": "gboardNumberRow",
+          "title": "Number row",
+          "description": "Dedicated number row above the keyboard (flag: enable_number_row).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardFastAccessBar",
+          "title": "Fast access bar (symbols row)",
+          "description": "Quick-access symbols/tools row (flag: enable_fast_access_bar).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardGrammarChecker",
+          "title": "Grammar checker",
+          "description": "Grammar checking and suggestions (flag: enable_grammar_checker).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardMultilingualTyping",
+          "title": "Multilingual typing",
+          "description": "Type in multiple languages without switching (flag: enable_multilingual_typing).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardSettingsSearch",
+          "title": "Settings search",
+          "description": "Search bar in Gboard settings (flag: enable_settings_search).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardAiWritingTools",
+          "title": "AI writing tools",
+          "description": "Proofread / rewrite writing tools (flag: enable_writing_tools_v2).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardEmojify",
+          "title": "Emojify (text to emoji)",
+          "description": "Suggest emoji from your typed text (flag: enable_emojify).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardSemanticEmoji",
+          "title": "Semantic emoji search",
+          "description": "Smarter emoji search by meaning (flag: enable_semantic_emoji).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardEmojiKitchen",
+          "title": "Proactive Emoji Kitchen",
+          "description": "Emoji Kitchen sticker suggestions (flag: enable_proactive_emoji_kitchen).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardExpressionMoment",
+          "title": "Expression moment stickers",
+          "description": "Contextual expression/sticker moments (flag: enable_expression_moment).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardStickerPredictions",
+          "title": "Sticker predictions while typing",
+          "description": "Suggest stickers as you type (flag: enable_sticker_predictions_while_typing).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardDynamicArt",
+          "title": "Dynamic art stickers",
+          "description": "Dynamic art sticker creation (flag: enable_dynamic_art).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardTrendingGifs",
+          "title": "Trending GIFs",
+          "description": "Trending GIFs in the GIF search (flag: enable_tenor_trending_gifs).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardTextConversion",
+          "title": "Text conversion (CJK)",
+          "description": "On-the-spot text conversion for CJK input (flag: enable_text_conversion).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardSplitKeyboard",
+          "title": "Split keyboard (large tablet)",
+          "description": "Split keyboard layout on large tablets (flag: enable_split_keyboard_on_tablet_large).",
+          "required": false,
+          "type": "kotlin.Boolean",
+          "default": false,
+          "values": null
+        },
+        {
+          "key": "gboardCustomEnableFlags",
+          "title": "Custom flags to enable (advanced)",
+          "description": "Enter any Gboard flag name(s) to force on.",
           "required": false,
           "type": "kotlin.collections.List<kotlin.String>",
           "default": [],
           "values": null
         },
         {
-          "key": "gboardEnableCustomFlags",
-          "title": "Turn custom flags ON",
-          "description": "When enabled, the custom flags above are turned on; when disabled, off.",
+          "key": "gboardCustomDisableFlags",
+          "title": "Custom flags to disable (advanced)",
+          "description": "Enter any Gboard flag name(s) to force off.",
           "required": false,
-          "type": "kotlin.Boolean",
-          "default": true,
+          "type": "kotlin.collections.List<kotlin.String>",
+          "default": [],
           "values": null
         }
       ]
-    },
-    {
-      "name": "Unlock All Access",
-      "description": "Unlocks All Access in nzb360.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.kevinforeman.nzb360",
-          "name": "nzb360",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#1565C0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "24.1",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
     },
     {
       "name": "Unlock All Cameras",
@@ -1817,42 +1244,9 @@
       "options": []
     },
     {
-      "name": "Unlock Pro",
-      "description": "Unlocks the Pro",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "eu.darken.bluemusic",
-          "name": "Bluetooth Volume Manager",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#2196F3",
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "3.4.3",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Unlock RevenueCat",
-      "description": "(TESTING) Premium patch for apps that use RevenueCat. Probably Won't Work Most Apps",
-      "default": true,
+      "description": "Premium patch for apps that use RevenueCat",
+      "default": false,
       "dependencies": [],
       "compatiblePackages": null,
       "options": []
@@ -1860,7 +1254,7 @@
     {
       "name": "Unlock encrypted Pro flag",
       "description": "(TESTING) Unlocks apps that gate Pro behind an AES-decrypted \"yes\" flag emitted through a Kotlin Flow. No-ops on apps that don't use this scheme. Probably Won't Work Most Apps",
-      "default": true,
+      "default": false,
       "dependencies": [],
       "compatiblePackages": null,
       "options": []
