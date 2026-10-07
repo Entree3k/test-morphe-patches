@@ -40,6 +40,10 @@ dependencies {
     compileOnly(libs.gson)
     patchListGeneratorClasspath(libs.gson)
 
+    // Patch-authoring API with extendWithAll + app.morphe.util.* (patcher >= 1.8.0), matching the
+    // upstream morphe-patches baseline. Required by the Pairip DEX-merge (mergeDexPatch).
+    implementation(libs.morphe.patches.library)
+
     // Pairip de-virtualization (shared/misc/pairip): ELF parsing, JSON maps, native loader.
     implementation(libs.jelf)
     implementation(libs.kotlinx.serialization.json)
